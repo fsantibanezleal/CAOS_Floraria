@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Legacy VPS tooling: preserved for the historical deployment, never used by Pages CI.
 # Server-only, explicit first-time domain bootstrap. Requires an operator with root privileges.
 set -Eeuo pipefail
 domain="${1:-}"

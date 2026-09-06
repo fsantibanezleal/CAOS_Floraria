@@ -1,19 +1,20 @@
 # FLORARIA
 
-**The architecture of a flower.** Explore digitized Smithsonian orchid blooms, take apart an explicitly authored teaching model, and follow questions about floral organization and reproduction.
+**A world within a flower.** Explore digitized Smithsonian orchid blooms, enter an original anatomical model, and follow connected questions through tissues, cells and subcellular structures.
 
-FLORARIA is a public-facing, no-login educational atlas. The source repository is private; original code, documentation and diagrams use Apache-2.0 under [LICENSE](LICENSE). Museum scans record outer surfaces; the general flower and orchid models expose named relationships for explanation. No identification, clinical, growth-prediction or biological measurement service is provided.
+FLORARIA is a no-login educational atlas with open source, documentation and original diagrams under Apache-2.0 [LICENSE](LICENSE). Museum scans record outer surfaces; separately identified teaching models explain floral anatomy and microscopic relationships. The application runs entirely in the browser and deploys to GitHub Pages. No identification, clinical, growth-prediction or biological measurement service is provided.
 
 ## Explore
 
 - Rotate, frame and compare five real bloom specimens with compact/detailed fidelity.
 - Select, isolate, separate and section named teaching components.
+- Follow four complete microscopic pathways: petal pigmentation, pollen protection, ovule development and xylem transport. Each depth introduces distinct structures, explanations and interactions.
 - Scrub a bounded reproductive explanation, distinguishing pollen transfer, fertilization and seed/fruit identities.
 - Open twelve guided investigations in the same explorer.
-- Preserve views through bookmarks, share links and JSON export/import; export a view image.
+- Preserve views and personal observations in a local notebook; share links exclude notes. Export/import version-two files and retain compatibility with the original version-one files; export a view image.
 - Read the guide, morphology, implementation and evidence in English/Spanish with light/dark themes.
 
-Display version: **0.01.000**. Final publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); capability descriptions do not establish delivery.
+Display version: **0.02.000**. Final publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); capability descriptions do not establish delivery.
 
 ## Run locally
 

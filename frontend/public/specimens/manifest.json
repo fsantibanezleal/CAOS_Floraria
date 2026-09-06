@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "credit": "Smithsonian Gardens, CC0",
+  "method": "Verified detail GLB rendered through FLORARIA, alpha bounds cropped and resized to 300px; raster bytes depend on browser/GPU.",
+  "specimens": [
+    {
+      "id": "phalaenopsis",
+      "path": "phalaenopsis.webp",
+      "bytes": 10064,
+      "sha256": "ba10bddf95d173cbef070cb9557938706beab8c7f38c7c70de8ac57c104701ea",
+      "sourceSha256": "3260a1018b9c8d4db40e50e197e4ec0ee5e35c83449cc0691ab5f772f1e85a74"
+    },
+    {
+      "id": "encyclia",
+      "path": "encyclia.webp",
+      "bytes": 11616,
+      "sha256": "7e18ed5df1bf8fff2c631975f2d7f31c2a030d0622bfea1f41cfe4cc01c9cb80",
+      "sourceSha256": "01c6f999a49ee90ddf9af47100f535a14aa857eda0f7c3e167a48957459bf4a9"
+    },
+    {
+      "id": "lycaste",
+      "path": "lycaste.webp",
+      "bytes": 21680,
+      "sha256": "be812a131b3542a4b12fde0e42ea338dd5999fe84aeb5c22a642f120ae157b8e",
+      "sourceSha256": "94d04d2daee0e81d1b18252541238b989c01c737914bf1e2bcee116978908734"
+    },
+    {
+      "id": "phragmipedium",
+      "path": "phragmipedium.webp",
+      "bytes": 8968,
+      "sha256": "0cec704fa230a29e0f4a78198454765f212c02e10d223e524733789db299b2bf",
+      "sourceSha256": "d3b5a6180e98c6078c8674b071bbca33ff81228826a02e9e5a8003288372d459"
+    },
+    {
+      "id": "vanda",
+      "path": "vanda.webp",
+      "bytes": 22686,
+      "sha256": "7e9cdd83eb3c9c73ee9365c971dd790cbee357b4302146acc756cf4d4c6eaaa1",
+      "sourceSha256": "8515440a9527a393f789c93edcf94d4cb03409ce3f900b4b445f72f13b385f14"
+    }
+  ]
+}

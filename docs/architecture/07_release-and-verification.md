@@ -1,13 +1,15 @@
 # Release and verification record
 
-Display version **0.01.000**. Build identity and post-installation evidence are stored outside the source revision they verify, so recording a deployed SHA does not change that same SHA.
+Current development version **0.02.000**. The redesign preserves the original source, release and data, adds connected microscopic pathways and an independent interface, and targets GitHub Pages. Its live acceptance record is produced after publication. The table below is historical version-one technical evidence, not acceptance of the redesigned app or a claim of user approval.
+
+Build identity and post-installation evidence are stored outside the source revision they verify, so recording a deployed SHA does not change that same SHA.
 
 - [Versioned GitHub release and receipts](https://github.com/fsantibanezleal/CAOS_Floraria/releases/tag/v0.01.000).
 - [Live immutable release identity and file inventory](https://floraria.fasl-work.com/release.json).
-- [Management deployment record](https://github.com/fsantibanezleal/CAOS_MANAGE/blob/main/deployments/floraria.md).
-- [Research, portfolio review and complete QA archive](https://github.com/fsantibanezleal/CAOS_MANAGE/tree/main/wip/floraria).
+- [Public deployment procedure](../../deploy/README.md).
+- [Reproducible validation procedures](05_validation.md).
 
-The source and management repositories are private. The public application and its release identity do not require an account. A source promotion alone does not establish successful installation; use the post-installation receipts above to verify delivery.
+The application and source are intended for public access. A source promotion alone does not establish successful installation; use the post-installation receipts above to verify delivery. The initial UI and product experience were rejected by the owner; their technical checks remain preserved as historical evidence.
 
 | Gate | Recorded state |
 |---|---|

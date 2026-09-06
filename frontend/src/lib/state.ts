@@ -132,6 +132,7 @@ export function normalizeState(
   s.hidden = s.hidden.filter((id) => modelParts.has(id));
   if (s.compare === s.specimen) s.compare = "";
   if (!s.selected) s.isolate = false;
+  if (s.isolate) s.hidden = s.hidden.filter((id) => id !== s.selected);
   return s;
 }
 export function stateFromUrl(search: string): AtlasState {

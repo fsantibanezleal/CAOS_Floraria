@@ -1,0 +1,1373 @@
+{
+  "branches": [
+    {
+      "assumptions": [
+        {
+          "en": "An example of an anthocyanin-bearing petal. Not all petals have these pigments or conical cells.",
+          "es": "Ejemplo de un pétalo con antocianinas. No todos los pétalos tienen estos pigmentos ni células cónicas."
+        },
+        {
+          "en": "Authored educational illustration; no scanned tissue, specimen measurement, elapsed-time prediction or quantitative simulation.",
+          "es": "Ilustración educativa original; no es tejido escaneado, medición del ejemplar, predicción temporal ni simulación cuantitativa."
+        }
+      ],
+      "id": "petal",
+      "label": {
+        "en": "Petal surface",
+        "es": "Superficie del pétalo"
+      },
+      "process": {
+        "en": "Trace a pigment compartment",
+        "es": "Sigue un compartimento pigmentario"
+      },
+      "question": {
+        "en": "Where does petal colour reside?",
+        "es": "¿Dónde reside el color del pétalo?"
+      },
+      "rootId": "petal",
+      "stages": [
+        {
+          "body": {
+            "en": "Find the outer epidermis.",
+            "es": "Localiza la epidermis externa."
+          },
+          "title": {
+            "en": "Surface",
+            "es": "Superficie"
+          }
+        },
+        {
+          "body": {
+            "en": "Enter one pigment-bearing cell.",
+            "es": "Entra en una célula pigmentada."
+          },
+          "title": {
+            "en": "Cell",
+            "es": "Célula"
+          }
+        },
+        {
+          "body": {
+            "en": "Follow the tonoplast boundary.",
+            "es": "Sigue el límite del tonoplasto."
+          },
+          "title": {
+            "en": "Compartment",
+            "es": "Compartimento"
+          }
+        },
+        {
+          "body": {
+            "en": "Highlight pigment in the vacuole; no colour prediction.",
+            "es": "Resalta pigmento en la vacuola; sin predecir el color."
+          },
+          "title": {
+            "en": "Pigment location",
+            "es": "Ubicación del pigmento"
+          }
+        }
+      ],
+      "structureIds": [
+        "petal"
+      ]
+    },
+    {
+      "assumptions": [
+        {
+          "en": "A schematic vascular bundle and mature vessel. Flow markers show a route, not measured speed or pressure.",
+          "es": "Haz vascular y vaso maduro esquemáticos. Las marcas muestran una ruta, no velocidad ni presión medidas."
+        },
+        {
+          "en": "Authored educational illustration; no scanned tissue, specimen measurement, elapsed-time prediction or quantitative simulation.",
+          "es": "Ilustración educativa original; no es tejido escaneado, medición del ejemplar, predicción temporal ni simulación cuantitativa."
+        }
+      ],
+      "id": "stem",
+      "label": {
+        "en": "Water pathway",
+        "es": "Ruta del agua"
+      },
+      "process": {
+        "en": "Follow water through xylem",
+        "es": "Sigue el agua por el xilema"
+      },
+      "question": {
+        "en": "How does a stem conduct water?",
+        "es": "¿Cómo conduce agua un tallo?"
+      },
+      "rootId": "stem",
+      "stages": [
+        {
+          "body": {
+            "en": "Locate the xylem conduit.",
+            "es": "Localiza el conducto del xilema."
+          },
+          "title": {
+            "en": "Entry",
+            "es": "Entrada"
+          }
+        },
+        {
+          "body": {
+            "en": "Follow water along the lumen.",
+            "es": "Sigue el agua por el lumen."
+          },
+          "title": {
+            "en": "Continuous route",
+            "es": "Ruta continua"
+          }
+        },
+        {
+          "body": {
+            "en": "Cross an end-wall perforation.",
+            "es": "Cruza una perforación terminal."
+          },
+          "title": {
+            "en": "Connection",
+            "es": "Conexión"
+          }
+        },
+        {
+          "body": {
+            "en": "Compare the route with reinforced walls.",
+            "es": "Compara la ruta con las paredes reforzadas."
+          },
+          "title": {
+            "en": "Support",
+            "es": "Soporte"
+          }
+        }
+      ],
+      "structureIds": [
+        "stem"
+      ]
+    },
+    {
+      "assumptions": [
+        {
+          "en": "Illustrative two-celled pollen with an aperture. Wall patterns, apertures and cell number vary among species; not an orchid pollinium reconstruction.",
+          "es": "Polen ilustrativo de dos células con una abertura. El patrón de pared, las aberturas y el número celular varían; no reconstruye un polinio de orquídea."
+        },
+        {
+          "en": "Authored educational illustration; no scanned tissue, specimen measurement, elapsed-time prediction or quantitative simulation.",
+          "es": "Ilustración educativa original; no es tejido escaneado, medición del ejemplar, predicción temporal ni simulación cuantitativa."
+        }
+      ],
+      "id": "anther",
+      "label": {
+        "en": "Pollen architecture",
+        "es": "Arquitectura del polen"
+      },
+      "process": {
+        "en": "Follow a pollen tube exit",
+        "es": "Sigue la salida de un tubo polínico"
+      },
+      "question": {
+        "en": "How can a resistant wall permit growth?",
+        "es": "¿Cómo permite crecer una pared resistente?"
+      },
+      "rootId": "anther",
+      "stages": [
+        {
+          "body": {
+            "en": "Pollen develops in the anther.",
+            "es": "El polen se desarrolla en la antera."
+          },
+          "title": {
+            "en": "Development context",
+            "es": "Contexto de desarrollo"
+          }
+        },
+        {
+          "body": {
+            "en": "Inspect an illustrative two-celled grain.",
+            "es": "Examina un grano bicelular ilustrativo."
+          },
+          "title": {
+            "en": "Released pollen",
+            "es": "Polen liberado"
+          }
+        },
+        {
+          "body": {
+            "en": "The vegetative cell extends through an aperture.",
+            "es": "La célula vegetativa se prolonga por una abertura."
+          },
+          "title": {
+            "en": "Suitable germination",
+            "es": "Germinación adecuada"
+          }
+        },
+        {
+          "body": {
+            "en": "The growing tube carries the male gametes toward the ovule.",
+            "es": "El tubo en crecimiento lleva los gametos masculinos hacia el óvulo."
+          },
+          "title": {
+            "en": "Tube growth",
+            "es": "Crecimiento del tubo"
+          }
+        }
+      ],
+      "structureIds": [
+        "anther",
+        "pollen"
+      ]
+    },
+    {
+      "assumptions": [
+        {
+          "en": "Common Polygonum-type arrangement before fertilization: seven cells, with two polar nuclei drawn separately. Species and developmental stages differ.",
+          "es": "Patrón común de tipo Polygonum antes de la fecundación: siete células, con dos núcleos polares separados. Varía entre especies y etapas."
+        },
+        {
+          "en": "Authored educational illustration; no scanned tissue, specimen measurement, elapsed-time prediction or quantitative simulation.",
+          "es": "Ilustración educativa original; no es tejido escaneado, medición del ejemplar, predicción temporal ni simulación cuantitativa."
+        }
+      ],
+      "id": "ovary",
+      "label": {
+        "en": "Inside an ovule",
+        "es": "Dentro de un óvulo"
+      },
+      "process": {
+        "en": "Follow delivery to the embryo sac",
+        "es": "Sigue la llegada al saco embrionario"
+      },
+      "question": {
+        "en": "Which cells meet the pollen tube?",
+        "es": "¿Qué células reciben el tubo polínico?"
+      },
+      "rootId": "ovary",
+      "stages": [
+        {
+          "body": {
+            "en": "Locate the micropylar opening.",
+            "es": "Localiza la abertura micropilar."
+          },
+          "title": {
+            "en": "Approach",
+            "es": "Aproximación"
+          }
+        },
+        {
+          "body": {
+            "en": "A pollen tube reaches a receptive synergid.",
+            "es": "Un tubo polínico alcanza una sinérgida receptora."
+          },
+          "title": {
+            "en": "Reception",
+            "es": "Recepción"
+          }
+        },
+        {
+          "body": {
+            "en": "Two sperm are delivered to the female gametophyte.",
+            "es": "Dos espermios llegan al gametófito femenino."
+          },
+          "title": {
+            "en": "Delivery",
+            "es": "Entrega"
+          }
+        },
+        {
+          "body": {
+            "en": "One sperm joins the egg; the other joins the central cell.",
+            "es": "Un espermio se une a la oosfera; el otro a la célula central."
+          },
+          "title": {
+            "en": "Two destinations",
+            "es": "Dos destinos"
+          }
+        }
+      ],
+      "structureIds": [
+        "ovary",
+        "ovule",
+        "seed"
+      ]
+    }
+  ],
+  "evidence": "illustrated",
+  "nodes": [
+    {
+      "branch": "petal",
+      "children": [
+        "petal-epidermis",
+        "petal-inner-tissue"
+      ],
+      "depth": "organ",
+      "detail": {
+        "en": "This path follows one illustrative pigment-bearing epidermis. It does not infer internal anatomy from a museum surface scan.",
+        "es": "Esta ruta sigue una epidermis pigmentada ilustrativa. No deduce la anatomía interna de un escaneo superficial de museo."
+      },
+      "evidence": "illustrated",
+      "id": "petal",
+      "kind": "organ",
+      "label": {
+        "en": "Petal",
+        "es": "Pétalo"
+      },
+      "parentId": null,
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "osu-flower"
+      ],
+      "summary": {
+        "en": "A floral organ with several tissue layers.",
+        "es": "órgano floral con varias capas de tejido."
+      }
+    },
+    {
+      "branch": "petal",
+      "children": [
+        "petal-papilla"
+      ],
+      "depth": "tissue",
+      "detail": {
+        "en": "Use the connected cell link to inspect an illustrative epidermal cell. Conical surface shapes occur in the studied Antirrhinum petals; they are not universal.",
+        "es": "Usa el enlace a la célula conectada para explorar una célula epidérmica ilustrativa. Las formas cónicas aparecen en los pétalos estudiados de Antirrhinum; no son universales."
+      },
+      "evidence": "illustrated",
+      "id": "petal-epidermis",
+      "kind": "tissue",
+      "label": {
+        "en": "Epidermis",
+        "es": "Epidermis"
+      },
+      "parentId": "petal",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "petal-shape"
+      ],
+      "summary": {
+        "en": "The outer cell layer covers the petal.",
+        "es": "La capa celular externa recubre el pétalo."
+      }
+    },
+    {
+      "branch": "petal",
+      "children": [],
+      "depth": "tissue",
+      "detail": {
+        "en": "The cutaway separates surface and interior. These layers are explanatory compartments, not an image segmentation.",
+        "es": "El corte distingue superficie e interior. Son compartimentos explicativos, no una segmentación de imagen."
+      },
+      "evidence": "illustrated",
+      "id": "petal-inner-tissue",
+      "kind": "tissue",
+      "label": {
+        "en": "Inner tissue",
+        "es": "Tejido interno"
+      },
+      "parentId": "petal",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "petal-pigment"
+      ],
+      "summary": {
+        "en": "The petal has tissue beneath its epidermis.",
+        "es": "El pétalo tiene tejido bajo la epidermis."
+      }
+    },
+    {
+      "branch": "petal",
+      "children": [
+        "petal-vacuole",
+        "petal-nucleus",
+        "petal-wall"
+      ],
+      "depth": "cell",
+      "detail": {
+        "en": "The raised outline is one example of epidermal shape. The model deliberately does not add chloroplasts to every petal cell.",
+        "es": "El contorno elevado es un ejemplo de forma epidérmica. El modelo evita atribuir cloroplastos a todas las células del pétalo."
+      },
+      "evidence": "illustrated",
+      "id": "petal-papilla",
+      "kind": "cell",
+      "label": {
+        "en": "Epidermal cell",
+        "es": "Célula epidérmica"
+      },
+      "parentId": "petal-epidermis",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "petal-shape",
+        "petal-pigment"
+      ],
+      "summary": {
+        "en": "A pigment-bearing living cell is shown.",
+        "es": "Se muestra una célula viva pigmentada."
+      }
+    },
+    {
+      "branch": "petal",
+      "children": [
+        "petal-tonoplast"
+      ],
+      "depth": "organelle",
+      "detail": {
+        "en": "The coloured region represents vacuolar pigment. The progress control highlights its location; it does not calculate a flower colour or biosynthesis rate.",
+        "es": "La región coloreada representa pigmento vacuolar. El control resalta su ubicación; no calcula el color floral ni una tasa de biosíntesis."
+      },
+      "evidence": "illustrated",
+      "id": "petal-vacuole",
+      "kind": "organelle",
+      "label": {
+        "en": "Vacuole",
+        "es": "Vacuola"
+      },
+      "parentId": "petal-papilla",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "petal-pigment"
+      ],
+      "summary": {
+        "en": "Anthocyanins can accumulate in this compartment.",
+        "es": "Las antocianinas pueden acumularse en este compartimento."
+      }
+    },
+    {
+      "branch": "petal",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "Follow its boundary to distinguish the vacuolar interior from the surrounding cytoplasm. The outline is enlarged for legibility.",
+        "es": "Sigue el límite para distinguir el interior vacuolar del citoplasma circundante. El contorno está ampliado para facilitar la lectura."
+      },
+      "evidence": "illustrated",
+      "id": "petal-tonoplast",
+      "kind": "membrane",
+      "label": {
+        "en": "Tonoplast",
+        "es": "Tonoplasto"
+      },
+      "parentId": "petal-vacuole",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "petal-pigment",
+        "openstax-cell"
+      ],
+      "summary": {
+        "en": "A membrane encloses the vacuole.",
+        "es": "Una membrana delimita la vacuola."
+      }
+    },
+    {
+      "branch": "petal",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "Its diagram position is illustrative. Selecting the nucleus changes the explanation, not the pigment process or any measured gene activity.",
+        "es": "Su posición es ilustrativa. Seleccionarlo cambia la explicación, no el proceso pigmentario ni una actividad génica medida."
+      },
+      "evidence": "illustrated",
+      "id": "petal-nucleus",
+      "kind": "organelle",
+      "label": {
+        "en": "Nucleus",
+        "es": "Núcleo"
+      },
+      "parentId": "petal-papilla",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-cell"
+      ],
+      "summary": {
+        "en": "The nucleus contains the cell's chromosomes.",
+        "es": "El núcleo contiene los cromosomas celulares."
+      }
+    },
+    {
+      "branch": "petal",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "Compare this supporting boundary with the tonoplast around the vacuole. They enclose different spaces and perform different roles.",
+        "es": "Compara este límite de soporte con el tonoplasto vacuolar. Delimitan espacios distintos y cumplen funciones diferentes."
+      },
+      "evidence": "illustrated",
+      "id": "petal-wall",
+      "kind": "wall",
+      "label": {
+        "en": "Cell wall",
+        "es": "Pared celular"
+      },
+      "parentId": "petal-papilla",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-cell"
+      ],
+      "summary": {
+        "en": "The wall lies outside the plasma membrane.",
+        "es": "La pared está fuera de la membrana plasmática."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [
+        "stem-xylem",
+        "stem-phloem"
+      ],
+      "depth": "organ",
+      "detail": {
+        "en": "This path opens a schematic vascular bundle. Its arrangement is not assigned to any of the scanned orchids.",
+        "es": "Esta ruta abre un haz vascular esquemático. Su disposición no se atribuye a ninguna orquídea escaneada."
+      },
+      "evidence": "illustrated",
+      "id": "stem",
+      "kind": "organ",
+      "label": {
+        "en": "Stem",
+        "es": "Tallo"
+      },
+      "parentId": null,
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-stem"
+      ],
+      "summary": {
+        "en": "The stem contains conducting tissues.",
+        "es": "El tallo contiene tejidos conductores."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [
+        "stem-vessel"
+      ],
+      "depth": "tissue",
+      "detail": {
+        "en": "Select a vessel to inspect a connected water pathway. The surrounding xylem contains other cell types as well.",
+        "es": "Selecciona un vaso para explorar una ruta continua de agua. El xilema circundante también contiene otros tipos celulares."
+      },
+      "evidence": "illustrated",
+      "id": "stem-xylem",
+      "kind": "tissue",
+      "label": {
+        "en": "Xylem",
+        "es": "Xilema"
+      },
+      "parentId": "stem",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-stem"
+      ],
+      "summary": {
+        "en": "Xylem conducts water and dissolved minerals.",
+        "es": "El xilema conduce agua y minerales disueltos."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [],
+      "depth": "tissue",
+      "detail": {
+        "en": "The distinct neighbouring tissue prevents confusing sugar transport with the highlighted xylem water pathway.",
+        "es": "El tejido vecino diferenciado evita confundir el transporte de azúcares con la ruta de agua resaltada en el xilema."
+      },
+      "evidence": "illustrated",
+      "id": "stem-phloem",
+      "kind": "tissue",
+      "label": {
+        "en": "Phloem",
+        "es": "Floema"
+      },
+      "parentId": "stem",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-stem"
+      ],
+      "summary": {
+        "en": "Phloem transports organic solutes.",
+        "es": "El floema transporta solutos orgánicos."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [
+        "stem-lumen",
+        "stem-perforation",
+        "stem-secondary-wall"
+      ],
+      "depth": "cell",
+      "detail": {
+        "en": "Their open interiors form part of a vessel. This view intentionally has no living nucleus, vacuole or chloroplasts inside the conducting element.",
+        "es": "Sus interiores abiertos forman parte de un vaso. Esta vista no contiene núcleo vivo, vacuola ni cloroplastos dentro del elemento conductor."
+      },
+      "evidence": "illustrated",
+      "id": "stem-vessel",
+      "kind": "cell",
+      "label": {
+        "en": "Vessel element",
+        "es": "Elemento de vaso"
+      },
+      "parentId": "stem-xylem",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-stem"
+      ],
+      "summary": {
+        "en": "Mature conducting vessel elements are dead.",
+        "es": "Los elementos de vaso conductores maduros están muertos."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "Advance the markers to follow a continuous route. Their spacing and speed carry no physical units.",
+        "es": "Avanza las marcas para seguir una ruta continua. Su separación y velocidad no tienen unidades físicas."
+      },
+      "evidence": "illustrated",
+      "id": "stem-lumen",
+      "kind": "space",
+      "label": {
+        "en": "Lumen",
+        "es": "Lumen"
+      },
+      "parentId": "stem-vessel",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-transport"
+      ],
+      "summary": {
+        "en": "Water moves through the hollow interior.",
+        "es": "El agua circula por el interior hueco."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "The markers cross this end boundary. Compare it with side-wall pits: the two features are not interchangeable.",
+        "es": "Las marcas atraviesan este límite terminal. Compáralo con las punteaduras laterales: no son estructuras intercambiables."
+      },
+      "evidence": "illustrated",
+      "id": "stem-perforation",
+      "kind": "wall",
+      "label": {
+        "en": "Perforation plate",
+        "es": "Placa de perforación"
+      },
+      "parentId": "stem-vessel",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-stem"
+      ],
+      "summary": {
+        "en": "End-wall openings connect vessel elements.",
+        "es": "Aberturas terminales conectan los elementos de vaso."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [
+        "stem-pit"
+      ],
+      "depth": "organelle",
+      "detail": {
+        "en": "The bands are an illustrative thickening pattern. Secondary-wall architecture varies with cell type and development.",
+        "es": "Las bandas ilustran un patrón de engrosamiento. La arquitectura de la pared secundaria varía con el tipo celular y su desarrollo."
+      },
+      "evidence": "illustrated",
+      "id": "stem-secondary-wall",
+      "kind": "wall",
+      "label": {
+        "en": "Secondary wall",
+        "es": "Pared secundaria"
+      },
+      "parentId": "stem-vessel",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-stem"
+      ],
+      "summary": {
+        "en": "Lignified wall regions reinforce the conduit.",
+        "es": "Las regiones lignificadas refuerzan el conducto."
+      }
+    },
+    {
+      "branch": "stem",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "A pit is not an empty drilled hole through every wall layer. The diagram retains a thin boundary across the highlighted region.",
+        "es": "Una punteadura no es un agujero vacío en todas las capas de pared. El diagrama conserva un límite fino en la región resaltada."
+      },
+      "evidence": "illustrated",
+      "id": "stem-pit",
+      "kind": "wall",
+      "label": {
+        "en": "Pit region",
+        "es": "Punteadura"
+      },
+      "parentId": "stem-secondary-wall",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-stem"
+      ],
+      "summary": {
+        "en": "Secondary wall deposition is interrupted here.",
+        "es": "Aquí se interrumpe el depósito de pared secundaria."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [
+        "anther-pollen-sac"
+      ],
+      "depth": "organ",
+      "detail": {
+        "en": "A section reveals where pollen develops. The model represents a general flowering-plant example, not orchid pollinia.",
+        "es": "Un corte revela dónde se desarrolla el polen. El modelo representa un ejemplo general de angiosperma, no polinios de orquídea."
+      },
+      "evidence": "illustrated",
+      "id": "anther",
+      "kind": "organ",
+      "label": {
+        "en": "Anther",
+        "es": "Antera"
+      },
+      "parentId": null,
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-reproduction"
+      ],
+      "summary": {
+        "en": "Anthers contain pollen-producing compartments.",
+        "es": "Las anteras contienen compartimentos productores de polen."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [
+        "anther-tapetum",
+        "anther-pollen"
+      ],
+      "depth": "tissue",
+      "detail": {
+        "en": "The cavity and its surrounding tissues are shown together. A compartment is not itself a single tissue or cell.",
+        "es": "La cavidad y sus tejidos circundantes se muestran juntos. Un compartimento no es por sí mismo un tejido ni una célula."
+      },
+      "evidence": "illustrated",
+      "id": "anther-pollen-sac",
+      "kind": "structure",
+      "label": {
+        "en": "Pollen sac",
+        "es": "Saco polínico"
+      },
+      "parentId": "anther",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-reproduction"
+      ],
+      "summary": {
+        "en": "A microsporangium contains developing pollen.",
+        "es": "Un microsporangio contiene polen en desarrollo."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [],
+      "depth": "tissue",
+      "detail": {
+        "en": "This ring belongs to an earlier developmental context. It is not shown as a permanent lining surrounding released pollen.",
+        "es": "Este anillo corresponde a un contexto de desarrollo anterior. No representa un revestimiento permanente alrededor del polen liberado."
+      },
+      "evidence": "illustrated",
+      "id": "anther-tapetum",
+      "kind": "tissue",
+      "label": {
+        "en": "Tapetum",
+        "es": "Tapete"
+      },
+      "parentId": "anther-pollen-sac",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "pollen-wall"
+      ],
+      "summary": {
+        "en": "The inner anther layer supports pollen development.",
+        "es": "La capa interna de la antera apoya el desarrollo del polen."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [
+        "anther-vegetative",
+        "anther-exine",
+        "anther-intine"
+      ],
+      "depth": "cell",
+      "detail": {
+        "en": "The illustrated two-celled state contains a vegetative cell and a generative cell. Some species release pollen after sperm cells have already formed.",
+        "es": "El estado bicelular ilustrado contiene una célula vegetativa y una generativa. Algunas especies liberan el polen con los espermios ya formados."
+      },
+      "evidence": "illustrated",
+      "id": "anther-pollen",
+      "kind": "gametophyte",
+      "label": {
+        "en": "Pollen grain",
+        "es": "Grano de polen"
+      },
+      "parentId": "anther-pollen-sac",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-reproduction"
+      ],
+      "summary": {
+        "en": "A grain is a male gametophyte.",
+        "es": "Un grano es un gametófito masculino."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [],
+      "depth": "cell",
+      "detail": {
+        "en": "The progress control follows tube emergence in a suitable germination context. It does not show germination inside the anther sac.",
+        "es": "El control sigue la emergencia del tubo en un contexto adecuado de germinación. No muestra germinación dentro del saco de la antera."
+      },
+      "evidence": "illustrated",
+      "id": "anther-vegetative",
+      "kind": "cell",
+      "label": {
+        "en": "Vegetative cell",
+        "es": "Célula vegetativa"
+      },
+      "parentId": "anther-pollen",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-fertilization"
+      ],
+      "summary": {
+        "en": "This cell extends to form the pollen tube.",
+        "es": "Esta célula se prolonga para formar el tubo polínico."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [
+        "anther-aperture"
+      ],
+      "depth": "organelle",
+      "detail": {
+        "en": "The surface pattern is authored. It is not a species identification or a reconstruction of a scanned pollen wall.",
+        "es": "El patrón superficial es original. No identifica una especie ni reconstruye una pared polínica escaneada."
+      },
+      "evidence": "illustrated",
+      "id": "anther-exine",
+      "kind": "wall",
+      "label": {
+        "en": "Exine",
+        "es": "Exina"
+      },
+      "parentId": "anther-pollen",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "pollen-wall"
+      ],
+      "summary": {
+        "en": "The resistant outer wall contains sporopollenin.",
+        "es": "La pared externa resistente contiene esporopolenina."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "Its separate colour distinguishes it from exine. The two layers are wall components, not intracellular organelles.",
+        "es": "Su color la distingue de la exina. Ambas son componentes de pared, no orgánulos intracelulares."
+      },
+      "evidence": "illustrated",
+      "id": "anther-intine",
+      "kind": "wall",
+      "label": {
+        "en": "Intine",
+        "es": "Intina"
+      },
+      "parentId": "anther-pollen",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "pollen-wall"
+      ],
+      "summary": {
+        "en": "The inner wall contains cellulose and pectin.",
+        "es": "La pared interna contiene celulosa y pectina."
+      }
+    },
+    {
+      "branch": "anther",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "The example uses one visible tube exit. Aperture number and geometry vary; three apertures are not universal.",
+        "es": "El ejemplo muestra una salida visible del tubo. El número y la geometría de las aberturas varían; tres no es un número universal."
+      },
+      "evidence": "illustrated",
+      "id": "anther-aperture",
+      "kind": "wall",
+      "label": {
+        "en": "Aperture",
+        "es": "Abertura"
+      },
+      "parentId": "anther-exine",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "pollen-aperture"
+      ],
+      "summary": {
+        "en": "Exine is reduced or absent at aperture regions.",
+        "es": "La exina se reduce o falta en las aberturas."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [
+        "ovary-ovule"
+      ],
+      "depth": "organ",
+      "detail": {
+        "en": "This route follows one ovule to its female gametophyte. The ovary wall and ovule integuments are different structures.",
+        "es": "Esta ruta sigue un óvulo hasta su gametófito femenino. La pared del ovario y los tegumentos del óvulo son estructuras distintas."
+      },
+      "evidence": "illustrated",
+      "id": "ovary",
+      "kind": "organ",
+      "label": {
+        "en": "Ovary",
+        "es": "Ovario"
+      },
+      "parentId": null,
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "osu-flower"
+      ],
+      "summary": {
+        "en": "The ovary encloses ovules.",
+        "es": "El ovario contiene óvulos."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [
+        "ovary-integuments",
+        "ovary-nucellus"
+      ],
+      "depth": "tissue",
+      "detail": {
+        "en": "The opening at the micropylar end is enlarged for explanation. This ovule orientation is schematic.",
+        "es": "La abertura del extremo micropilar se amplía para explicarla. La orientación del óvulo es esquemática."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-ovule",
+      "kind": "structure",
+      "label": {
+        "en": "Ovule",
+        "es": "óvulo"
+      },
+      "parentId": "ovary",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-reproduction"
+      ],
+      "summary": {
+        "en": "An ovule contains tissues and a female gametophyte.",
+        "es": "Un óvulo contiene tejidos y un gametófito femenino."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [],
+      "depth": "tissue",
+      "detail": {
+        "en": "They leave the micropyle open. After fertilization, integuments contribute to the seed coat; they do not become the fruit wall.",
+        "es": "Dejan abierto el micrópilo. Tras la fecundación contribuyen a la cubierta seminal; no se convierten en la pared del fruto."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-integuments",
+      "kind": "tissue",
+      "label": {
+        "en": "Integuments",
+        "es": "Tegumentos"
+      },
+      "parentId": "ovary-ovule",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-fertilization"
+      ],
+      "summary": {
+        "en": "These coverings surround the ovule interior.",
+        "es": "Estas cubiertas rodean el interior del óvulo."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [
+        "ovary-embryo-sac"
+      ],
+      "depth": "tissue",
+      "detail": {
+        "en": "The nested boundaries distinguish maternal ovule tissues from the female gametophyte within them.",
+        "es": "Los límites anidados distinguen los tejidos maternos del óvulo del gametófito femenino que contienen."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-nucellus",
+      "kind": "tissue",
+      "label": {
+        "en": "Nucellus",
+        "es": "Nucela"
+      },
+      "parentId": "ovary-ovule",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-reproduction"
+      ],
+      "summary": {
+        "en": "Maternal tissue surrounds the developing embryo sac.",
+        "es": "Tejido materno rodea el saco embrionario en desarrollo."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [
+        "ovary-egg",
+        "ovary-synergids",
+        "ovary-central-cell"
+      ],
+      "depth": "cell",
+      "detail": {
+        "en": "The common arrangement shown has one egg, two synergids, three antipodals and one central cell. It is not a single giant egg.",
+        "es": "El patrón común mostrado tiene una oosfera, dos sinérgidas, tres antípodas y una célula central. No es un óvulo gigante unicelular."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-embryo-sac",
+      "kind": "gametophyte",
+      "label": {
+        "en": "Embryo sac",
+        "es": "Saco embrionario"
+      },
+      "parentId": "ovary-nucellus",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "female-cells"
+      ],
+      "summary": {
+        "en": "This is a multicellular female gametophyte.",
+        "es": "Es un gametófito femenino multicelular."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [
+        "ovary-egg-nucleus"
+      ],
+      "depth": "cell",
+      "detail": {
+        "en": "The egg lies beside the synergids near the micropylar end. Select the neighbouring cells to distinguish their roles.",
+        "es": "La oosfera está junto a las sinérgidas cerca del extremo micropilar. Selecciona las células vecinas para distinguir sus funciones."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-egg",
+      "kind": "cell",
+      "label": {
+        "en": "Egg cell",
+        "es": "Oosfera"
+      },
+      "parentId": "ovary-embryo-sac",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "female-cells",
+        "openstax-fertilization"
+      ],
+      "summary": {
+        "en": "One sperm fertilizes the egg to form a zygote.",
+        "es": "Un espermio fecunda la oosfera para formar un cigoto."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [],
+      "depth": "cell",
+      "detail": {
+        "en": "The arriving tube interacts with a receptive synergid. Neither synergid is the egg cell.",
+        "es": "El tubo que llega interactúa con una sinérgida receptora. Ninguna de las dos es la oosfera."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-synergids",
+      "kind": "cell-group",
+      "label": {
+        "en": "Synergids",
+        "es": "Sinérgidas"
+      },
+      "parentId": "ovary-embryo-sac",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "synergid-reception"
+      ],
+      "summary": {
+        "en": "Two accessory cells help pollen tube reception.",
+        "es": "Dos células accesorias ayudan a recibir el tubo polínico."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [
+        "ovary-polar-nuclei"
+      ],
+      "depth": "cell",
+      "detail": {
+        "en": "This begins endosperm development in the common pattern. It is a separate fertilization from the egg-sperm union.",
+        "es": "Esto inicia el desarrollo del endospermo en el patrón común. Es una fecundación distinta de la unión entre oosfera y espermio."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-central-cell",
+      "kind": "cell",
+      "label": {
+        "en": "Central cell",
+        "es": "Célula central"
+      },
+      "parentId": "ovary-embryo-sac",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "openstax-fertilization"
+      ],
+      "summary": {
+        "en": "The second sperm fertilizes the central cell.",
+        "es": "El segundo espermio fecunda la célula central."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "Chromatin marks are symbolic. They do not depict a measured chromosome count, DNA sequence or gene-expression state.",
+        "es": "Las marcas de cromatina son simbólicas. No representan un recuento cromosómico medido, una secuencia de ADN ni expresión génica."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-egg-nucleus",
+      "kind": "organelle",
+      "label": {
+        "en": "Egg nucleus",
+        "es": "Núcleo de la oosfera"
+      },
+      "parentId": "ovary-egg",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "female-cells",
+        "openstax-cell"
+      ],
+      "summary": {
+        "en": "The egg nucleus carries a haploid chromosome set.",
+        "es": "El núcleo de la oosfera contiene un juego cromosómico haploide."
+      }
+    },
+    {
+      "branch": "ovary",
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "They can fuse before fertilization. Two separate circles depict the selected pre-fusion stage, not two central cells.",
+        "es": "Pueden fusionarse antes de la fecundación. Dos círculos separados representan la etapa previa, no dos células centrales."
+      },
+      "evidence": "illustrated",
+      "id": "ovary-polar-nuclei",
+      "kind": "organelle-group",
+      "label": {
+        "en": "Polar nuclei",
+        "es": "Núcleos polares"
+      },
+      "parentId": "ovary-central-cell",
+      "scaleLabel": {
+        "en": "Illustrated organisation; not to scale",
+        "es": "Organización ilustrada; sin escala métrica"
+      },
+      "sourceIds": [
+        "female-cells"
+      ],
+      "summary": {
+        "en": "The central cell may contain two polar nuclei.",
+        "es": "La célula central puede contener dos núcleos polares."
+      }
+    }
+  ],
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "citation": "Oregon State University Extension. Reproductive plant parts. Accessed 2026-09-06.",
+      "id": "osu-flower",
+      "label": "OSU Extension - reproductive plant parts",
+      "url": "https://extension.oregonstate.edu/catalog/em-9900-reproductive-plant-parts"
+    },
+    {
+      "citation": "OpenStax. Biology 2e, section 30.2. Accessed 2026-09-06.",
+      "id": "openstax-stem",
+      "label": "OpenStax - stem tissues",
+      "url": "https://openstax.org/books/biology-2e/pages/30-2-stems"
+    },
+    {
+      "citation": "OpenStax. Biology 2e, section 30.5. Accessed 2026-09-06.",
+      "id": "openstax-transport",
+      "label": "OpenStax - water transport",
+      "url": "https://openstax.org/books/biology-2e/pages/30-5-transport-of-water-and-solutes-in-plants"
+    },
+    {
+      "citation": "OpenStax. Biology 2e, section 4.3. Accessed 2026-09-06.",
+      "id": "openstax-cell",
+      "label": "OpenStax - eukaryotic cells",
+      "url": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells"
+    },
+    {
+      "citation": "OpenStax. Biology 2e, section 32.1. Accessed 2026-09-06. Species-dependent gametophyte patterns.",
+      "id": "openstax-reproduction",
+      "label": "OpenStax - reproductive structures",
+      "url": "https://openstax.org/books/biology-2e/pages/32-1-reproductive-development-and-structure"
+    },
+    {
+      "citation": "OpenStax. Biology 2e, section 32.2. Accessed 2026-09-06.",
+      "id": "openstax-fertilization",
+      "label": "OpenStax - pollination and fertilization",
+      "url": "https://openstax.org/books/biology-2e/pages/32-2-pollination-and-fertilization"
+    },
+    {
+      "citation": "Zhang et al. New insight into the structures and formation of anthocyanic vacuolar inclusions in flower petals. BMC Plant Biology 6, 29 (2006). doi:10.1186/1471-2229-6-29.",
+      "id": "petal-pigment",
+      "label": "Primary research - petal vacuolar pigments",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17173704/"
+    },
+    {
+      "citation": "Gorton and Vogelmann. Effects of epidermal cell shape and pigmentation on optical properties of Antirrhinum petals at visible and ultraviolet wavelengths. Plant Physiology 112 (1996). doi:10.1104/pp.112.3.879.",
+      "id": "petal-shape",
+      "label": "Primary research - Antirrhinum epidermal shape",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12226425/"
+    },
+    {
+      "citation": "Dobritsa et al. Pollen Aperture Factor INP1 Acts Late in Aperture Formation by Excluding Specific Membrane Domains from Exine Deposition. Plant Physiology 176, 326-339 (2018). doi:10.1104/pp.17.00720.",
+      "id": "pollen-aperture",
+      "label": "Primary research - pollen apertures",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28899962/"
+    },
+    {
+      "citation": "Suzuki et al. Identification of kaonashi mutants showing abnormal pollen exine structure in Arabidopsis thaliana. Plant and Cell Physiology (2008). Accessed 2026-09-06. doi:10.1093/pcp/pcn131.",
+      "id": "pollen-wall",
+      "label": "Primary research - pollen wall layers",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2566931/"
+    },
+    {
+      "citation": "Gross-Hardt et al. LACHESIS restricts gametic cell fate in the female gametophyte of Arabidopsis. PLoS Biology (2007). Accessed 2026-09-06. doi:10.1371/journal.pbio.0050047.",
+      "id": "female-cells",
+      "label": "Primary research - female gametophyte cell identities",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17326723/"
+    },
+    {
+      "citation": "Fertilization-induced synergid cell death by RALF12-triggered ROS production and ethylene signaling. Nature Communications (2025). doi:10.1038/s41467-025-58246-y.",
+      "id": "synergid-reception",
+      "label": "Primary research - pollen tube reception",
+      "url": "https://www.nature.com/articles/s41467-025-58246-y"
+    }
+  ]
+}

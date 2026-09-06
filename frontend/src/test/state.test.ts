@@ -9,6 +9,16 @@ import {
   stateSearch,
 } from "../lib/state";
 describe("untrusted exploration states", () => {
+  it("keeps an isolated selection visible even when an imported file hides it", () => {
+    const value = normalizeState({
+      mode: "anatomy",
+      selected: "petal",
+      isolate: true,
+      hidden: ["petal", "sepal"],
+    });
+    expect(value.isolate).toBe(true);
+    expect(value.hidden).toEqual(["sepal"]);
+  });
   it("round trips complete share and file state", () => {
     const s = normalizeState({
       ...DEFAULT_STATE,

@@ -1,0 +1,15 @@
+{
+  "artifact": "micro-atlas.json",
+  "bytes": 46278,
+  "counts": {
+    "branches": 4,
+    "nodes": 34,
+    "sources": 12
+  },
+  "schemaVersion": 1,
+  "sha256": "cf1dddb6ae896501461ceaa4ee56c9761cfb41f08f4cfaab2add2ce18b40ba3a",
+  "source": {
+    "path": "data/sources/micro-atlas.json",
+    "sha256": "cf1dddb6ae896501461ceaa4ee56c9761cfb41f08f4cfaab2add2ce18b40ba3a"
+  }
+}
