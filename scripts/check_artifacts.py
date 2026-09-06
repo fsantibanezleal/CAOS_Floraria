@@ -18,7 +18,7 @@ def main():
     except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
         print(f'FLORARIA artifacts FAIL: {exc}', file=sys.stderr)
         return 1
-    print('FLORARIA artifacts verified: ' + ', '.join(f'{key}={value}' for key, value in counts.items()))
+    print('FLORARIA museum, catalog and microscopic artifacts verified: ' + ', '.join(f'{key}={value}' for key, value in counts.items()))
     return 0
 
 if __name__ == '__main__':

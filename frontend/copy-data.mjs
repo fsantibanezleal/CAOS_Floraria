@@ -18,6 +18,11 @@ const frontend = fileURLToPath(new URL(".", import.meta.url)),
 const catalog = JSON.parse(
   readFileSync(resolve(artifacts, "catalog.json"), "utf8"),
 );
+execFileSync(
+  process.env.PYTHON || "python",
+  ["data-pipeline/micro.py", "verify"],
+  { cwd: root, stdio: "inherit" },
+);
 if (
   catalog.schemaVersion !== 1 ||
   catalog.specimens.length !== 5 ||

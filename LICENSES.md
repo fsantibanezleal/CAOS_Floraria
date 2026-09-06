@@ -12,6 +12,13 @@ Every web build includes `/third-party-notices.txt`, assembled from the actual l
 | Three.js/Draco and frontend dependencies | Upstream notices apply to actual locked/bundled versions |
 | Shared shell | Its upstream package license applies separately |
 
+The locked shared-shell release 0.6.2 has an upstream inconsistency: npm metadata
+labels it MIT, while its bundled `LICENSE` contains Apache-2.0 terms. The build
+preserves the included license verbatim in `third-party-notices.txt`; FLORARIA
+does not relabel that dependency or remove its notices. The package tarball is
+publicly downloadable without authentication. This discrepancy should be
+resolved upstream before changing that dependency's license declaration here.
+
 CC0 does not imply endorsement or grant trademark rights. Related museum images/videos/essays do not automatically share selected-media terms. Preserve credits.
 
 No Human Atlas code or assets were copied. It was an interaction reference in the brief.

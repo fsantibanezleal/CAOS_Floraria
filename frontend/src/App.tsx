@@ -158,8 +158,8 @@ export default function App() {
     footer: {
       provenance: L("Smithsonian scans · CC0", "Escaneos Smithsonian · CC0"),
       disclaimer: L(
-        "Apache-2.0 code · private repository · original teaching models",
-        "Código Apache-2.0 · repositorio privado · modelos didácticos originales",
+        "Apache-2.0 code · open source · original teaching models",
+        "Código Apache-2.0 · código abierto · modelos didácticos originales",
       ),
     },
   };

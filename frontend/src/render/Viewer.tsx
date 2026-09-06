@@ -457,7 +457,9 @@ function SceneViewer({ catalog, state, onSelect, handle }: Props) {
       controls.dispose();
       disposeObject(content);
       env.dispose();
+      renderer.domElement.removeEventListener("webglcontextlost", lost);
       renderer.dispose();
+      renderer.forceContextLoss();
       renderer.domElement.remove();
       host.removeEventListener("keydown", onKey);
       runtime.current = null;
