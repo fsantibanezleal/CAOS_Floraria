@@ -42,7 +42,18 @@ def encoded(value: object) -> bytes:
 
 def write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    # Write bytes: text-mode newline translation would make Windows exports differ from Git/CI.
     path.write_bytes(encoded(value))
+
+
+def canonicalize_source_text(root: Path) -> None:
+    """Normalize approved source text only during export; verification remains byte-strict."""
+    for name in ("catalog-source.json", "assets.lock.json"):
+        path = root / "data/sources" / name
+        original = path.read_bytes()
+        canonical = original.decode("utf-8-sig").replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+        if canonical != original:
+            path.write_bytes(canonical)
 
 
 def sha256(path: Path) -> str:
@@ -262,6 +273,7 @@ def normalize(source: dict, locks: dict) -> dict:
 def export(root: Path, source: dict, locks: dict) -> dict:
     report = inspect_assets(root, locks)
     catalog = normalize(source, locks)
+    canonicalize_source_text(root)
     base = root / "data/artifacts"
     write_json(base / "catalog.json", catalog)
     files = [{"path": "catalog.json", "sha256": sha256(base / "catalog.json"),

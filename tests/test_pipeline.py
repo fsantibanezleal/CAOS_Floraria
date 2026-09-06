@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import shutil
 import struct
+import subprocess
 import tempfile
 import unittest
 
@@ -45,6 +46,46 @@ class PipelineTests(unittest.TestCase):
         first = (self.sandbox / "manifests/catalog.json").read_bytes()
         PIPELINE.run(self.sandbox, "all", offline=True)
         self.assertEqual(first, (self.sandbox / "manifests/catalog.json").read_bytes())
+
+    def test_export_canonicalizes_crlf_sources_and_emits_lf_json(self):
+        originals = {}
+        for name in ("catalog-source.json", "assets.lock.json"):
+            path = self.sandbox / "data/sources" / name
+            originals[name] = path.read_bytes().replace(b"\r\n", b"\n")
+            path.write_bytes(originals[name].replace(b"\n", b"\r\n"))
+        PIPELINE.run(self.sandbox, "all", offline=True)
+        manifest = PIPELINE.read_json(self.sandbox / "manifests/catalog.json")
+        for name, field in (("catalog-source.json", "catalogSourceSha256"),
+                            ("assets.lock.json", "assetLockSha256")):
+            path = self.sandbox / "data/sources" / name
+            self.assertEqual(path.read_bytes(), originals[name])
+            self.assertEqual(manifest[field], PIPELINE.sha256(path))
+        for relative in ("data/artifacts/catalog.json", "manifests/catalog.json"):
+            payload = (self.sandbox / relative).read_bytes()
+            self.assertNotIn(b"\r", payload)
+            self.assertTrue(payload.endswith(b"\n"))
+
+    def test_exported_text_bytes_survive_git_clean_filter_unchanged(self):
+        PIPELINE.run(self.sandbox, "all", offline=True)
+        for relative in ("data/sources/catalog-source.json", "data/sources/assets.lock.json",
+                         "data/artifacts/catalog.json", "manifests/catalog.json"):
+            path = str(self.sandbox / relative)
+            raw = subprocess.check_output(["git", "hash-object", "--no-filters", path], cwd=ROOT)
+            filtered = subprocess.check_output(["git", "hash-object", "--path=" + relative, path], cwd=ROOT)
+            self.assertEqual(raw, filtered, relative + " would change bytes when committed")
+
+    def test_verify_rejects_newline_changes_without_rewriting_source(self):
+        PIPELINE.run(self.sandbox, "all", offline=True)
+        for name in ("catalog-source.json", "assets.lock.json"):
+            with self.subTest(source=name):
+                path = self.sandbox / "data/sources" / name
+                original = path.read_bytes()
+                changed = original.replace(b"\n", b"\r\n")
+                path.write_bytes(changed)
+                with self.assertRaisesRegex(PIPELINE.PipelineError, "changed since export"):
+                    PIPELINE.run(self.sandbox, "verify", offline=True)
+                self.assertEqual(path.read_bytes(), changed)
+                path.write_bytes(original)
 
     def test_canonical_verification_is_read_only(self):
         before = PIPELINE.sha256(ROOT / "manifests/catalog.json")

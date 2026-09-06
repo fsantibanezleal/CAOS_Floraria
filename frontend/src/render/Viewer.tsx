@@ -467,7 +467,7 @@ function SceneViewer({ catalog, state, onSelect, handle }: Props) {
 
   useEffect(() => {
     const r = runtime.current;
-    if (!r) return;
+    if (!r || !revision) return;
     if (graphicsLost.current) {
       setError("graphics");
       setLoading(false);

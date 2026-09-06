@@ -2,6 +2,8 @@
 
 Licenses attach to particular material. Code, original explanations, digitized assets and external pages are separate works.
 
+Every web build includes `/third-party-notices.txt`, assembled from the actual locked runtime packages and the Draco Apache-2.0 terms. The release inventory verifies its bytes along with the served application.
+
 | Material | Terms and boundary |
 |---|---|
 | FLORARIA code, original documentation and diagrams | Apache License 2.0 under root LICENSE; no rights to cited third-party works implied |

@@ -15,6 +15,7 @@ frontend/public/data/
 frontend/public/manifests/
 frontend/public/draco/
 frontend/public/release.json
+frontend/public/third-party-notices.txt
 *.tsbuildinfo
 playwright-report/
 test-results/

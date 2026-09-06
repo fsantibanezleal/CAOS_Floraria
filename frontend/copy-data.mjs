@@ -58,6 +58,39 @@ cpSync(
   { recursive: true },
 );
 let revision = "uncommitted";
+const noticePackages = [
+  "three",
+  "katex",
+  "react",
+  "react-dom",
+  "react-router",
+  "zustand",
+  "lucide-react",
+  "@fasl-work/caos-app-shell",
+  "scheduler",
+  "cookie",
+  "set-cookie-parser",
+];
+const notices = noticePackages.map((name) => {
+  const directory = resolve(frontend, "node_modules", name);
+  const metadata = JSON.parse(
+    readFileSync(resolve(directory, "package.json"), "utf8"),
+  );
+  const license = ["LICENSE", "LICENSE.md", "LICENSE.txt"]
+    .map((file) => resolve(directory, file))
+    .find((file) => existsSync(file));
+  if (!license) throw new Error(`Missing third-party notice: ${name}`);
+  return `${name} ${metadata.version}\n${readFileSync(license, "utf8")}`;
+});
+notices.push(
+  "Draco, Copyright Google Inc.\nhttps://github.com/google/draco\n" +
+    readFileSync(resolve(root, "LICENSE"), "utf8"),
+);
+writeFileSync(
+  resolve(frontend, "public/third-party-notices.txt"),
+  notices.join("\n\n----------------------------------------\n\n"),
+  "utf8",
+);
 try {
   revision = execFileSync("git", ["rev-parse", "HEAD"], {
     cwd: root,
