@@ -21,18 +21,19 @@ Use Python 3.13 and Node 22 or 24, isolated to this repository.
 
 ~~~powershell
 ./scripts/setup.ps1
-python data-pipeline/run.py all
-npm --prefix frontend run dev
+./scripts/dev.ps1
 ~~~
 
 Equivalent shell scripts accompany the PowerShell entry points.
 
 ~~~sh
-npm --prefix frontend run test
-npm --prefix frontend run build
+./scripts/setup.sh
+./scripts/dev.sh
 ~~~
 
 The source process acquires locked public assets. Offline mode uses the verified cache. See [local development](docs/guides/01_local-development.md), [acquisition](docs/guides/02_acquisition-and-extension.md) and [delivery](deploy/README.md).
+
+Use `scripts/test.*` and `scripts/build.*` for all release gates, `scripts/preview.*` for the built app, and `scripts/verify-ui.*` for browser acceptance against an already-running URL. `scripts/local/02_generate-data.*` reproduces data in a sandbox by default; setup and builds verify the committed corpus without a fresh museum download.
 
 ## Evidence and limits
 
