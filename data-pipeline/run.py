@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import copy
 import hashlib
+import importlib.util
 import json
 from pathlib import Path, PurePosixPath
 import shutil
@@ -310,7 +311,22 @@ def verify(root: Path, source: dict, locks: dict) -> dict:
     require({item["path"] for item in manifest.get("files", [])} == expected, "Manifest artifact set mismatch")
     actual = {str(path.relative_to(base).as_posix()) for path in base.rglob("*")
               if path.is_file() and path.name != ".gitkeep"}
-    require(actual == expected, f"Unexpected or missing artifact files: {actual ^ expected}")
+    micro_files = {"micro-atlas.json", "micro-atlas.integrity.json"}
+    # Legacy processing sandboxes can omit the independent micro atlas. The actual
+    # checkout requires it, and partial extensions never bypass verification.
+    with_micro = (root.resolve() == Path(__file__).resolve().parents[1]
+                  or (root / "data/sources/micro-atlas.json").exists()
+                  or bool(actual & micro_files))
+    allowed = expected | (micro_files if with_micro else set())
+    require(actual == allowed, f"Unexpected or missing artifact files: {actual ^ allowed}")
+    if with_micro:
+        spec = importlib.util.spec_from_file_location("floraria_micro_verify", Path(__file__).with_name("micro.py"))
+        micro = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(micro)
+        try:
+            micro.run(root, "verify")
+        except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
+            raise PipelineError(f"Microscopic atlas verification failed: {exc}") from exc
     for item in manifest["files"]:
         checked_asset(base / safe_relative(item["path"]), item)
     require(inspect_assets(root, locks, artifact=True) == manifest.get("inspection"), "Inspection manifest mismatch")
