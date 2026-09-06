@@ -145,8 +145,10 @@ def config() -> tuple[str, str, str]:
 def remote(command: list[str], script: Path, key: str, target: str) -> None:
     invocation = 'bash -s -- ' + ' '.join(shlex.quote(part) for part in command)
     # Key paths and identity values are passed as argv, never printed or embedded in a shell string.
+    # Universal-newline reading followed by binary stdin prevents Windows pipe translation to CRLF.
+    payload = script.read_text(encoding='utf-8').encode('utf-8')
     subprocess.run(['ssh', '-i', key, '-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes', target, invocation],
-                   input=script.read_text(encoding='utf-8'), text=True, check=True)
+                   input=payload, check=True)
 
 
 def public_identity(domain: str, expected: str) -> dict:
