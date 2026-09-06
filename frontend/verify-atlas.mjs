@@ -386,7 +386,9 @@ try {
     pass("Responsive controls and expansion: " + name, { coverage });
   }
   await page.setViewportSize({ width: 1440, height: 960 });
-  await page.getByRole("button", { name: /theme/i }).click();
+  await page
+    .getByRole("button", { name: "Toggle light / dark", exact: true })
+    .click();
   await ready();
   await photo("07-collection-dark");
   await page.getByRole("button", { name: /language|idioma/i }).click();

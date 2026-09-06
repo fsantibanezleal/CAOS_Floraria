@@ -99,6 +99,26 @@ class DeliveryTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, 'hostname'):
                 release.config()
 
+    def test_remote_script_uses_lf_utf8_binary_stdin_with_strict_ssh(self):
+        script = self.root / 'preflight.sh'
+        normalized = "#!/usr/bin/env bash\nset -Eeuo pipefail\n# UTF-8 fixture: \u03bb\nprintf '%s\\n' 'read-only probe'\n"
+        for newline in ('\n', '\r\n'):
+            with self.subTest(source_newline=repr(newline)):
+                script.write_bytes(normalized.replace('\n', newline).encode('utf-8'))
+                with mock.patch.object(release.subprocess, 'run') as execute:
+                    release.remote(['preflight', 'argument with spaces'], script, 'operator-key', 'root@example.test')
+                command = execute.call_args.args[0]
+                options = execute.call_args.kwargs
+                self.assertEqual(command, ['ssh', '-i', 'operator-key', '-o', 'BatchMode=yes', '-o',
+                                          'StrictHostKeyChecking=yes', 'root@example.test',
+                                          "bash -s -- preflight 'argument with spaces'"])
+                self.assertIsInstance(options['input'], bytes)
+                self.assertEqual(options['input'], normalized.encode('utf-8'))
+                self.assertNotIn(b'\r', options['input'])
+                self.assertNotIn('text', options)
+                self.assertNotIn('encoding', options)
+                self.assertTrue(options['check'])
+
     def test_upload_allocation_accepts_only_private_mktemp_shape(self):
         completed = subprocess.CompletedProcess([], 0, stdout='/tmp/floraria-upload.ABC123def4\n', stderr='')
         with mock.patch.object(release.subprocess, 'run', return_value=completed) as execute:

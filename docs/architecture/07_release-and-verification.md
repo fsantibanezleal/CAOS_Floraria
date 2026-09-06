@@ -12,7 +12,7 @@ The source and management repositories are private. The public application and i
 | Gate | Recorded state |
 |---|---|
 | Corpus/artifact processing | Five specimens, ten GLBs, fifteen structures, twelve investigations and 43 bilingual steps; locked hashes and read-only verification |
-| Contract/corruption/state tests | 28 Python and 89 frontend tests passed on 2026-09-06; clean Linux CI passed on Node22 and Node24 |
+| Contract/corruption/state tests | 29 Python and 89 frontend tests passed on 2026-09-06; clean Linux CI covers Node22 and Node24 |
 | Frontend build/guards | TypeScript/Vite, content, template residue, version, artifact, shell-mode and release-boundary checks passed; npm audit reported zero vulnerabilities |
 | Local browser matrix | 42 atlas integration checks, ten resilience checks in five scenarios, forty documentation route variants and eight phone navigation checks passed; 43 guided actions restored exact states |
 | Version/tag/promotion | Versioned release and linked pull requests identify the promoted source revision |
