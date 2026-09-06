@@ -94,7 +94,7 @@ def verify_ui(base_url: str | None, browser_cache: str | None, install_browser: 
         raise RuntimeError('Browser QA URL must be an HTTP(S) origin, without credentials, query or path.')
     cache = browser_cache or environment.get('PLAYWRIGHT_BROWSERS_PATH') or str(ROOT / 'build/playwright')
     environment['PLAYWRIGHT_BROWSERS_PATH'] = cache if cache == '0' else str(Path(cache).expanduser().resolve())
-    environment.setdefault('FLORARIA_QA_DIR', str(ROOT / 'build/qa/atlas'))
+    environment.setdefault('FLORARIA_QA_DIR', str(ROOT / 'build/qa/studio'))
     if install_browser:
         node = shutil.which('node')
         run([node, str(ROOT / 'frontend/node_modules/playwright/cli.js'), 'install', 'chromium'], env=environment)
