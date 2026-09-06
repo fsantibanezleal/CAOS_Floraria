@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" viewBox="0 0 880 620" class="arch-svg" role="img">
+<title>An atlas built from two kinds of evidence</title>
+<style>
+svg .l-es { display:none; }
+.bg { fill:var(--color-surface, Canvas); } .band { fill:var(--color-surface-2, Canvas); stroke:var(--color-border, GrayText); }
+.bx { fill:var(--color-surface, Canvas); stroke:var(--color-border, GrayText); stroke-width:1.4; }
+.bx-hi { stroke:var(--color-accent, rebeccapurple); } .bx-eng { stroke:var(--color-warn, darkgoldenrod); } .bx-store,.bx-web { stroke:var(--color-good, seagreen); } .bx-warn { stroke:var(--color-warn, darkgoldenrod); }
+text { font-family:system-ui,sans-serif; fill:var(--color-fg, CanvasText); } .heading {font-size:20px;font-weight:650;} .subtitle {font-size:12px;fill:var(--color-fg-subtle, GrayText);} .band-label {font-size:10px;font-weight:650;letter-spacing:1px;fill:var(--color-fg-subtle, GrayText);} .ttl {font-size:12px;font-weight:650;} .cd {font-size:9.2px;font-family:ui-monospace,monospace;fill:var(--color-accent, rebeccapurple);} .it {font-size:10.3px;fill:var(--color-fg-subtle, GrayText);} .flow {fill:none;stroke:var(--color-accent, rebeccapurple);stroke-width:1.4;marker-end:url(#arr);} .lbl {font-size:9px;fill:var(--color-fg-subtle, GrayText);paint-order:stroke;stroke:var(--color-surface, Canvas);stroke-width:5;stroke-linejoin:round;} .arrow {fill:var(--color-accent, rebeccapurple);}
+</style>
+<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="arrow" d="M0 0L7 3.5L0 7Z"/></marker></defs>
+<rect width="880" height="620" class="bg"/>
+<text x="25" y="27" text-anchor="start" class="heading l-en">An atlas built from two kinds of evidence</text>
+<text x="25" y="27" text-anchor="start" class="heading l-es">Un atlas con dos tipos de evidencia</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-en">Observe a digitized bloom. Read an explicit model. Keep the distinction visible.</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-es">Observa una flor digitalizada. Lee un modelo explícito. Conserva la distinción.</text>
+<rect x="20" y="64" width="840" height="168" rx="10" class="band"/>
+<text x="35" y="86" text-anchor="start" class="band-label l-en">INPUTS · SOURCE AND INTENT</text>
+<text x="35" y="86" text-anchor="start" class="band-label l-es">ENTRADAS · FUENTE E INTENCIÓN</text>
+<rect x="20" y="275" width="840" height="166" rx="10" class="band"/>
+<text x="35" y="297" text-anchor="start" class="band-label l-en">ONE CONNECTED EXPLORER</text>
+<text x="35" y="297" text-anchor="start" class="band-label l-es">UNA EXPLORACIÓN CONECTADA</text>
+<rect x="20" y="479" width="840" height="107" rx="10" class="band"/>
+<text x="35" y="501" text-anchor="start" class="band-label l-en">A REVIEWABLE RELEASE</text>
+<text x="35" y="501" text-anchor="start" class="band-label l-es">UNA VERSIÓN QUE SE PUEDE REVISAR</text>
+<rect x="35" y="99" width="250" height="112" rx="7" class="bx bx-store"/>
+<text x="47" y="120" text-anchor="start" class="ttl l-en">Museum specimen</text>
+<text x="47" y="120" text-anchor="start" class="ttl l-es">Ejemplar de museo</text>
+<text x="47" y="139" class="cd l-neutral">assets.lock.json</text>
+<text x="47" y="160" text-anchor="start" class="it l-en">Exact GLB + attribution</text>
+<text x="47" y="160" text-anchor="start" class="it l-es">GLB exacto + atribución</text>
+<text x="47" y="176" text-anchor="start" class="it l-en">Observed outer surface</text>
+<text x="47" y="176" text-anchor="start" class="it l-es">Superficie externa observada</text>
+<text x="47" y="192" text-anchor="start" class="it l-en">No inferred organ hierarchy</text>
+<text x="47" y="192" text-anchor="start" class="it l-es">Sin jerarquía de órganos inferida</text>
+<rect x="315" y="99" width="250" height="112" rx="7" class="bx bx-eng"/>
+<text x="327" y="120" text-anchor="start" class="ttl l-en">Teaching geometry</text>
+<text x="327" y="120" text-anchor="start" class="ttl l-es">Geometría didáctica</text>
+<text x="327" y="139" class="cd l-neutral">render/botany.ts</text>
+<text x="327" y="160" text-anchor="start" class="it l-en">General flower / orchid</text>
+<text x="327" y="160" text-anchor="start" class="it l-es">Flor general / orquídea</text>
+<text x="327" y="176" text-anchor="start" class="it l-en">Named component hierarchy</text>
+<text x="327" y="176" text-anchor="start" class="it l-es">Jerarquía de partes nombradas</text>
+<text x="327" y="192" text-anchor="start" class="it l-en">Declared illustrative scale</text>
+<text x="327" y="192" text-anchor="start" class="it l-es">Escala ilustrativa declarada</text>
+<rect x="595" y="99" width="250" height="112" rx="7" class="bx bx-hi"/>
+<text x="607" y="120" text-anchor="start" class="ttl l-en">Learning question</text>
+<text x="607" y="120" text-anchor="start" class="ttl l-es">Pregunta de aprendizaje</text>
+<text x="607" y="139" class="cd l-neutral">catalog.journeys</text>
+<text x="607" y="160" text-anchor="start" class="it l-en">Question + steps + view state</text>
+<text x="607" y="160" text-anchor="start" class="it l-es">Pregunta + pasos + estado</text>
+<text x="607" y="176" text-anchor="start" class="it l-en">Source-linked interpretation</text>
+<text x="607" y="176" text-anchor="start" class="it l-es">Interpretación con fuentes</text>
+<text x="607" y="192" text-anchor="start" class="it l-en">Observe before concluding</text>
+<text x="607" y="192" text-anchor="start" class="it l-es">Observar antes de concluir</text>
+<rect x="35" y="310" width="250" height="112" rx="7" class="bx bx-web"/>
+<text x="47" y="331" text-anchor="start" class="ttl l-en">Spatial stage</text>
+<text x="47" y="331" text-anchor="start" class="ttl l-es">Vista espacial</text>
+<text x="47" y="350" class="cd l-neutral">render/Viewer.tsx</text>
+<text x="47" y="371" text-anchor="start" class="it l-en">Camera / picking / comparison</text>
+<text x="47" y="371" text-anchor="start" class="it l-es">Cámara / selección / comparación</text>
+<text x="47" y="387" text-anchor="start" class="it l-en">Loading and error states</text>
+<text x="47" y="387" text-anchor="start" class="it l-es">Estados de carga y error</text>
+<text x="47" y="403" text-anchor="start" class="it l-en">Bounded rendering workload</text>
+<text x="47" y="403" text-anchor="start" class="it l-es">Carga gráfica delimitada</text>
+<rect x="315" y="310" width="250" height="112" rx="7" class="bx bx-hi"/>
+<text x="327" y="331" text-anchor="start" class="ttl l-en">Atlas state</text>
+<text x="327" y="331" text-anchor="start" class="ttl l-es">Estado del atlas</text>
+<text x="327" y="350" class="cd l-neutral">App.tsx · lib/state.ts</text>
+<text x="327" y="371" text-anchor="start" class="it l-en">One selected object and mode</text>
+<text x="327" y="371" text-anchor="start" class="it l-es">Un objeto y modo seleccionados</text>
+<text x="327" y="387" text-anchor="start" class="it l-en">Validated reversible controls</text>
+<text x="327" y="387" text-anchor="start" class="it l-es">Controles reversibles validados</text>
+<text x="327" y="403" text-anchor="start" class="it l-en">Explicit scan / model identity</text>
+<text x="327" y="403" text-anchor="start" class="it l-es">Identidad explícita de cada vista</text>
+<rect x="595" y="310" width="250" height="112" rx="7" class="bx bx-web"/>
+<text x="607" y="331" text-anchor="start" class="ttl l-en">Explanation beside action</text>
+<text x="607" y="331" text-anchor="start" class="ttl l-es">Explicación junto a la acción</text>
+<text x="607" y="350" class="cd l-neutral">GuidePages.tsx</text>
+<text x="607" y="371" text-anchor="start" class="it l-en">Six pages · EN / ES · themes</text>
+<text x="607" y="371" text-anchor="start" class="it l-es">Seis páginas · EN / ES · temas</text>
+<text x="607" y="387" text-anchor="start" class="it l-en">Investigations open real views</text>
+<text x="607" y="387" text-anchor="start" class="it l-es">Investigaciones abren vistas</text>
+<text x="607" y="403" text-anchor="start" class="it l-en">Sources and limits stay linked</text>
+<text x="607" y="403" text-anchor="start" class="it l-es">Fuentes y límites conectados</text>
+<rect x="160" y="510" width="560" height="57" rx="7" class="bx bx-store"/>
+<text x="172" y="531" text-anchor="start" class="ttl l-en">Versioned assets + measured checks + readable documentation</text>
+<text x="172" y="531" text-anchor="start" class="ttl l-es">Recursos versionados + comprobaciones + documentación</text>
+<text x="172" y="550" class="cd l-neutral">catalog.json · manifests/catalog.json · docs/</text>
+<path d="M160 211V310" class="flow"/>
+<text x="160" y="262" text-anchor="middle" class="lbl l-en">load</text>
+<text x="160" y="262" text-anchor="middle" class="lbl l-es">cargar</text>
+<path d="M440 211V310" class="flow"/>
+<text x="440" y="262" text-anchor="middle" class="lbl l-en">compile / select</text>
+<text x="440" y="262" text-anchor="middle" class="lbl l-es">construir / elegir</text>
+<path d="M720 211V310" class="flow"/>
+<text x="720" y="262" text-anchor="middle" class="lbl l-en">open step</text>
+<text x="720" y="262" text-anchor="middle" class="lbl l-es">abrir paso</text>
+<path d="M315 365H285" class="flow"/>
+<text x="300" y="353" text-anchor="middle" class="lbl l-en">state</text>
+<text x="300" y="353" text-anchor="middle" class="lbl l-es">estado</text>
+<path d="M565 365H595" class="flow"/>
+<text x="580" y="353" text-anchor="middle" class="lbl l-en">state</text>
+<text x="580" y="353" text-anchor="middle" class="lbl l-es">estado</text>
+<path d="M440 422V510" class="flow"/>
+<text x="440" y="464" text-anchor="middle" class="lbl l-en">verify / publish</text>
+<text x="440" y="464" text-anchor="middle" class="lbl l-es">verificar / publicar</text>
+</svg>

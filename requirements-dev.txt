@@ -1,3 +1,1 @@
-# DEV lane, lint + test. Pinned to the verified install (Python 3.12, 2026-06-20).
-pytest==9.1.1
-ruff==0.15.18
+﻿# FLORARIA uses the CPython 3.13 standard library only; no third-party Python packages.

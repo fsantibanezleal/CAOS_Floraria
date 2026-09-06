@@ -1,8 +1,18 @@
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vitest/config';
-
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 export default defineConfig({
-  base: './', // relative base -> works on a GitHub Pages project site
   plugins: [react()],
-  test: { environment: 'node', globals: true },
+  server: { host: "127.0.0.1", port: 5902, strictPort: true },
+  preview: { host: "127.0.0.1", port: 4902, strictPort: true },
+  build: {
+    target: "es2022",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ["three"],
+          shell: ["@fasl-work/caos-app-shell"],
+        },
+      },
+    },
+  },
 });

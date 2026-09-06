@@ -1,0 +1,182 @@
+{
+  "assetLockSha256": "a02dbe7b9d053ea044526babf5226314f9d7f497f7f176d1bae7282de216ce14",
+  "catalogSourceSha256": "cd6df7f4a114cd90a41ca0110a58f88db777a22ee77d8a9ac070ffd7072d98a9",
+  "counts": {
+    "assets": 10,
+    "journeys": 12,
+    "specimens": 5,
+    "structures": 15
+  },
+  "files": [
+    {
+      "bytes": 951532,
+      "path": "assets/encyclia-detail.glb",
+      "sha256": "01c6f999a49ee90ddf9af47100f535a14aa857eda0f7c3e167a48957459bf4a9"
+    },
+    {
+      "bytes": 128860,
+      "path": "assets/encyclia-preview.glb",
+      "sha256": "207664d4d4c447718605f45ee8c4bb92bb53f24b9464db046895e25ecaafebf3"
+    },
+    {
+      "bytes": 2140472,
+      "path": "assets/lycaste-detail.glb",
+      "sha256": "94d04d2daee0e81d1b18252541238b989c01c737914bf1e2bcee116978908734"
+    },
+    {
+      "bytes": 191032,
+      "path": "assets/lycaste-preview.glb",
+      "sha256": "4da7e8c8aa8d83b070e11801b8fe6a9c3bd666c7bc9d6577d15b26f48316988e"
+    },
+    {
+      "bytes": 1205436,
+      "path": "assets/phalaenopsis-detail.glb",
+      "sha256": "3260a1018b9c8d4db40e50e197e4ec0ee5e35c83449cc0691ab5f772f1e85a74"
+    },
+    {
+      "bytes": 133736,
+      "path": "assets/phalaenopsis-preview.glb",
+      "sha256": "9a634c104e04f8d96a130104bc046c063141bd0ab899dc477983023f0fc4f526"
+    },
+    {
+      "bytes": 1671484,
+      "path": "assets/phragmipedium-detail.glb",
+      "sha256": "d3b5a6180e98c6078c8674b071bbca33ff81228826a02e9e5a8003288372d459"
+    },
+    {
+      "bytes": 161980,
+      "path": "assets/phragmipedium-preview.glb",
+      "sha256": "93a15e01b44adea5092542d494c3cb717f11f627d49788984b86f9eb1821b7ee"
+    },
+    {
+      "bytes": 1658068,
+      "path": "assets/vanda-detail.glb",
+      "sha256": "8515440a9527a393f789c93edcf94d4cb03409ce3f900b4b445f72f13b385f14"
+    },
+    {
+      "bytes": 148356,
+      "path": "assets/vanda-preview.glb",
+      "sha256": "4c084f1580182b22332f0b486a686865ee1eabb0d5c1f132004df1013546919b"
+    },
+    {
+      "bytes": 64571,
+      "path": "catalog.json",
+      "sha256": "f9e7e03640d906056d4ab140c54b45f6378cfcf8f3e747a3331a11dcb0ab7e13"
+    }
+  ],
+  "inspection": {
+    "assets/encyclia-detail.glb": {
+      "animations": 0,
+      "embeddedImages": 3,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 150000
+    },
+    "assets/encyclia-preview.glb": {
+      "animations": 0,
+      "embeddedImages": 2,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 20000
+    },
+    "assets/lycaste-detail.glb": {
+      "animations": 0,
+      "embeddedImages": 3,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 150000
+    },
+    "assets/lycaste-preview.glb": {
+      "animations": 0,
+      "embeddedImages": 2,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 20000
+    },
+    "assets/phalaenopsis-detail.glb": {
+      "animations": 0,
+      "embeddedImages": 3,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 150000
+    },
+    "assets/phalaenopsis-preview.glb": {
+      "animations": 0,
+      "embeddedImages": 2,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 20000
+    },
+    "assets/phragmipedium-detail.glb": {
+      "animations": 0,
+      "embeddedImages": 3,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 150000
+    },
+    "assets/phragmipedium-preview.glb": {
+      "animations": 0,
+      "embeddedImages": 2,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 20000
+    },
+    "assets/vanda-detail.glb": {
+      "animations": 0,
+      "embeddedImages": 3,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 150000
+    },
+    "assets/vanda-preview.glb": {
+      "animations": 0,
+      "embeddedImages": 2,
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "materials": 1,
+      "meshes": 1,
+      "nodes": 1,
+      "triangles": 20000
+    }
+  },
+  "license": "CC0-1.0 for Smithsonian GLBs; original authored catalog content is separate",
+  "pipelineVersion": 1,
+  "schemaVersion": 1
+}

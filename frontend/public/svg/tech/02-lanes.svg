@@ -1,121 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" class="arch-svg" role="img" aria-label="The three lanes: what runs in the web, offline/compute and replay">
-  <!-- Hand-authored. Every colour is a shell CSS variable, so the diagram repaints
-       with the active light/dark theme when inlined into the SPA (ADR-0058). -->
-  <style>
-    .arch-svg text { font-family: var(--font-sans, Inter, "Segoe UI", system-ui, sans-serif); }
-    .arch-svg .mono { font-family: var(--font-mono, ui-monospace, Consolas, monospace); }
-    .arch-svg .bx { fill: var(--color-surface-2); stroke: var(--color-border); stroke-width: 1.2; }
-    .arch-svg .lane { fill: none; stroke-width: 1.4; }
-    .arch-svg .lane-web { stroke: var(--color-accent); }
-    .arch-svg .lane-comp { stroke: var(--color-magenta); }
-    .arch-svg .lane-rep { stroke: var(--color-good); }
-    .arch-svg .bx-web { stroke: var(--color-accent); }
-    .arch-svg .bx-comp { stroke: var(--color-magenta); }
-    .arch-svg .bx-rep { stroke: var(--color-good); }
-    .arch-svg .ttl { fill: var(--color-fg); font-size: 13px; font-weight: 700; }
-    .arch-svg .lnt { font-size: 12.5px; font-weight: 700; }
-    .arch-svg .lnt-web { fill: var(--color-accent); }
-    .arch-svg .lnt-comp { fill: var(--color-magenta); }
-    .arch-svg .lnt-rep { fill: var(--color-good); }
-    .arch-svg .sub { fill: var(--color-fg-subtle); font-size: 10px; }
-    .arch-svg .it { fill: var(--color-fg); font-size: 10.5px; }
-    .arch-svg .cd { fill: var(--color-accent); font-size: 9.5px; }
-    .arch-svg .mu { fill: var(--color-fg-subtle); font-size: 10px; }
-    .arch-svg .flow { fill: none; stroke: var(--color-fg-faint); stroke-width: 1.4; }
-    .arch-svg .lbl { fill: var(--color-fg-subtle); font-size: 9.5px; }
-  </style>
-  <defs>
-    <marker id="ln-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L8,4 L0,8 z" fill="var(--color-fg-faint)"/>
-    </marker>
-  </defs>
-
-  <text class="ttl" x="22" y="30">Three lanes, what runs WHERE</text>
-  <text class="sub" x="22" y="47">the same TypeScript engine runs in the browser AND under Node; Python only bakes &amp; trains offline</text>
-
-  <!-- ===== WEB lane ===== -->
-  <rect class="bx bx-web" x="14" y="66" width="290" height="392" rx="11"/>
-  <text class="lnt lnt-web" x="30" y="92">WEB · live, in the browser</text>
-  <text class="sub" x="30" y="108">no server, static GitHub Pages</text>
-
-  <rect class="bx" x="30" y="122" width="258" height="58" rx="7"/>
-  <text class="it" x="42" y="142">Deterministic engine (TS)</text>
-  <text class="cd mono" x="42" y="158">frontend/src/&lt;domain&gt;/</text>
-  <text class="mu" x="42" y="172">re-runs on every control change</text>
-
-  <rect class="bx" x="30" y="190" width="258" height="58" rx="7"/>
-  <text class="it" x="42" y="210">In-browser inference</text>
-  <text class="cd mono" x="42" y="226">onnxruntime-web · WASM</text>
-  <text class="mu" x="42" y="240">*.onnx loaded from /public, numThreads=1</text>
-
-  <rect class="bx" x="30" y="258" width="258" height="58" rx="7"/>
-  <text class="it" x="42" y="278">6-page SPA + live viz</text>
-  <text class="cd mono" x="42" y="294">caos-app-shell · uPlot · three</text>
-  <text class="mu" x="42" y="308">App reacts to the case selector</text>
-
-  <rect class="bx" x="30" y="326" width="258" height="58" rx="7"/>
-  <text class="it" x="42" y="346">Loads baked artifacts</text>
-  <text class="cd mono" x="42" y="362">/case-results.json · /data/manifests</text>
-  <text class="mu" x="42" y="376">read-only, never recomputes the bake</text>
-  <text class="mu" x="30" y="406">User: pick a case OR drop your own data</text>
-  <text class="mu" x="30" y="420">→ engine + inference run client-side, live</text>
-
-  <!-- ===== COMPUTE lane ===== -->
-  <rect class="bx bx-comp" x="318" y="66" width="290" height="392" rx="11"/>
-  <text class="lnt lnt-comp" x="334" y="92">OFFLINE · compute (your machine)</text>
-  <text class="sub" x="334" y="108">Python, isolated .venv, never in the browser</text>
-
-  <rect class="bx" x="334" y="122" width="258" height="58" rx="7"/>
-  <text class="it" x="346" y="142">Precompute / bake pipeline</text>
-  <text class="cd mono" x="346" y="158">data-pipeline/&lt;pkg&gt;/pipeline.py</text>
-  <text class="mu" x="346" y="172">numpy-light default · staged · gated</text>
-
-  <rect class="bx" x="334" y="190" width="258" height="58" rx="7"/>
-  <text class="it" x="346" y="210">Model training (heavy lane)</text>
-  <text class="cd mono" x="346" y="226">--retrain · .venv-precompute · torch</text>
-  <text class="mu" x="346" y="240">exports torch → ONNX, never ships the venv</text>
-
-  <rect class="bx" x="334" y="258" width="258" height="58" rx="7"/>
-  <text class="it" x="346" y="278">Two-language bake (parity)</text>
-  <text class="cd mono" x="346" y="294">science/bake_cases.mjs · tsx</text>
-  <text class="mu" x="346" y="308">Node runs the SAME TS engine</text>
-
-  <rect class="bx" x="334" y="326" width="258" height="58" rx="7"/>
-  <text class="it" x="346" y="346">Writes canonical artifacts</text>
-  <text class="cd mono" x="346" y="362">data/derived/ + manifests + trace</text>
-  <text class="mu" x="346" y="376">deterministic, git-clean after re-run</text>
-  <text class="mu" x="334" y="406">Run once per data/model change; the</text>
-  <text class="mu" x="334" y="420">artifacts are committed, the venvs are not</text>
-
-  <!-- ===== REPLAY lane ===== -->
-  <rect class="bx bx-rep" x="622" y="66" width="264" height="392" rx="11"/>
-  <text class="lnt lnt-rep" x="638" y="92">REPLAY · committed bridge</text>
-  <text class="sub" x="638" y="108">the contract between compute &amp; web</text>
-
-  <rect class="bx" x="638" y="122" width="232" height="64" rx="7"/>
-  <text class="it" x="650" y="142">Canonical artifacts</text>
-  <text class="cd mono" x="650" y="158">data/derived/*.json + *.onnx</text>
-  <text class="mu" x="650" y="174">small, reviewable, versioned in git</text>
-
-  <rect class="bx" x="638" y="196" width="232" height="64" rx="7"/>
-  <text class="it" x="650" y="216">Overlay into the SPA</text>
-  <text class="cd mono" x="650" y="232">frontend/copy-data.mjs</text>
-  <text class="mu" x="650" y="248">copies derived → frontend/public</text>
-
-  <rect class="bx" x="638" y="270" width="232" height="64" rx="7"/>
-  <text class="it" x="650" y="290">Typed mirror gates the build</text>
-  <text class="cd mono" x="650" y="306">frontend/src/lib/contract.types.ts</text>
-  <text class="mu" x="650" y="322">tsc fails if web ≠ pipeline shape</text>
-
-  <text class="mu" x="638" y="356">Replay = how the live app shows real,</text>
-  <text class="mu" x="638" y="370">reproducible results with no backend.</text>
-  <text class="mu" x="638" y="392">If a model is pending, the app still</text>
-  <text class="mu" x="638" y="406">runs the classical baseline; the toggle</text>
-  <text class="mu" x="638" y="420">turns on once the ONNX exists.</text>
-
-  <!-- flows compute -> replay -> web -->
-  <path class="flow" d="M608,355 H636" marker-end="url(#ln-arrow)"/>
-  <path class="flow" d="M636,300 H612 Q300,300 304,300" />
-  <path class="flow" d="M620,228 H306" marker-end="url(#ln-arrow)"/>
-  <text class="lbl" x="430" y="222">artifacts overlaid → loaded live</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" viewBox="0 0 880 620" class="arch-svg" role="img">
+<title>What runs where</title>
+<style>
+svg .l-es { display:none; }
+.bg { fill:var(--color-surface, Canvas); } .band { fill:var(--color-surface-2, Canvas); stroke:var(--color-border, GrayText); }
+.bx { fill:var(--color-surface, Canvas); stroke:var(--color-border, GrayText); stroke-width:1.4; }
+.bx-hi { stroke:var(--color-accent, rebeccapurple); } .bx-eng { stroke:var(--color-warn, darkgoldenrod); } .bx-store,.bx-web { stroke:var(--color-good, seagreen); } .bx-warn { stroke:var(--color-warn, darkgoldenrod); }
+text { font-family:system-ui,sans-serif; fill:var(--color-fg, CanvasText); } .heading {font-size:20px;font-weight:650;} .subtitle {font-size:12px;fill:var(--color-fg-subtle, GrayText);} .band-label {font-size:10px;font-weight:650;letter-spacing:1px;fill:var(--color-fg-subtle, GrayText);} .ttl {font-size:12px;font-weight:650;} .cd {font-size:9.2px;font-family:ui-monospace,monospace;fill:var(--color-accent, rebeccapurple);} .it {font-size:10.3px;fill:var(--color-fg-subtle, GrayText);} .flow {fill:none;stroke:var(--color-accent, rebeccapurple);stroke-width:1.4;marker-end:url(#arr);} .lbl {font-size:9px;fill:var(--color-fg-subtle, GrayText);paint-order:stroke;stroke:var(--color-surface, Canvas);stroke-width:5;stroke-linejoin:round;} .arrow {fill:var(--color-accent, rebeccapurple);}
+</style>
+<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="arrow" d="M0 0L7 3.5L0 7Z"/></marker></defs>
+<rect width="880" height="620" class="bg"/>
+<text x="25" y="27" text-anchor="start" class="heading l-en">What runs where</text>
+<text x="25" y="27" text-anchor="start" class="heading l-es">Dónde se ejecuta cada parte</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-en">Acquisition is offline. Interaction is local. Delivery serves a fixed bundle.</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-es">La adquisición es previa. La interacción es local. Se sirve un paquete fijo.</text>
+<rect x="20" y="64" width="840" height="179" rx="10" class="band"/>
+<text x="35" y="86" text-anchor="start" class="band-label l-en">OFFLINE · REPRODUCIBLE SOURCE PROCESSING</text>
+<text x="35" y="86" text-anchor="start" class="band-label l-es">PREVIO · PROCESAMIENTO REPRODUCIBLE</text>
+<rect x="20" y="284" width="840" height="115" rx="10" class="band"/>
+<text x="35" y="306" text-anchor="start" class="band-label l-en">STATIC RELEASE BRIDGE</text>
+<text x="35" y="306" text-anchor="start" class="band-label l-es">PUENTE DE PUBLICACIÓN ESTÁTICA</text>
+<rect x="20" y="444" width="840" height="154" rx="10" class="band"/>
+<text x="35" y="466" text-anchor="start" class="band-label l-en">BROWSER · NO ACCOUNT OR RUNTIME SECRET</text>
+<text x="35" y="466" text-anchor="start" class="band-label l-es">NAVEGADOR · SIN CUENTA NI SECRETO EN EJECUCIÓN</text>
+<rect x="35" y="99" width="250" height="122" rx="7" class="bx bx-store"/>
+<text x="47" y="120" text-anchor="start" class="ttl l-en">Acquire locked files</text>
+<text x="47" y="120" text-anchor="start" class="ttl l-es">Adquirir archivos fijados</text>
+<text x="47" y="139" class="cd l-neutral">data-pipeline/run.py</text>
+<text x="47" y="160" text-anchor="start" class="it l-en">Official source URL + SHA-256</text>
+<text x="47" y="160" text-anchor="start" class="it l-es">URL oficial + SHA-256</text>
+<text x="47" y="176" text-anchor="start" class="it l-en">Cache verified before reuse</text>
+<text x="47" y="176" text-anchor="start" class="it l-es">Caché verificada antes de reutilizar</text>
+<text x="47" y="192" text-anchor="start" class="it l-en">Reject unexpected bytes</text>
+<text x="47" y="192" text-anchor="start" class="it l-es">Rechazar bytes inesperados</text>
+<rect x="315" y="99" width="250" height="122" rx="7" class="bx bx-eng"/>
+<text x="327" y="120" text-anchor="start" class="ttl l-en">Inspect and normalize</text>
+<text x="327" y="120" text-anchor="start" class="ttl l-es">Inspeccionar y normalizar</text>
+<text x="327" y="139" class="cd l-neutral">inspect · normalize</text>
+<text x="327" y="160" text-anchor="start" class="it l-en">Geometry / materials / bounds</text>
+<text x="327" y="160" text-anchor="start" class="it l-es">Geometría / materiales / límites</text>
+<text x="327" y="176" text-anchor="start" class="it l-en">Compact / detailed variants</text>
+<text x="327" y="176" text-anchor="start" class="it l-es">Variantes compacta / detallada</text>
+<text x="327" y="192" text-anchor="start" class="it l-en">Preserve source relationship</text>
+<text x="327" y="192" text-anchor="start" class="it l-es">Conservar relación de origen</text>
+<rect x="595" y="99" width="250" height="122" rx="7" class="bx bx-hi"/>
+<text x="607" y="120" text-anchor="start" class="ttl l-en">Validate and export</text>
+<text x="607" y="120" text-anchor="start" class="ttl l-es">Validar y exportar</text>
+<text x="607" y="139" class="cd l-neutral">export · verify</text>
+<text x="607" y="160" text-anchor="start" class="it l-en">Catalog IDs and references</text>
+<text x="607" y="160" text-anchor="start" class="it l-es">Identificadores y referencias</text>
+<text x="607" y="176" text-anchor="start" class="it l-en">Artifact hashes / manifest</text>
+<text x="607" y="176" text-anchor="start" class="it l-es">Huellas / manifiesto de recursos</text>
+<text x="607" y="192" text-anchor="start" class="it l-en">Sandbox checks stay separate</text>
+<text x="607" y="192" text-anchor="start" class="it l-es">Pruebas en entorno separado</text>
+<rect x="155" y="319" width="570" height="61" rx="7" class="bx bx-store"/>
+<text x="167" y="340" text-anchor="start" class="ttl l-en">Immutable catalog, geometry and client bundle</text>
+<text x="167" y="340" text-anchor="start" class="ttl l-es">Catálogo, geometría y cliente inmutables</text>
+<text x="167" y="359" class="cd l-neutral">data/artifacts/ → frontend/dist/ → static HTTPS</text>
+<rect x="35" y="479" width="250" height="101" rx="7" class="bx bx-web"/>
+<text x="47" y="500" text-anchor="start" class="ttl l-en">Decode on demand</text>
+<text x="47" y="500" text-anchor="start" class="ttl l-es">Decodificar cuando se necesita</text>
+<text x="47" y="519" class="cd l-neutral">GLTFLoader · DRACOLoader</text>
+<text x="47" y="540" text-anchor="start" class="it l-en">Local decoder resources</text>
+<text x="47" y="540" text-anchor="start" class="it l-es">Decodificadores locales</text>
+<text x="47" y="556" text-anchor="start" class="it l-en">Bounded fidelity selection</text>
+<text x="47" y="556" text-anchor="start" class="it l-es">Selección de fidelidad delimitada</text>
+<rect x="315" y="479" width="250" height="101" rx="7" class="bx bx-web"/>
+<text x="327" y="500" text-anchor="start" class="ttl l-en">Manipulate the view</text>
+<text x="327" y="500" text-anchor="start" class="ttl l-es">Manipular la vista</text>
+<text x="327" y="519" class="cd l-neutral">Viewer.tsx · botany.ts</text>
+<text x="327" y="540" text-anchor="start" class="it l-en">No biological prediction engine</text>
+<text x="327" y="540" text-anchor="start" class="it l-es">Sin motor de predicción biológica</text>
+<text x="327" y="556" text-anchor="start" class="it l-en">Paused explanatory sequence</text>
+<text x="327" y="556" text-anchor="start" class="it l-es">Secuencia explicativa pausada</text>
+<rect x="595" y="479" width="250" height="101" rx="7" class="bx bx-hi"/>
+<text x="607" y="500" text-anchor="start" class="ttl l-en">Keep a meaningful state</text>
+<text x="607" y="500" text-anchor="start" class="ttl l-es">Conservar un estado útil</text>
+<text x="607" y="519" class="cd l-neutral">lib/state.ts</text>
+<text x="607" y="540" text-anchor="start" class="it l-en">Local bookmarks / share / JSON</text>
+<text x="607" y="540" text-anchor="start" class="it l-es">Marcadores locales / enlace / JSON</text>
+<text x="607" y="556" text-anchor="start" class="it l-en">Imported values validated</text>
+<text x="607" y="556" text-anchor="start" class="it l-es">Valores importados validados</text>
+<path d="M285 158H315" class="flow"/>
+<text x="300" y="146" text-anchor="middle" class="lbl l-en">file</text>
+<text x="300" y="146" text-anchor="middle" class="lbl l-es">archivo</text>
+<path d="M565 158H595" class="flow"/>
+<text x="580" y="146" text-anchor="middle" class="lbl l-en">facts</text>
+<text x="580" y="146" text-anchor="middle" class="lbl l-es">datos</text>
+<path d="M720 221V265H440V319" class="flow"/>
+<text x="610" y="258" text-anchor="middle" class="lbl l-en">publish checked artifacts</text>
+<text x="610" y="258" text-anchor="middle" class="lbl l-es">publicar recursos verificados</text>
+<path d="M440 380V422H160V479" class="flow"/>
+<text x="270" y="417" text-anchor="middle" class="lbl l-en">serve static files</text>
+<text x="270" y="417" text-anchor="middle" class="lbl l-es">servir archivos estáticos</text>
+<path d="M440 422V479" class="flow"/>
+<text x="481" y="433" text-anchor="middle" class="lbl l-en">client state</text>
+<text x="481" y="433" text-anchor="middle" class="lbl l-es">estado local</text>
+<path d="M440 422H720V479" class="flow"/>
+<text x="663" y="417" text-anchor="middle" class="lbl l-en">read / restore</text>
+<text x="663" y="417" text-anchor="middle" class="lbl l-es">leer / restaurar</text>
 </svg>

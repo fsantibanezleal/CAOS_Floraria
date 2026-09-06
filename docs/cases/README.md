@@ -1,20 +1,25 @@
-# Cases + categories
+# Coverage matrix
 
-Each case (`data-pipeline/pipeline/cases/`) declares a **CATEGORY** (the domain problem-type taxonomy), its
-params, an expected band (what a domain expert should see), and a real|synthetic flag. `registry.list_categories()`
-groups them. The **App shows ONE selected case**; **Experiments/Benchmark show cross-case summaries by category**
-(never mixed into the App).
+## Observed collection
 
-## Coverage matrix (EXAMPLE, SIR; replace with your real, varied matrix)
+| ID | Bloom |
+|---|---|
+| phalaenopsis | Phalaenopsis amabilis |
+| encyclia | Encyclia tampensis var. alba |
+| lycaste | Lycaste virginalis |
+| phragmipedium | Phragmipedium x richteri 'Wolf River' |
+| vanda | Vanda coerulea |
 
-| id | category | expected band | real/synthetic |
-|---|---|---|---|
-| `EX01_subcritical` | sub-critical (R0<1) | no outbreak; attack rate ≈ 0 | synthetic |
-| `EX02_epidemic` | epidemic (R0>1) | clear single peak; attack rate ≈ 0.7–0.9 | synthetic |
-| `EX03_fast_burn` | fast-burn (high R0) | early sharp peak; attack rate → ~1 | synthetic |
-| `EX04_slow_spread` | slow-spread (R0~1.2) | broad low peak | synthetic |
-| `CTRL_degenerate` | control: degenerate | `I0=0` → no dynamics (must not crash) | synthetic |
+Each has compact/detailed variants, credit, hash, bytes and triangles. Actual numeric facts belong to the catalog.
 
-A real product fills a matrix spanning its real axes (not "two of everything") + explicit negative/sanity
-controls, and adds one `docs/cases/<category>/<case-id>.md` per case (formalization + expected results + anchor).
-Copy [`00_TEMPLATE.md`](00_TEMPLATE.md) as the starting point for each per-case page.
+## Authored structure
+
+General flower explains whorls and reproductive components. Orchid explains lip/column/inferior-ovary organization. Neither reconstructs a listed scan. IDs/model membership are validated.
+
+## Investigation IDs
+
+flower-whorls; a-stamens-two-parts; pistil-route; ovary-and-ovules; pollen-path; flower-to-fruit; orchid-plan; lip-and-column; symmetry; surface-and-depth; family-resemblances; evidence-and-model.
+
+The catalog owns current titles/questions/references/steps. Each is executable in Investigations. Grouping limits navigation without merging distinct questions.
+
+Acceptance requires every step to open the advertised object/model/part with meaningful state and interpretation. Scan questions stay within surface evidence and teaching views retain limitations. See [validation](../architecture/05_validation.md).

@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
-# Local dev: frontend dev server (+ the API only if app/ is activated). Dormant lanes are skipped.
-set -euo pipefail
-cd "$(dirname "$0")/.."
-
-# API lane (only if app/ is active — i.e. requirements-api.txt is non-placeholder AND app has a real main)
-if [ -f requirements-api.txt ] && grep -qvE '^\s*#|^\s*$' requirements-api.txt 2>/dev/null && [ -f app/main.py ]; then
-  VP=".venv/bin/python"; [ -x "$VP" ] || VP=".venv/Scripts/python.exe"
-  echo "[dev] app/ active -> starting uvicorn on :8000 (background)"
-  "$VP" -m uvicorn app.main:app --reload --port 8000 &
-fi
-
-# Frontend (the replay SPA)
-if [ -f frontend/package.json ]; then
-  cd frontend
-  [ -d node_modules ] || npm install
-  node copy-data.mjs
-  npm run dev
+set -Eeuo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FLORARIA_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+if [[ -x "$FLORARIA_ROOT/.venv/bin/python" ]]; then
+  FLORARIA_PYTHON=("$FLORARIA_ROOT/.venv/bin/python")
+elif [[ -x "$FLORARIA_ROOT/.venv/Scripts/python.exe" ]]; then
+  FLORARIA_PYTHON=("$FLORARIA_ROOT/.venv/Scripts/python.exe")
+elif command -v python3.13 >/dev/null 2>&1; then
+  FLORARIA_PYTHON=(python3.13)
+elif command -v py >/dev/null 2>&1; then
+  FLORARIA_PYTHON=(py -3.13)
 else
-  echo "[dev] no frontend/ — this product ships without a web surface (static/web lane dormant)."
+  echo 'Python 3.13 is required. Install it before running Floraria setup.' >&2
+  exit 1
 fi
+exec "${FLORARIA_PYTHON[@]}" "$FLORARIA_ROOT/scripts/project.py" 'dev' "$@"
