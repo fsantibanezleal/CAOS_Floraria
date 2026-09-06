@@ -1,12 +1,11 @@
 # Architecture
 
-- [01, overview](architecture/01_overview.md), the archetype, the lanes, the flow, frozen-vs-rework
-- [02, determinism + trace](architecture/02_determinism-and-trace.md)
-- [03, the live/precompute gate](architecture/03_the-gate.md)
-- [04, the live (Pyodide) lane](architecture/04_live-lane-pyodide.md)
-- [05, the staged precompute pipeline](architecture/05_precompute-pipeline.md)
-- [06, model evaluation](architecture/06_model-evaluation.md)
-- [07, deploy](architecture/07_deploy.md)
-- [08, the two data contracts](architecture/08_data-contracts.md)
+1. [System and lanes](architecture/01_overview.md).
+2. [State and determinism](architecture/02_state-and-determinism.md).
+3. [Geometry and rendering](architecture/03_geometry-and-rendering.md).
+4. [Source processing](architecture/04_source-processing.md).
+5. [Validation](architecture/05_validation.md).
+6. [Static delivery](architecture/06_static-delivery.md).
+7. [Release record](architecture/07_release-and-verification.md).
 
-Binding decision: [ADR-0057](../../conventions/architecture/0-archetype/ADR-0057-product-repo-archetype.md).
+The in-app architecture dialog presents five themed bilingual diagrams on every route.

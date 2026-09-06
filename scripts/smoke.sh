@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
-# Smoke: validate the CONTRACT 2 artifacts on disk (index -> manifests -> artifacts consistent). A real product
-# extends this with an HTTP/static check of the built site (canonical routes/assets return 200 + non-empty).
-set -euo pipefail
-cd "$(dirname "$0")/.."
-PY=".venv-pipeline/bin/python"; [ -x "$PY" ] || PY=".venv-pipeline/Scripts/python.exe"
-[ -x "$PY" ] || PY="${PYTHON:-python}"
-"$PY" scripts/check_artifacts.py
+set -Eeuo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FLORARIA_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+if [[ -x "$FLORARIA_ROOT/.venv/bin/python" ]]; then
+  FLORARIA_PYTHON=("$FLORARIA_ROOT/.venv/bin/python")
+elif [[ -x "$FLORARIA_ROOT/.venv/Scripts/python.exe" ]]; then
+  FLORARIA_PYTHON=("$FLORARIA_ROOT/.venv/Scripts/python.exe")
+elif command -v python3.13 >/dev/null 2>&1; then
+  FLORARIA_PYTHON=(python3.13)
+elif command -v py >/dev/null 2>&1; then
+  FLORARIA_PYTHON=(py -3.13)
+else
+  echo 'Python 3.13 is required. Install it before running Floraria setup.' >&2
+  exit 1
+fi
+exec "${FLORARIA_PYTHON[@]}" "$FLORARIA_ROOT/scripts/project.py" 'smoke' "$@"

@@ -1,5 +1,7 @@
-# Cases
+# Cases and investigations
 
-The CATEGORY taxonomy + the coverage matrix + one page per documented case live in
-**[cases/README.md](cases/README.md)**. Each case carries a category, params, an expected band, and a
-real|synthetic flag; the App shows one case, Experiments/Benchmark summarize across categories.
+Five biological examples and two authored model families are distinct coverage units. Fidelity variants and progress stages are not additional measured specimens.
+
+See [coverage](cases/README.md). The canonical catalog owns ordered questions, steps and states; the UI reads it directly.
+
+Every investigation connects question, action, observation, interpretation and source. A card without a working view is not an implemented investigation.

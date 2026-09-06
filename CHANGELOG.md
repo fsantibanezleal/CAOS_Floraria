@@ -1,16 +1,17 @@
 # Changelog
 
-All notable changes to this product. Format: `X.XX.XXX` (display), see `pipeline.__version__`. Keep `0.x`
-while on mock/synthetic data. Tag every release.
+Display versions use X.XX.XXX; the frontend manifest uses normalized semantic versioning.
 
-## [0.01.000], 2026-06-20
+## [0.01.000] - 2026-09-06
 
 ### Added
-- Initial instantiation from the CAOS product-repo template (ADR-0057).
-- Offline `data-pipeline/` (`pipeline`): the two data contracts (ingestion + artifact), the named staged
-  pipeline (preprocess → feature_extraction → train → infer → evaluate → export), the seeded RNG, the compact
-  trace, the manifest, and the measured live-vs-precompute gate.
-- EXAMPLE engine: a deterministic SIR epidemic (numpy-only, Pyodide-safe), **replace with the product's
-  research-chosen SOTA engine**.
-- Cases-by-category registry (4 regimes + 1 degenerate control); a live-lane entrypoint (`live.py`); tests for
-  both contracts + pipeline determinism.
+
+- Five sourced Smithsonian blooms with compact/full fidelity.
+- Distinct flower/orchid teaching models and connected spatial exploration.
+- Bilingual field guide, six morphology families, investigations and evidence.
+- Source/artifact contracts, reproducible processing, attribution and documentation.
+- Five bilingual themed architecture diagrams and local/static-delivery scripts.
+
+### Release status
+
+Implementation and verification are in progress. This entry does not declare deployment or completion of external gates. Final execution/delivery receipts belong to [the release record](docs/architecture/07_release-and-verification.md).

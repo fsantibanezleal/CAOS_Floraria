@@ -1,118 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" class="arch-svg" role="img" aria-label="The web-app flow: from user controls through the live engine to the six pages">
-  <style>
-    .arch-svg text { font-family: var(--font-sans, Inter, "Segoe UI", system-ui, sans-serif); }
-    .arch-svg .mono { font-family: var(--font-mono, ui-monospace, Consolas, monospace); }
-    .arch-svg .bx { fill: var(--color-surface-2); stroke: var(--color-border); stroke-width: 1.2; }
-    .arch-svg .bx-hi { stroke: var(--color-accent); }
-    .arch-svg .bx-good { stroke: var(--color-good); }
-    .arch-svg .grp { fill: none; stroke: var(--color-border); stroke-dasharray: 5 4; }
-    .arch-svg .ttl { fill: var(--color-fg); font-size: 13px; font-weight: 700; }
-    .arch-svg .sub { fill: var(--color-fg-subtle); font-size: 10px; }
-    .arch-svg .it { fill: var(--color-fg); font-size: 10.5px; }
-    .arch-svg .cd { fill: var(--color-accent); font-size: 9.5px; }
-    .arch-svg .mu { fill: var(--color-fg-subtle); font-size: 10px; }
-    .arch-svg .flow { fill: none; stroke: var(--color-fg-faint); stroke-width: 1.5; }
-    .arch-svg .flow-hi { stroke: var(--color-accent); stroke-width: 1.7; }
-    .arch-svg .lbl { fill: var(--color-fg-subtle); font-size: 9.5px; }
-    .arch-svg .pg { fill: var(--color-accent); font-size: 10px; font-weight: 600; }
-  </style>
-  <defs>
-    <marker id="wf-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L8,4 L0,8 z" fill="var(--color-fg-faint)"/>
-    </marker>
-    <marker id="wf-arrow-hi" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L8,4 L0,8 z" fill="var(--color-accent)"/>
-    </marker>
-  </defs>
-
-  <text class="ttl" x="22" y="30">Web-app flow, the App page recomputes live</text>
-  <text class="sub" x="22" y="47">no round-trip to a server: the engine + inference run in the browser on every control change</text>
-
-  <!-- input -->
-  <rect class="bx bx-hi" x="14" y="70" width="190" height="120" rx="10"/>
-  <text class="it" x="28" y="92">Inputs</text>
-  <text class="mu" x="28" y="110">• case selector (built-in)</text>
-  <text class="mu" x="28" y="126">• drop your own data</text>
-  <text class="mu" x="28" y="142">• sliders / toggles</text>
-  <text class="cd mono" x="28" y="166">Tool.tsx · cases.ts</text>
-  <text class="mu" x="28" y="182">every page reacts to the case</text>
-
-  <!-- engine -->
-  <rect class="bx bx-hi" x="244" y="70" width="200" height="120" rx="10"/>
-  <text class="it" x="258" y="92">Live engine (TS)</text>
-  <text class="mu" x="258" y="110">re-run, no server call</text>
-  <text class="cd mono" x="258" y="130">src/&lt;domain&gt;/*.ts</text>
-  <text class="mu" x="258" y="150">+ onnxruntime-web inference</text>
-  <text class="cd mono" x="258" y="170">src/lib/ort.ts</text>
-  <text class="mu" x="258" y="186">classical baseline ⇄ learned toggle</text>
-
-  <!-- viz -->
-  <rect class="bx bx-good" x="484" y="70" width="200" height="120" rx="10"/>
-  <text class="it" x="498" y="92">Interactive viz</text>
-  <text class="mu" x="498" y="110">reads values back, reacts</text>
-  <text class="cd mono" x="498" y="130">viz/*.tsx · uPlot · three</text>
-  <text class="mu" x="498" y="150">overlays, charts, gauges</text>
-  <text class="mu" x="498" y="170">hover = value readout</text>
-  <text class="mu" x="498" y="186">marks OOD / uncertain live</text>
-
-  <!-- baked data feeds engine -->
-  <rect class="bx" x="724" y="70" width="162" height="120" rx="10"/>
-  <text class="it" x="738" y="92">Baked artifacts</text>
-  <text class="cd mono" x="738" y="112">/case-results.json</text>
-  <text class="cd mono" x="738" y="128">/data/manifests</text>
-  <text class="cd mono" x="738" y="144">/*.onnx</text>
-  <text class="mu" x="738" y="166">overlaid by</text>
-  <text class="cd mono" x="738" y="180">copy-data.mjs</text>
-
-  <path class="flow-hi" d="M204,130 H242" marker-end="url(#wf-arrow-hi)"/>
-  <path class="flow-hi" d="M444,130 H482" marker-end="url(#wf-arrow-hi)"/>
-  <path class="flow" d="M724,130 H686" marker-end="url(#wf-arrow)"/>
-  <text class="lbl" x="700" y="122">seeds + models</text>
-
-  <!-- 6 pages -->
-  <rect class="grp" x="14" y="214" width="872" height="120" rx="10"/>
-  <text class="pg" x="28" y="234">Six sibling pages, identical across every product (ADR-0057)</text>
-  <rect class="bx bx-hi" x="28" y="246" width="132" height="72" rx="7"/>
-  <text class="it" x="40" y="266">App / Tool</text>
-  <text class="mu" x="40" y="282">live engine + controls</text>
-  <text class="cd mono" x="40" y="300">pages/Tool.tsx</text>
-  <rect class="bx" x="172" y="246" width="132" height="72" rx="7"/>
-  <text class="it" x="184" y="266">Introduction</text>
-  <text class="mu" x="184" y="282">problem + context</text>
-  <text class="cd mono" x="184" y="300">Introduction.tsx</text>
-  <rect class="bx" x="316" y="246" width="132" height="72" rx="7"/>
-  <text class="it" x="328" y="266">Methodology</text>
-  <text class="mu" x="328" y="282">method tabs + eqs</text>
-  <text class="cd mono" x="328" y="300">Methodology.tsx</text>
-  <rect class="bx" x="460" y="246" width="132" height="72" rx="7"/>
-  <text class="it" x="472" y="266">Implementation</text>
-  <text class="mu" x="472" y="282">pipeline + contracts</text>
-  <text class="cd mono" x="472" y="300">Implementation.tsx</text>
-  <rect class="bx" x="604" y="246" width="132" height="72" rx="7"/>
-  <text class="it" x="616" y="266">Experiments</text>
-  <text class="mu" x="616" y="282">per-case results</text>
-  <text class="cd mono" x="616" y="300">Experiments.tsx</text>
-  <rect class="bx bx-good" x="748" y="246" width="126" height="72" rx="7"/>
-  <text class="it" x="760" y="266">Benchmark</text>
-  <text class="mu" x="760" y="282">cross-case + real data</text>
-  <text class="cd mono" x="760" y="300">Benchmark.tsx</text>
-
-  <!-- build/deploy -->
-  <rect class="grp" x="14" y="352" width="872" height="100" rx="10"/>
-  <text class="pg" x="28" y="372">Build &amp; deploy, typed mirror gates, static output, GitHub Pages</text>
-  <rect class="bx bx-good" x="28" y="384" width="200" height="54" rx="7"/>
-  <text class="it" x="40" y="404">Contract-type mirror</text>
-  <text class="cd mono" x="40" y="422">src/lib/contract.types.ts</text>
-  <rect class="bx" x="248" y="384" width="200" height="54" rx="7"/>
-  <text class="it" x="260" y="404">copy-data overlay</text>
-  <text class="cd mono" x="260" y="422">predev / prebuild hook</text>
-  <rect class="bx" x="468" y="384" width="200" height="54" rx="7"/>
-  <text class="it" x="480" y="404">vite build (tsc strict)</text>
-  <text class="cd mono" x="480" y="422">frontend/dist</text>
-  <rect class="bx bx-hi" x="688" y="384" width="186" height="54" rx="7"/>
-  <text class="it" x="700" y="404">GitHub Pages</text>
-  <text class="cd mono" x="700" y="422">&lt;slug&gt;.fasl-work.com</text>
-  <path class="flow" d="M228,411 H246" marker-end="url(#wf-arrow)"/>
-  <path class="flow" d="M448,411 H466" marker-end="url(#wf-arrow)"/>
-  <path class="flow" d="M668,411 H686" marker-end="url(#wf-arrow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" viewBox="0 0 880 620" class="arch-svg" role="img">
+<title>One state, connected views</title>
+<style>
+svg .l-es { display:none; }
+.bg { fill:var(--color-surface, Canvas); } .band { fill:var(--color-surface-2, Canvas); stroke:var(--color-border, GrayText); }
+.bx { fill:var(--color-surface, Canvas); stroke:var(--color-border, GrayText); stroke-width:1.4; }
+.bx-hi { stroke:var(--color-accent, rebeccapurple); } .bx-eng { stroke:var(--color-warn, darkgoldenrod); } .bx-store,.bx-web { stroke:var(--color-good, seagreen); } .bx-warn { stroke:var(--color-warn, darkgoldenrod); }
+text { font-family:system-ui,sans-serif; fill:var(--color-fg, CanvasText); } .heading {font-size:20px;font-weight:650;} .subtitle {font-size:12px;fill:var(--color-fg-subtle, GrayText);} .band-label {font-size:10px;font-weight:650;letter-spacing:1px;fill:var(--color-fg-subtle, GrayText);} .ttl {font-size:12px;font-weight:650;} .cd {font-size:9.2px;font-family:ui-monospace,monospace;fill:var(--color-accent, rebeccapurple);} .it {font-size:10.3px;fill:var(--color-fg-subtle, GrayText);} .flow {fill:none;stroke:var(--color-accent, rebeccapurple);stroke-width:1.4;marker-end:url(#arr);} .lbl {font-size:9px;fill:var(--color-fg-subtle, GrayText);paint-order:stroke;stroke:var(--color-surface, Canvas);stroke-width:5;stroke-linejoin:round;} .arrow {fill:var(--color-accent, rebeccapurple);}
+</style>
+<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="arrow" d="M0 0L7 3.5L0 7Z"/></marker></defs>
+<rect width="880" height="620" class="bg"/>
+<text x="25" y="27" text-anchor="start" class="heading l-en">One state, connected views</text>
+<text x="25" y="27" text-anchor="start" class="heading l-es">Un estado, vistas conectadas</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-en">A click changes a valid view. A return restores context rather than starting over.</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-es">Un clic cambia una vista válida. Volver recupera el contexto sin comenzar de nuevo.</text>
+<rect x="20" y="65" width="840" height="163" rx="10" class="band"/>
+<text x="35" y="87" text-anchor="start" class="band-label l-en">INTENT</text>
+<text x="35" y="87" text-anchor="start" class="band-label l-es">INTENCIÓN</text>
+<rect x="20" y="270" width="840" height="123" rx="10" class="band"/>
+<text x="35" y="292" text-anchor="start" class="band-label l-en">VALIDATED APPLICATION STATE</text>
+<text x="35" y="292" text-anchor="start" class="band-label l-es">ESTADO VALIDADO DE LA APLICACIÓN</text>
+<rect x="20" y="441" width="840" height="158" rx="10" class="band"/>
+<text x="35" y="463" text-anchor="start" class="band-label l-en">PRESENTATION AND CONTINUITY</text>
+<text x="35" y="463" text-anchor="start" class="band-label l-es">PRESENTACIÓN Y CONTINUIDAD</text>
+<rect x="35" y="100" width="250" height="106" rx="7" class="bx bx-web"/>
+<text x="47" y="121" text-anchor="start" class="ttl l-en">Explore controls</text>
+<text x="47" y="121" text-anchor="start" class="ttl l-es">Controles de exploración</text>
+<text x="47" y="140" class="cd l-neutral">App.tsx</text>
+<text x="47" y="161" text-anchor="start" class="it l-en">Object / anatomy / sequence</text>
+<text x="47" y="161" text-anchor="start" class="it l-es">Objeto / anatomía / secuencia</text>
+<text x="47" y="177" text-anchor="start" class="it l-en">Camera and named component</text>
+<text x="47" y="177" text-anchor="start" class="it l-es">Cámara y parte nombrada</text>
+<text x="47" y="193" text-anchor="start" class="it l-en">Expanded mode preserves state</text>
+<text x="47" y="193" text-anchor="start" class="it l-es">La expansión conserva el estado</text>
+<rect x="315" y="100" width="250" height="106" rx="7" class="bx bx-hi"/>
+<text x="327" y="121" text-anchor="start" class="ttl l-en">Investigation step</text>
+<text x="327" y="121" text-anchor="start" class="ttl l-es">Paso de una investigación</text>
+<text x="327" y="140" class="cd l-neutral">GuidePages.tsx</text>
+<text x="327" y="161" text-anchor="start" class="it l-en">Question → action → observation</text>
+<text x="327" y="161" text-anchor="start" class="it l-es">Pregunta → acción → observación</text>
+<text x="327" y="177" text-anchor="start" class="it l-en">onExplore(view)</text>
+<text x="327" y="177" text-anchor="start" class="it l-es">onExplore(view)</text>
+<text x="327" y="193" text-anchor="start" class="it l-en">Same viewer, no hidden tool</text>
+<text x="327" y="193" text-anchor="start" class="it l-es">Misma vista, sin herramienta oculta</text>
+<rect x="595" y="100" width="250" height="106" rx="7" class="bx bx-store"/>
+<text x="607" y="121" text-anchor="start" class="ttl l-en">Shared or saved view</text>
+<text x="607" y="121" text-anchor="start" class="ttl l-es">Vista compartida o guardada</text>
+<text x="607" y="140" class="cd l-neutral">URL · JSON · local bookmark</text>
+<text x="607" y="161" text-anchor="start" class="it l-en">Bounded schema version</text>
+<text x="607" y="161" text-anchor="start" class="it l-es">Versión de esquema delimitada</text>
+<text x="607" y="177" text-anchor="start" class="it l-en">Known object and component IDs</text>
+<text x="607" y="177" text-anchor="start" class="it l-es">Objetos y partes conocidos</text>
+<text x="607" y="193" text-anchor="start" class="it l-en">Reject unsupported state</text>
+<text x="607" y="193" text-anchor="start" class="it l-es">Rechazar estados no admitidos</text>
+<rect x="230" y="305" width="420" height="65" rx="7" class="bx bx-hi"/>
+<text x="242" y="326" text-anchor="start" class="ttl l-en">Normalize, validate and apply once</text>
+<text x="242" y="326" text-anchor="start" class="ttl l-es">Normalizar, validar y aplicar una vez</text>
+<text x="242" y="345" class="cd l-neutral">lib/state.ts → App.tsx</text>
+<rect x="35" y="476" width="250" height="105" rx="7" class="bx bx-web"/>
+<text x="47" y="497" text-anchor="start" class="ttl l-en">Spatial renderer</text>
+<text x="47" y="497" text-anchor="start" class="ttl l-es">Representación espacial</text>
+<text x="47" y="516" class="cd l-neutral">render/Viewer.tsx</text>
+<text x="47" y="537" text-anchor="start" class="it l-en">Picking → component identifier</text>
+<text x="47" y="537" text-anchor="start" class="it l-es">Selección → identificador</text>
+<text x="47" y="553" text-anchor="start" class="it l-en">Visible control effect</text>
+<text x="47" y="553" text-anchor="start" class="it l-es">Efecto visible del control</text>
+<text x="47" y="569" text-anchor="start" class="it l-en">Disposed inactive resources</text>
+<text x="47" y="569" text-anchor="start" class="it l-es">Recursos inactivos liberados</text>
+<rect x="315" y="476" width="250" height="105" rx="7" class="bx bx-eng"/>
+<text x="327" y="497" text-anchor="start" class="ttl l-en">Explanation and source</text>
+<text x="327" y="497" text-anchor="start" class="ttl l-es">Explicación y fuente</text>
+<text x="327" y="516" class="cd l-neutral">Catalog.structures · sources</text>
+<text x="327" y="537" text-anchor="start" class="it l-en">Selected record in EN / ES</text>
+<text x="327" y="537" text-anchor="start" class="it l-es">Registro seleccionado EN / ES</text>
+<text x="327" y="553" text-anchor="start" class="it l-en">Scan / authored model boundary</text>
+<text x="327" y="553" text-anchor="start" class="it l-es">Límite escaneo / modelo propio</text>
+<text x="327" y="569" text-anchor="start" class="it l-en">Text remains usable without 3D</text>
+<text x="327" y="569" text-anchor="start" class="it l-es">Texto disponible sin 3D</text>
+<rect x="595" y="476" width="250" height="105" rx="7" class="bx bx-store"/>
+<text x="607" y="497" text-anchor="start" class="ttl l-en">Export and revisit</text>
+<text x="607" y="497" text-anchor="start" class="ttl l-es">Exportar y volver</text>
+<text x="607" y="516" class="cd l-neutral">lib/state.ts</text>
+<text x="607" y="537" text-anchor="start" class="it l-en">View JSON / local bookmark</text>
+<text x="607" y="537" text-anchor="start" class="it l-es">JSON de vista / marcador local</text>
+<text x="607" y="553" text-anchor="start" class="it l-en">Shared link / image capture</text>
+<text x="607" y="553" text-anchor="start" class="it l-es">Enlace / captura de imagen</text>
+<text x="607" y="569" text-anchor="start" class="it l-en">No account or cloud record</text>
+<text x="607" y="569" text-anchor="start" class="it l-es">Sin cuenta ni registro en nube</text>
+<path d="M160 206V250H440V305" class="flow"/>
+<text x="230" y="244" text-anchor="middle" class="lbl l-en">intent</text>
+<text x="230" y="244" text-anchor="middle" class="lbl l-es">intención</text>
+<path d="M440 206V305" class="flow"/>
+<text x="475" y="259" text-anchor="middle" class="lbl l-en">view</text>
+<text x="475" y="259" text-anchor="middle" class="lbl l-es">vista</text>
+<path d="M720 206V250H440" class="flow"/>
+<text x="645" y="244" text-anchor="middle" class="lbl l-en">decode</text>
+<text x="645" y="244" text-anchor="middle" class="lbl l-es">decodificar</text>
+<path d="M440 370V419H160V476" class="flow"/>
+<text x="235" y="413" text-anchor="middle" class="lbl l-en">render</text>
+<text x="235" y="413" text-anchor="middle" class="lbl l-es">representar</text>
+<path d="M440 419V476" class="flow"/>
+<text x="491" y="430" text-anchor="middle" class="lbl l-en">read context</text>
+<text x="491" y="430" text-anchor="middle" class="lbl l-es">leer contexto</text>
+<path d="M440 419H720V476" class="flow"/>
+<text x="657" y="413" text-anchor="middle" class="lbl l-en">serialize</text>
+<text x="657" y="413" text-anchor="middle" class="lbl l-es">serializar</text>
 </svg>

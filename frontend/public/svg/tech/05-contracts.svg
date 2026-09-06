@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" viewBox="0 0 880 620" class="arch-svg" role="img">
+<title>Evidence has several different jobs</title>
+<style>
+svg .l-es { display:none; }
+.bg { fill:var(--color-surface, Canvas); } .band { fill:var(--color-surface-2, Canvas); stroke:var(--color-border, GrayText); }
+.bx { fill:var(--color-surface, Canvas); stroke:var(--color-border, GrayText); stroke-width:1.4; }
+.bx-hi { stroke:var(--color-accent, rebeccapurple); } .bx-eng { stroke:var(--color-warn, darkgoldenrod); } .bx-store,.bx-web { stroke:var(--color-good, seagreen); } .bx-warn { stroke:var(--color-warn, darkgoldenrod); }
+text { font-family:system-ui,sans-serif; fill:var(--color-fg, CanvasText); } .heading {font-size:20px;font-weight:650;} .subtitle {font-size:12px;fill:var(--color-fg-subtle, GrayText);} .band-label {font-size:10px;font-weight:650;letter-spacing:1px;fill:var(--color-fg-subtle, GrayText);} .ttl {font-size:12px;font-weight:650;} .cd {font-size:9.2px;font-family:ui-monospace,monospace;fill:var(--color-accent, rebeccapurple);} .it {font-size:10.3px;fill:var(--color-fg-subtle, GrayText);} .flow {fill:none;stroke:var(--color-accent, rebeccapurple);stroke-width:1.4;marker-end:url(#arr);} .lbl {font-size:9px;fill:var(--color-fg-subtle, GrayText);paint-order:stroke;stroke:var(--color-surface, Canvas);stroke-width:5;stroke-linejoin:round;} .arrow {fill:var(--color-accent, rebeccapurple);}
+</style>
+<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="arrow" d="M0 0L7 3.5L0 7Z"/></marker></defs>
+<rect width="880" height="620" class="bg"/>
+<text x="25" y="27" text-anchor="start" class="heading l-en">Evidence has several different jobs</text>
+<text x="25" y="27" text-anchor="start" class="heading l-es">La evidencia cumple funciones distintas</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-en">Byte integrity, valid content and an honest representation are separate checks.</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-es">Integridad, contenido válido y representación honesta se comprueban por separado.</text>
+<rect x="20" y="65" width="840" height="161" rx="10" class="band"/>
+<text x="35" y="87" text-anchor="start" class="band-label l-en">CONTRACT 1 · SOURCE TO PROCESSING</text>
+<text x="35" y="87" text-anchor="start" class="band-label l-es">CONTRATO 1 · FUENTE A PROCESAMIENTO</text>
+<rect x="20" y="270" width="840" height="157" rx="10" class="band"/>
+<text x="35" y="292" text-anchor="start" class="band-label l-en">CONTRACT 2 · ARTIFACT TO BROWSER</text>
+<text x="35" y="292" text-anchor="start" class="band-label l-es">CONTRATO 2 · RECURSO A NAVEGADOR</text>
+<rect x="20" y="472" width="840" height="126" rx="10" class="band"/>
+<text x="35" y="494" text-anchor="start" class="band-label l-en">REJECTION AND INTERPRETATION</text>
+<text x="35" y="494" text-anchor="start" class="band-label l-es">RECHAZO E INTERPRETACIÓN</text>
+<rect x="35" y="100" width="250" height="105" rx="7" class="bx bx-store"/>
+<text x="47" y="121" text-anchor="start" class="ttl l-en">Source registry</text>
+<text x="47" y="121" text-anchor="start" class="ttl l-es">Registro de fuentes</text>
+<text x="47" y="140" class="cd l-neutral">data/sources/</text>
+<text x="47" y="161" text-anchor="start" class="it l-en">Source URLs / rights / SHA-256</text>
+<text x="47" y="161" text-anchor="start" class="it l-es">URL / derechos / SHA-256</text>
+<text x="47" y="177" text-anchor="start" class="it l-en">Bilingual names and explanations</text>
+<text x="47" y="177" text-anchor="start" class="it l-es">Nombres y explicaciones bilingües</text>
+<text x="47" y="193" text-anchor="start" class="it l-en">Declared representation type</text>
+<text x="47" y="193" text-anchor="start" class="it l-es">Tipo de representación declarado</text>
+<rect x="315" y="100" width="250" height="105" rx="7" class="bx bx-eng"/>
+<text x="327" y="121" text-anchor="start" class="ttl l-en">Inspect actual files</text>
+<text x="327" y="121" text-anchor="start" class="ttl l-es">Inspeccionar archivos reales</text>
+<text x="327" y="140" class="cd l-neutral">run.py inspect</text>
+<text x="327" y="161" text-anchor="start" class="it l-en">GLB structure and extensions</text>
+<text x="327" y="161" text-anchor="start" class="it l-es">Estructura GLB y extensiones</text>
+<text x="327" y="177" text-anchor="start" class="it l-en">Byte / triangle / variant counts</text>
+<text x="327" y="177" text-anchor="start" class="it l-es">Bytes / triángulos / variantes</text>
+<text x="327" y="193" text-anchor="start" class="it l-en">No filename-derived assumptions</text>
+<text x="327" y="193" text-anchor="start" class="it l-es">Sin suposiciones por el nombre</text>
+<rect x="595" y="100" width="250" height="105" rx="7" class="bx bx-hi"/>
+<text x="607" y="121" text-anchor="start" class="ttl l-en">Validate relationships</text>
+<text x="607" y="121" text-anchor="start" class="ttl l-es">Validar relaciones</text>
+<text x="607" y="140" class="cd l-neutral">run.py validate-source</text>
+<text x="607" y="161" text-anchor="start" class="it l-en">Source and component IDs resolve</text>
+<text x="607" y="161" text-anchor="start" class="it l-es">Referencias e identificadores válidos</text>
+<text x="607" y="177" text-anchor="start" class="it l-en">Journey states are supported</text>
+<text x="607" y="177" text-anchor="start" class="it l-es">Estados didácticos admitidos</text>
+<text x="607" y="193" text-anchor="start" class="it l-en">No unknown scale silently added</text>
+<text x="607" y="193" text-anchor="start" class="it l-es">Sin añadir una escala desconocida</text>
+<rect x="35" y="305" width="250" height="102" rx="7" class="bx bx-store"/>
+<text x="47" y="326" text-anchor="start" class="ttl l-en">Published artifacts</text>
+<text x="47" y="326" text-anchor="start" class="ttl l-es">Recursos publicados</text>
+<text x="47" y="345" class="cd l-neutral">data/artifacts/catalog.json</text>
+<text x="47" y="366" text-anchor="start" class="it l-en">Specimens / parts / investigations</text>
+<text x="47" y="366" text-anchor="start" class="it l-es">Ejemplares / partes / investigaciones</text>
+<text x="47" y="382" text-anchor="start" class="it l-en">Actual fidelity and integrity data</text>
+<text x="47" y="382" text-anchor="start" class="it l-es">Fidelidad e integridad reales</text>
+<text x="47" y="398" text-anchor="start" class="it l-en">Manifest covers the release</text>
+<text x="47" y="398" text-anchor="start" class="it l-es">El manifiesto cubre la versión</text>
+<rect x="315" y="305" width="250" height="102" rx="7" class="bx bx-web"/>
+<text x="327" y="326" text-anchor="start" class="ttl l-en">Runtime schema</text>
+<text x="327" y="326" text-anchor="start" class="ttl l-es">Esquema de ejecución</text>
+<text x="327" y="345" class="cd l-neutral">lib/catalog.ts · catalog.types.ts</text>
+<text x="327" y="366" text-anchor="start" class="it l-en">Validate data before rendering</text>
+<text x="327" y="366" text-anchor="start" class="it l-es">Validar antes de representar</text>
+<text x="327" y="382" text-anchor="start" class="it l-en">Errors stay visible and actionable</text>
+<text x="327" y="382" text-anchor="start" class="it l-es">Errores visibles y comprensibles</text>
+<text x="327" y="398" text-anchor="start" class="it l-en">No fabricated fallback records</text>
+<text x="327" y="398" text-anchor="start" class="it l-es">Sin registros ficticios de respaldo</text>
+<rect x="595" y="305" width="250" height="102" rx="7" class="bx bx-web"/>
+<text x="607" y="326" text-anchor="start" class="ttl l-en">Readable evidence</text>
+<text x="607" y="326" text-anchor="start" class="ttl l-es">Evidencia legible</text>
+<text x="607" y="345" class="cd l-neutral">GuidePages.tsx</text>
+<text x="607" y="366" text-anchor="start" class="it l-en">Table reads the actual catalog</text>
+<text x="607" y="366" text-anchor="start" class="it l-es">La tabla lee el catálogo real</text>
+<text x="607" y="382" text-anchor="start" class="it l-en">Credits / full hashes / caveats</text>
+<text x="607" y="382" text-anchor="start" class="it l-es">Créditos / huellas / límites</text>
+<text x="607" y="398" text-anchor="start" class="it l-en">Metadata is not biological proof</text>
+<text x="607" y="398" text-anchor="start" class="it l-es">Metadatos no son prueba biológica</text>
+<rect x="75" y="508" width="345" height="68" rx="7" class="bx bx-warn"/>
+<text x="87" y="529" text-anchor="start" class="ttl l-en">Reject broken input</text>
+<text x="87" y="529" text-anchor="start" class="ttl l-es">Rechazar entradas inválidas</text>
+<text x="87" y="548" class="cd l-neutral">hash mismatch · bad ID · invalid range</text>
+<rect x="460" y="508" width="345" height="68" rx="7" class="bx bx-hi"/>
+<text x="472" y="529" text-anchor="start" class="ttl l-en">Keep the claim within its evidence</text>
+<text x="472" y="529" text-anchor="start" class="ttl l-es">Mantener afirmaciones dentro de la evidencia</text>
+<text x="472" y="548" class="cd l-neutral">observed ≠ authored ≠ predicted</text>
+<path d="M285 151H315" class="flow"/>
+<text x="300" y="139" text-anchor="middle" class="lbl l-en">bytes</text>
+<text x="300" y="139" text-anchor="middle" class="lbl l-es">bytes</text>
+<path d="M565 151H595" class="flow"/>
+<text x="580" y="139" text-anchor="middle" class="lbl l-en">facts</text>
+<text x="580" y="139" text-anchor="middle" class="lbl l-es">datos</text>
+<path d="M720 205V245H160V305" class="flow"/>
+<text x="432" y="239" text-anchor="middle" class="lbl l-en">publish only valid records</text>
+<text x="432" y="239" text-anchor="middle" class="lbl l-es">publicar solo registros válidos</text>
+<path d="M285 355H315" class="flow"/>
+<text x="300" y="343" text-anchor="middle" class="lbl l-en">load</text>
+<text x="300" y="343" text-anchor="middle" class="lbl l-es">cargar</text>
+<path d="M565 355H595" class="flow"/>
+<text x="580" y="343" text-anchor="middle" class="lbl l-en">read</text>
+<text x="580" y="343" text-anchor="middle" class="lbl l-es">leer</text>
+<path d="M440 407V451H247V508" class="flow"/>
+<text x="277" y="446" text-anchor="middle" class="lbl l-en">invalid</text>
+<text x="277" y="446" text-anchor="middle" class="lbl l-es">inválido</text>
+<path d="M720 407V451H633V508" class="flow"/>
+<text x="666" y="446" text-anchor="middle" class="lbl l-en">interpret</text>
+<text x="666" y="446" text-anchor="middle" class="lbl l-es">interpretar</text>
+</svg>

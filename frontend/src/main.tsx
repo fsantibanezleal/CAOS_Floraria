@@ -1,6 +1,10 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
-
-const el = document.getElementById('root');
-if (el) createRoot(el).render(<StrictMode><App /></StrictMode>);
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router";
+import "@fasl-work/caos-app-shell/styles.css";
+import "./floraria.css";
+import App from "./App";
+createRoot(document.getElementById("root")!).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+);

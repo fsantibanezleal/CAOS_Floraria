@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" viewBox="0 0 880 620" class="arch-svg" role="img">
+<title>The botanical explanation is explicit</title>
+<style>
+svg .l-es { display:none; }
+.bg { fill:var(--color-surface, Canvas); } .band { fill:var(--color-surface-2, Canvas); stroke:var(--color-border, GrayText); }
+.bx { fill:var(--color-surface, Canvas); stroke:var(--color-border, GrayText); stroke-width:1.4; }
+.bx-hi { stroke:var(--color-accent, rebeccapurple); } .bx-eng { stroke:var(--color-warn, darkgoldenrod); } .bx-store,.bx-web { stroke:var(--color-good, seagreen); } .bx-warn { stroke:var(--color-warn, darkgoldenrod); }
+text { font-family:system-ui,sans-serif; fill:var(--color-fg, CanvasText); } .heading {font-size:20px;font-weight:650;} .subtitle {font-size:12px;fill:var(--color-fg-subtle, GrayText);} .band-label {font-size:10px;font-weight:650;letter-spacing:1px;fill:var(--color-fg-subtle, GrayText);} .ttl {font-size:12px;font-weight:650;} .cd {font-size:9.2px;font-family:ui-monospace,monospace;fill:var(--color-accent, rebeccapurple);} .it {font-size:10.3px;fill:var(--color-fg-subtle, GrayText);} .flow {fill:none;stroke:var(--color-accent, rebeccapurple);stroke-width:1.4;marker-end:url(#arr);} .lbl {font-size:9px;fill:var(--color-fg-subtle, GrayText);paint-order:stroke;stroke:var(--color-surface, Canvas);stroke-width:5;stroke-linejoin:round;} .arrow {fill:var(--color-accent, rebeccapurple);}
+</style>
+<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="arrow" d="M0 0L7 3.5L0 7Z"/></marker></defs>
+<rect width="880" height="620" class="bg"/>
+<text x="25" y="27" text-anchor="start" class="heading l-en">The botanical explanation is explicit</text>
+<text x="25" y="27" text-anchor="start" class="heading l-es">La explicación botánica es explícita</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-en">A hierarchy defines what can be selected. A source defines what can be claimed.</text>
+<text x="25" y="49" text-anchor="start" class="subtitle l-es">La jerarquía define qué se puede seleccionar. La fuente define qué se puede afirmar.</text>
+<rect x="20" y="65" width="840" height="160" rx="10" class="band"/>
+<text x="35" y="87" text-anchor="start" class="band-label l-en">SOURCED RELATIONSHIPS</text>
+<text x="35" y="87" text-anchor="start" class="band-label l-es">RELACIONES CON FUENTES</text>
+<rect x="20" y="268" width="840" height="160" rx="10" class="band"/>
+<text x="35" y="290" text-anchor="start" class="band-label l-en">AUTHORED SPATIAL REPRESENTATIONS</text>
+<text x="35" y="290" text-anchor="start" class="band-label l-es">REPRESENTACIONES ESPACIALES PROPIAS</text>
+<rect x="20" y="474" width="840" height="125" rx="10" class="band"/>
+<text x="35" y="496" text-anchor="start" class="band-label l-en">BOUNDED EDUCATIONAL SEQUENCE</text>
+<text x="35" y="496" text-anchor="start" class="band-label l-es">SECUENCIA DIDÁCTICA DELIMITADA</text>
+<rect x="35" y="100" width="250" height="105" rx="7" class="bx bx-store"/>
+<text x="47" y="121" text-anchor="start" class="ttl l-en">General floral structure</text>
+<text x="47" y="121" text-anchor="start" class="ttl l-es">Estructura floral general</text>
+<text x="47" y="140" class="cd l-neutral">osu-reproductive</text>
+<text x="47" y="161" text-anchor="start" class="it l-en">Calyx / corolla / reproductive parts</text>
+<text x="47" y="161" text-anchor="start" class="it l-es">Cáliz / corola / partes reproductivas</text>
+<text x="47" y="177" text-anchor="start" class="it l-en">Stamen → anther + filament</text>
+<text x="47" y="177" text-anchor="start" class="it l-es">Estambre → antera + filamento</text>
+<text x="47" y="193" text-anchor="start" class="it l-en">Pistil → stigma / style / ovary</text>
+<text x="47" y="193" text-anchor="start" class="it l-es">Pistilo → estigma / estilo / ovario</text>
+<rect x="315" y="100" width="250" height="105" rx="7" class="bx bx-eng"/>
+<text x="327" y="121" text-anchor="start" class="ttl l-en">Orchid morphology</text>
+<text x="327" y="121" text-anchor="start" class="ttl l-es">Morfología de orquídeas</text>
+<text x="327" y="140" class="cd l-neutral">kew-orchid · smithsonian-guide</text>
+<text x="327" y="161" text-anchor="start" class="it l-en">3 sepals / 3 petals / distinct lip</text>
+<text x="327" y="161" text-anchor="start" class="it l-es">3 sépalos / 3 pétalos / labelo</text>
+<text x="327" y="177" text-anchor="start" class="it l-en">Reproductive column</text>
+<text x="327" y="177" text-anchor="start" class="it l-es">Columna reproductiva</text>
+<text x="327" y="193" text-anchor="start" class="it l-en">Inferior ovary</text>
+<text x="327" y="193" text-anchor="start" class="it l-es">Ovario ínfero</text>
+<rect x="595" y="100" width="250" height="105" rx="7" class="bx bx-hi"/>
+<text x="607" y="121" text-anchor="start" class="ttl l-en">Teaching contract</text>
+<text x="607" y="121" text-anchor="start" class="ttl l-es">Contrato didáctico</text>
+<text x="607" y="140" class="cd l-neutral">Catalog.structures</text>
+<text x="607" y="161" text-anchor="start" class="it l-en">Component IDs + model membership</text>
+<text x="607" y="161" text-anchor="start" class="it l-es">Identificadores + modelo</text>
+<text x="607" y="177" text-anchor="start" class="it l-en">Original explanatory text</text>
+<text x="607" y="177" text-anchor="start" class="it l-es">Explicación original</text>
+<text x="607" y="193" text-anchor="start" class="it l-en">Illustrative proportions / colors</text>
+<text x="607" y="193" text-anchor="start" class="it l-es">Proporciones / colores ilustrativos</text>
+<rect x="35" y="303" width="250" height="103" rx="7" class="bx bx-web"/>
+<text x="47" y="324" text-anchor="start" class="ttl l-en">General flower model</text>
+<text x="47" y="324" text-anchor="start" class="ttl l-es">Modelo de flor general</text>
+<text x="47" y="343" class="cd l-neutral">botany.ts · general</text>
+<text x="47" y="364" text-anchor="start" class="it l-en">Separate and inspect named parts</text>
+<text x="47" y="364" text-anchor="start" class="it l-es">Separar e inspeccionar partes</text>
+<text x="47" y="380" text-anchor="start" class="it l-en">Restore original arrangement</text>
+<text x="47" y="380" text-anchor="start" class="it l-es">Restaurar organización inicial</text>
+<text x="47" y="396" text-anchor="start" class="it l-en">Not a measured species model</text>
+<text x="47" y="396" text-anchor="start" class="it l-es">No es un modelo de especie medido</text>
+<rect x="315" y="303" width="250" height="103" rx="7" class="bx bx-web"/>
+<text x="327" y="324" text-anchor="start" class="ttl l-en">Orchid teaching model</text>
+<text x="327" y="324" text-anchor="start" class="ttl l-es">Modelo didáctico de orquídea</text>
+<text x="327" y="343" class="cd l-neutral">botany.ts · orchid</text>
+<text x="327" y="364" text-anchor="start" class="it l-en">Lip and column retain identity</text>
+<text x="327" y="364" text-anchor="start" class="it l-es">Labelo y columna identificados</text>
+<text x="327" y="380" text-anchor="start" class="it l-en">No generic free-stamen ring</text>
+<text x="327" y="380" text-anchor="start" class="it l-es">Sin anillo genérico de estambres</text>
+<text x="327" y="396" text-anchor="start" class="it l-en">Not scan segmentation</text>
+<text x="327" y="396" text-anchor="start" class="it l-es">No es segmentación del escaneo</text>
+<rect x="595" y="303" width="250" height="103" rx="7" class="bx bx-eng"/>
+<text x="607" y="324" text-anchor="start" class="ttl l-en">Explanatory transforms</text>
+<text x="607" y="324" text-anchor="start" class="ttl l-es">Transformaciones explicativas</text>
+<text x="607" y="343" class="cd l-neutral">Viewer.tsx</text>
+<text x="607" y="364" text-anchor="start" class="it l-en">Translation / clipping / visibility</text>
+<text x="607" y="364" text-anchor="start" class="it l-es">Traslación / corte / visibilidad</text>
+<text x="607" y="380" text-anchor="start" class="it l-en">Reversible view operations</text>
+<text x="607" y="380" text-anchor="start" class="it l-es">Operaciones visuales reversibles</text>
+<text x="607" y="396" text-anchor="start" class="it l-en">Not dissection measurements</text>
+<text x="607" y="396" text-anchor="start" class="it l-es">No son mediciones de disección</text>
+<rect x="105" y="509" width="670" height="68" rx="7" class="bx bx-hi"/>
+<text x="117" y="530" text-anchor="start" class="ttl l-en">Pollen transfer → later fertilization → seed / fruit identities</text>
+<text x="117" y="530" text-anchor="start" class="ttl l-es">Transferencia de polen → fecundación posterior → semilla / fruto</text>
+<text x="117" y="549" class="cd l-neutral">stage ∈ [0, 1] · explanatory progress, not biological time</text>
+<path d="M160 205V303" class="flow"/>
+<text x="197" y="255" text-anchor="middle" class="lbl l-en">author</text>
+<text x="197" y="255" text-anchor="middle" class="lbl l-es">construir</text>
+<path d="M440 205V303" class="flow"/>
+<text x="482" y="255" text-anchor="middle" class="lbl l-en">author</text>
+<text x="482" y="255" text-anchor="middle" class="lbl l-es">construir</text>
+<path d="M720 205V303" class="flow"/>
+<text x="759" y="255" text-anchor="middle" class="lbl l-en">constrain</text>
+<text x="759" y="255" text-anchor="middle" class="lbl l-es">delimitar</text>
+<path d="M160 406V451H440V509" class="flow"/>
+<text x="252" y="446" text-anchor="middle" class="lbl l-en">preserve organ identity</text>
+<text x="252" y="446" text-anchor="middle" class="lbl l-es">conservar identidad del órgano</text>
+<path d="M440 406V509" class="flow"/>
+<text x="475" y="461" text-anchor="middle" class="lbl l-en">explain</text>
+<text x="475" y="461" text-anchor="middle" class="lbl l-es">explicar</text>
+<path d="M720 406V451H440" class="flow"/>
+<text x="654" y="446" text-anchor="middle" class="lbl l-en">show the selected stage</text>
+<text x="654" y="446" text-anchor="middle" class="lbl l-es">mostrar la etapa elegida</text>
+</svg>

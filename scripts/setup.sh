@@ -1,28 +1,17 @@
 #!/usr/bin/env bash
-# Create BOTH venvs + install per-lane requirements + the editable package. Idempotent. No global installs.
-#   .venv-pipeline = heavy OFFLINE lane (data-pipeline/requirements.txt) + dev + editable pkg  (local-only)
-#   .venv          = runtime/live-thin lane (requirements.txt)                                  (what ships)
-# Dormant lanes are skipped gracefully. Re-runnable.
-set -euo pipefail
-cd "$(dirname "$0")/.."
-PY="${PYTHON:-python}"
-
-mkvenv() { [ -d "$1" ] || "$PY" -m venv "$1"; }
-venvpy() { local p="$1/bin/python"; [ -x "$p" ] || p="$1/Scripts/python.exe"; echo "$p"; }
-
-echo "[setup] .venv-pipeline (offline lane)…"
-mkvenv .venv-pipeline
-VP="$(venvpy .venv-pipeline)"
-"$VP" -m pip install --upgrade pip -q
-"$VP" -m pip install -q -r requirements-precompute.txt -r requirements-dev.txt
-"$VP" -m pip install -q
-echo "[setup] .venv-pipeline ready."
-
-echo "[setup] .venv (runtime/live-thin lane)…"
-mkvenv .venv
-VR="$(venvpy .venv)"
-"$VR" -m pip install --upgrade pip -q
-"$VR" -m pip install -q -r requirements.txt
-echo "[setup] .venv ready."
-
-echo "[setup] done. Next:  ./scripts/precompute.sh   then   ./scripts/dev.sh"
+set -Eeuo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FLORARIA_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+if [[ -x "$FLORARIA_ROOT/.venv/bin/python" ]]; then
+  FLORARIA_PYTHON=("$FLORARIA_ROOT/.venv/bin/python")
+elif [[ -x "$FLORARIA_ROOT/.venv/Scripts/python.exe" ]]; then
+  FLORARIA_PYTHON=("$FLORARIA_ROOT/.venv/Scripts/python.exe")
+elif command -v python3.13 >/dev/null 2>&1; then
+  FLORARIA_PYTHON=(python3.13)
+elif command -v py >/dev/null 2>&1; then
+  FLORARIA_PYTHON=(py -3.13)
+else
+  echo 'Python 3.13 is required. Install it before running Floraria setup.' >&2
+  exit 1
+fi
+exec "${FLORARIA_PYTHON[@]}" "$FLORARIA_ROOT/scripts/project.py" 'setup' "$@"

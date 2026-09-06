@@ -1,4 +1,1 @@
-# Optional GPU accelerator lane. This file is intentionally dependency-free in
-# the template. An instantiated product pins the verified CUDA/ROCm packages and
-# records the driver/runtime matrix in docs/guides/03_gpu-lane.md.
--r requirements-precompute.txt
+﻿# GPU rendering runs in the browser. The Python asset pipeline needs no GPU packages.

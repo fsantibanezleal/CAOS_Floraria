@@ -1,0 +1,1691 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "osu-reproductive",
+      "label": "Reproductive plant parts",
+      "citation": "Ann Marie VanDerZanden. Oregon State University Extension, reviewed 2024. Accessed 2026-09-06.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9900-reproductive-plant-parts"
+    },
+    {
+      "id": "kew-orchid",
+      "label": "Orchidaceae: botanical description",
+      "citation": "Royal Botanic Gardens, Kew. Plants of the World Online, Orchidaceae. Accessed 2026-09-06.",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000046-2/general-information"
+    },
+    {
+      "id": "smithsonian-orchids",
+      "label": "3D models of orchids",
+      "citation": "Smithsonian Gardens. The Future of Orchids: 3D Models. Accessed 2026-09-06.",
+      "url": "https://gardens.si.edu/exhibitions/future-of-orchids/3d-orchids/"
+    },
+    {
+      "id": "smithsonian-guide",
+      "label": "What makes an orchid an orchid?",
+      "citation": "Smithsonian Gardens. Labeled orchid structure guide. Accessed 2026-09-06.",
+      "url": "https://gardens.si.edu/wp-content/uploads/2022/05/What-Makes-an-Orchid-Guide.pdf"
+    },
+    {
+      "id": "kew-pollination",
+      "label": "Pollination and seed dispersal",
+      "citation": "Royal Botanic Gardens, Kew. Super seeds and funky flowers teaching infographic. Accessed 2026-09-06.",
+      "url": "https://endeavour.kew.org/sites/endeavour/files/documents/2022-05/Kew-KS2-Super%20seeds%20and%20funky%20flowers%20infographics.pdf"
+    },
+    {
+      "id": "kew-dispersal",
+      "label": "How plants disperse their seeds",
+      "citation": "Royal Botanic Gardens, Kew. How plants hitchhike on animal poo, 2020. Accessed 2026-09-06.",
+      "url": "https://www.kew.org/read-and-watch/plant-seed-dispersal-animal-poo"
+    },
+    {
+      "id": "osu-vegetative",
+      "label": "Vegetative plant parts",
+      "citation": "Oregon State University Extension. Vegetative plant parts. Accessed 2026-09-06.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9904-vegetative-plant-parts"
+    },
+    {
+      "id": "kew-orchid-strategies",
+      "label": "Orchid pollination strategies",
+      "citation": "Royal Botanic Gardens, Kew. Exploring the orchid family tree. Accessed 2026-09-06.",
+      "url": "https://www.kew.org/read-and-watch/orchid-family-tree"
+    },
+    {
+      "id": "smithsonian-openaccess",
+      "label": "Smithsonian Open Access rights",
+      "citation": "Smithsonian Institution. Open Access FAQ; CC0 applies to designated assets. Accessed 2026-09-06.",
+      "url": "https://www.si.edu/openaccess/faq"
+    },
+    {
+      "id": "smithsonian-api",
+      "label": "Smithsonian 3D file API",
+      "citation": "Smithsonian Institution. 3D API v1.0 documentation. Ten original GLB files acquired and inspected 2026-09-06.",
+      "url": "https://3d-api.si.edu/api-docs/"
+    },
+    {
+      "id": "umd-pollination",
+      "label": "Pollination basics",
+      "citation": "University of Maryland Extension. Pollination Basics. Accessed 2026-09-06.",
+      "url": "https://www.extension.umd.edu/resource/pollination-basics"
+    },
+    {
+      "id": "kew-seed",
+      "label": "What is a seed?",
+      "citation": "Royal Botanic Gardens, Kew. What is a seed? Accessed 2026-09-06.",
+      "url": "https://www.kew.org/read-and-watch/what-is-a-seed"
+    },
+    {
+      "id": "umn-strawberry",
+      "label": "How strawberry plants grow",
+      "citation": "University of Minnesota Extension. How strawberry plants grow. Accessed 2026-09-06.",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/strawberry-farming/how-strawberry-plants-grow"
+    },
+    {
+      "id": "anbg-characters",
+      "label": "Flower position and plant characters",
+      "citation": "Australian National Botanic Gardens. Australian Tropical Rainforest Plants key: user guide. Accessed 2026-09-06.",
+      "url": "https://anbg.gov.au/cpbr/cd-keys/rfk-v5/images/User-Guide.pdf"
+    },
+    {
+      "id": "umd-plant-reproduction",
+      "label": "Vegetable plant reproduction",
+      "citation": "University of Maryland Extension. Vegetable Plant Pollination in a Changing Climate. Accessed 2026-09-06.",
+      "url": "https://www.extension.umd.edu/resource/vegetable-plant-pollination-changing-climate"
+    },
+    {
+      "id": "uga-botany",
+      "label": "Flower form and function",
+      "citation": "University of Georgia Cooperative Extension. Basic Botany, Master Gardener materials. Accessed 2026-09-06.",
+      "url": "https://openscholar.uga.edu/record/24918/files/MG2012BasicBotany.pdf"
+    },
+    {
+      "id": "usda-pollination",
+      "label": "Native pollinators and flower structures",
+      "citation": "Agriculture and Agri-Food Canada. Native Pollinators, hosted by USDA Forest Service. Accessed 2026-09-06.",
+      "url": "https://www.fs.usda.gov/wildflowers/pollinators/documents/AgCanadaNativePollinators.pdf"
+    }
+  ],
+  "specimens": [
+    {
+      "id": "phalaenopsis",
+      "scientificName": "Phalaenopsis amabilis",
+      "commonName": {
+        "en": "Lovely moth orchid",
+        "es": "Orquídea mariposa"
+      },
+      "description": {
+        "en": "Start with the broad outline, then turn the bloom to inspect its center. The scan records a surface: the separate orchid model makes the named structures easier to explore.",
+        "es": "Comienza con la silueta y gira la flor para observar su centro. El escaneo registra una superficie; el modelo independiente de orquídea permite explorar sus estructuras con nombre."
+      },
+      "facts": [
+        {
+          "label": {
+            "en": "Documented range",
+            "es": "Distribución documentada"
+          },
+          "value": {
+            "en": "Malesia to Papuasia",
+            "es": "De Malesia a Papuasia"
+          }
+        },
+        {
+          "label": {
+            "en": "Collection",
+            "es": "Colección"
+          },
+          "value": {
+            "en": "Smithsonian Gardens · digitized bloom",
+            "es": "Smithsonian Gardens · flor digitalizada"
+          }
+        },
+        {
+          "label": {
+            "en": "Observation",
+            "es": "Observación"
+          },
+          "value": {
+            "en": "One continuous scanned surface; internal anatomy is not captured here.",
+            "es": "Una superficie escaneada continua; aquí no se registra la anatomía interna."
+          }
+        }
+      ],
+      "sourceIds": [
+        "smithsonian-orchids",
+        "smithsonian-api",
+        "smithsonian-openaccess"
+      ],
+      "credit": "Smithsonian Institution, Smithsonian Gardens. CC0 1.0. Original digitized specimen; teaching models are authored separately."
+    },
+    {
+      "id": "encyclia",
+      "scientificName": "Encyclia tampensis var. alba",
+      "commonName": {
+        "en": "Florida butterfly orchid",
+        "es": "Orquídea mariposa de Florida"
+      },
+      "description": {
+        "en": "Compare the outline with Phalaenopsis while keeping the same viewing angle. Look for the flower's center before counting surrounding parts; apparent size on screen is only the current framing.",
+        "es": "Compara la silueta con Phalaenopsis desde el mismo ángulo. Localiza el centro antes de contar las piezas que lo rodean; el tamaño aparente en pantalla depende del encuadre."
+      },
+      "facts": [
+        {
+          "label": {
+            "en": "Documented range",
+            "es": "Distribución documentada"
+          },
+          "value": {
+            "en": "Florida and the Bahamas",
+            "es": "Florida y Bahamas"
+          }
+        },
+        {
+          "label": {
+            "en": "Collection",
+            "es": "Colección"
+          },
+          "value": {
+            "en": "Smithsonian Gardens · digitized bloom",
+            "es": "Smithsonian Gardens · flor digitalizada"
+          }
+        },
+        {
+          "label": {
+            "en": "Observation",
+            "es": "Observación"
+          },
+          "value": {
+            "en": "One continuous scanned surface; internal anatomy is not captured here.",
+            "es": "Una superficie escaneada continua; aquí no se registra la anatomía interna."
+          }
+        }
+      ],
+      "sourceIds": [
+        "smithsonian-orchids",
+        "smithsonian-api",
+        "smithsonian-openaccess"
+      ],
+      "credit": "Smithsonian Institution, Smithsonian Gardens. CC0 1.0. Original digitized specimen; teaching models are authored separately."
+    },
+    {
+      "id": "lycaste",
+      "scientificName": "Lycaste virginalis",
+      "commonName": {
+        "en": "Guatemalan lycaste",
+        "es": "Lycaste de Guatemala"
+      },
+      "description": {
+        "en": "Use front and side views to distinguish silhouette from depth. Then move to the teaching model and ask which surfaces belong to the outer and inner floral whorls.",
+        "es": "Observa la flor de frente y de lado para distinguir silueta y profundidad. Después, en el modelo didáctico, identifica las superficies que pertenecen a los verticilos externos e internos."
+      },
+      "facts": [
+        {
+          "label": {
+            "en": "Documented range",
+            "es": "Distribución documentada"
+          },
+          "value": {
+            "en": "Cloud forests of Mexico and Central America",
+            "es": "Bosques nubosos de México y Centroamérica"
+          }
+        },
+        {
+          "label": {
+            "en": "Collection",
+            "es": "Colección"
+          },
+          "value": {
+            "en": "Smithsonian Gardens · digitized bloom",
+            "es": "Smithsonian Gardens · flor digitalizada"
+          }
+        },
+        {
+          "label": {
+            "en": "Observation",
+            "es": "Observación"
+          },
+          "value": {
+            "en": "One continuous scanned surface; internal anatomy is not captured here.",
+            "es": "Una superficie escaneada continua; aquí no se registra la anatomía interna."
+          }
+        }
+      ],
+      "sourceIds": [
+        "smithsonian-orchids",
+        "smithsonian-api",
+        "smithsonian-openaccess"
+      ],
+      "credit": "Smithsonian Institution, Smithsonian Gardens. CC0 1.0. Original digitized specimen; teaching models are authored separately."
+    },
+    {
+      "id": "phragmipedium",
+      "scientificName": "Phragmipedium × richteri 'Wolf River'",
+      "commonName": {
+        "en": "Richter's slipper orchid",
+        "es": "Orquídea zapatilla de Richter"
+      },
+      "description": {
+        "en": "Inspect this documented hybrid bloom from several angles. Its appearance invites questions about pollination, but shape alone cannot identify an exact visitor or prove a pollination mechanism.",
+        "es": "Examina esta flor de un híbrido documentado desde varios ángulos. Su forma invita a investigar la polinización, pero por sí sola no identifica un visitante ni demuestra un mecanismo."
+      },
+      "facts": [
+        {
+          "label": {
+            "en": "Documented range",
+            "es": "Distribución documentada"
+          },
+          "value": {
+            "en": "Northern Peru",
+            "es": "Norte de Perú"
+          }
+        },
+        {
+          "label": {
+            "en": "Collection",
+            "es": "Colección"
+          },
+          "value": {
+            "en": "Smithsonian Gardens · digitized bloom",
+            "es": "Smithsonian Gardens · flor digitalizada"
+          }
+        },
+        {
+          "label": {
+            "en": "Observation",
+            "es": "Observación"
+          },
+          "value": {
+            "en": "One continuous scanned surface; internal anatomy is not captured here.",
+            "es": "Una superficie escaneada continua; aquí no se registra la anatomía interna."
+          }
+        }
+      ],
+      "sourceIds": [
+        "smithsonian-orchids",
+        "smithsonian-api",
+        "smithsonian-openaccess"
+      ],
+      "credit": "Smithsonian Institution, Smithsonian Gardens. CC0 1.0. Original digitized specimen; teaching models are authored separately."
+    },
+    {
+      "id": "vanda",
+      "scientificName": "Vanda coerulea",
+      "commonName": {
+        "en": "Blue vanda",
+        "es": "Vanda azul"
+      },
+      "description": {
+        "en": "Follow the boundary of a surface into the center instead of judging by color alone. Pair this specimen with another orchid to notice what changes and what remains recognizable.",
+        "es": "Sigue el borde de una superficie hasta el centro en lugar de guiarte solo por el color. Compara este ejemplar con otra orquídea para reconocer semejanzas y diferencias."
+      },
+      "facts": [
+        {
+          "label": {
+            "en": "Documented range",
+            "es": "Distribución documentada"
+          },
+          "value": {
+            "en": "China to Indochina",
+            "es": "De China a Indochina"
+          }
+        },
+        {
+          "label": {
+            "en": "Collection",
+            "es": "Colección"
+          },
+          "value": {
+            "en": "Smithsonian Gardens · digitized bloom",
+            "es": "Smithsonian Gardens · flor digitalizada"
+          }
+        },
+        {
+          "label": {
+            "en": "Observation",
+            "es": "Observación"
+          },
+          "value": {
+            "en": "One continuous scanned surface; internal anatomy is not captured here.",
+            "es": "Una superficie escaneada continua; aquí no se registra la anatomía interna."
+          }
+        }
+      ],
+      "sourceIds": [
+        "smithsonian-orchids",
+        "smithsonian-api",
+        "smithsonian-openaccess"
+      ],
+      "credit": "Smithsonian Institution, Smithsonian Gardens. CC0 1.0. Original digitized specimen; teaching models are authored separately."
+    }
+  ],
+  "structures": [
+    {
+      "id": "sepal",
+      "label": {
+        "en": "Sepal",
+        "es": "Sépalo"
+      },
+      "group": "outer",
+      "models": [
+        "general",
+        "orchid"
+      ],
+      "summary": {
+        "en": "An outer floral organ; sepals commonly protect a developing bud.",
+        "es": "Órgano floral externo; los sépalos suelen proteger el botón en desarrollo."
+      },
+      "detail": {
+        "en": "Follow its attachment toward the flower base. In an orchid a sepal can resemble a petal, so color alone is not a reliable way to tell them apart.",
+        "es": "Sigue su unión hacia la base de la flor. En una orquídea un sépalo puede parecer un pétalo: el color, por sí solo, no permite distinguirlos."
+      },
+      "sourceIds": [
+        "osu-reproductive",
+        "kew-orchid"
+      ]
+    },
+    {
+      "id": "petal",
+      "label": {
+        "en": "Petal",
+        "es": "Pétalo"
+      },
+      "group": "outer",
+      "models": [
+        "general",
+        "orchid"
+      ],
+      "summary": {
+        "en": "Petals form the inner perianth whorl.",
+        "es": "Los pétalos forman el verticilo interno del perianto."
+      },
+      "detail": {
+        "en": "Select the whole group before separating it. The orchid's lip is also a petal, but its distinct form earns a separate label in this explorer.",
+        "es": "Selecciona el grupo completo antes de separarlo. El labelo de la orquídea también es un pétalo, pero su forma particular tiene una etiqueta propia."
+      },
+      "sourceIds": [
+        "osu-reproductive",
+        "smithsonian-guide"
+      ]
+    },
+    {
+      "id": "anther",
+      "label": {
+        "en": "Anther",
+        "es": "Antera"
+      },
+      "group": "male",
+      "models": [
+        "general"
+      ],
+      "summary": {
+        "en": "The pollen-producing part of a stamen.",
+        "es": "Parte del estambre donde se produce el polen."
+      },
+      "detail": {
+        "en": "Compare the small anther with its supporting filament. The model enlarges small features for clarity; the enlarged pollen view is an explanation, not a microscope image.",
+        "es": "Compara la antera con el filamento que la sostiene. El modelo amplía los detalles pequeños para facilitar su lectura; el polen ampliado no es una imagen microscópica."
+      },
+      "sourceIds": [
+        "uga-botany",
+        "umd-plant-reproduction"
+      ]
+    },
+    {
+      "id": "filament",
+      "label": {
+        "en": "Filament",
+        "es": "Filamento"
+      },
+      "group": "male",
+      "models": [
+        "general"
+      ],
+      "summary": {
+        "en": "The stalk supporting an anther.",
+        "es": "Eje que sostiene la antera."
+      },
+      "detail": {
+        "en": "Trace a filament from its base to its tip. Together, filament and anther form a stamen; selecting either piece lets you connect a part with the larger structure.",
+        "es": "Sigue un filamento desde su base hasta la punta. Junto con la antera forma un estambre; seleccionar ambas piezas permite relacionar una parte con su conjunto."
+      },
+      "sourceIds": [
+        "uga-botany"
+      ]
+    },
+    {
+      "id": "stigma",
+      "label": {
+        "en": "Stigma",
+        "es": "Estigma"
+      },
+      "group": "female",
+      "models": [
+        "general"
+      ],
+      "summary": {
+        "en": "The receptive surface where pollen arrives.",
+        "es": "Superficie receptora a la que llega el polen."
+      },
+      "detail": {
+        "en": "Start the pollen journey here and then follow the style. A pollen grain arriving at a stigma is pollination; it is not the same event as fertilization inside an ovule.",
+        "es": "Inicia aquí el recorrido del polen y sigue el estilo. La llegada de un grano al estigma es polinización; no equivale a la fecundación dentro de un óvulo."
+      },
+      "sourceIds": [
+        "umd-pollination",
+        "kew-pollination"
+      ]
+    },
+    {
+      "id": "style",
+      "label": {
+        "en": "Style",
+        "es": "Estilo"
+      },
+      "group": "female",
+      "models": [
+        "general"
+      ],
+      "summary": {
+        "en": "The connection between stigma and ovary.",
+        "es": "Conexión entre el estigma y el ovario."
+      },
+      "detail": {
+        "en": "In the explanatory sequence, follow the pollen tube through the style. Its progress is compressed in time so that you can inspect the route one step at a time.",
+        "es": "En la secuencia explicativa, sigue el tubo polínico a través del estilo. El tiempo está comprimido para permitirte examinar el recorrido paso a paso."
+      },
+      "sourceIds": [
+        "kew-pollination",
+        "umd-plant-reproduction"
+      ]
+    },
+    {
+      "id": "ovary",
+      "label": {
+        "en": "Ovary",
+        "es": "Ovario"
+      },
+      "group": "female",
+      "models": [
+        "general",
+        "orchid"
+      ],
+      "summary": {
+        "en": "The floral structure containing ovules.",
+        "es": "Estructura floral que contiene los óvulos."
+      },
+      "detail": {
+        "en": "Use the section control to reveal the teaching model's interior. Compare the generic flower with the orchid: their ovaries occupy different positions relative to the other floral parts.",
+        "es": "Usa el corte para descubrir el interior del modelo didáctico. Compara la flor general con la orquídea: sus ovarios ocupan posiciones distintas respecto a las otras piezas florales."
+      },
+      "sourceIds": [
+        "usda-pollination",
+        "anbg-characters",
+        "kew-orchid"
+      ]
+    },
+    {
+      "id": "ovule",
+      "label": {
+        "en": "Ovule",
+        "es": "Óvulo"
+      },
+      "group": "female",
+      "models": [
+        "general",
+        "orchid"
+      ],
+      "summary": {
+        "en": "The structure within which an egg cell is held.",
+        "es": "Estructura que contiene una célula huevo."
+      },
+      "detail": {
+        "en": "Locate the ovules within the cutaway ovary. The displayed number is schematic. An ovule and an entire ovary are different structures, even when both appear as rounded shapes.",
+        "es": "Localiza los óvulos dentro del ovario seccionado. La cantidad mostrada es esquemática. Un óvulo y un ovario completo son estructuras distintas, aunque ambos parezcan redondeados."
+      },
+      "sourceIds": [
+        "usda-pollination"
+      ]
+    },
+    {
+      "id": "pollen",
+      "label": {
+        "en": "Pollen",
+        "es": "Polen"
+      },
+      "group": "male",
+      "models": [
+        "general"
+      ],
+      "summary": {
+        "en": "Pollen is released from anthers and can be transferred to a stigma.",
+        "es": "El polen se libera desde las anteras y puede trasladarse a un estigma."
+      },
+      "detail": {
+        "en": "Follow the highlighted route from anther to stigma. Grain size, spacing and motion are exaggerated for reading; these visual choices do not measure pollen dispersal.",
+        "es": "Sigue la ruta destacada desde la antera hasta el estigma. El tamaño, la separación y el movimiento de los granos están exagerados; no representan una medición de dispersión."
+      },
+      "sourceIds": [
+        "umd-pollination",
+        "uga-botany"
+      ]
+    },
+    {
+      "id": "stem",
+      "label": {
+        "en": "Flower stalk",
+        "es": "Eje floral"
+      },
+      "group": "support",
+      "models": [
+        "general",
+        "orchid"
+      ],
+      "summary": {
+        "en": "The axis supporting the flower.",
+        "es": "Eje que sostiene la flor."
+      },
+      "detail": {
+        "en": "Rotate the scene to find the flower's base and its supporting axis. Keeping this reference visible makes an exploded view easier to read and reassemble.",
+        "es": "Gira la escena para localizar la base de la flor y su eje de soporte. Mantener esta referencia visible facilita interpretar y rearmar la vista separada."
+      },
+      "sourceIds": [
+        "osu-vegetative",
+        "usda-pollination"
+      ]
+    },
+    {
+      "id": "receptacle",
+      "label": {
+        "en": "Receptacle",
+        "es": "Receptáculo"
+      },
+      "group": "support",
+      "models": [
+        "general",
+        "orchid"
+      ],
+      "summary": {
+        "en": "The region where floral parts attach.",
+        "es": "Región donde se insertan las piezas florales."
+      },
+      "detail": {
+        "en": "Use this as an anchor while separating the model. The spatial layout explains attachment; separation distances are chosen for legibility and do not represent natural growth.",
+        "es": "Úsalo como referencia al separar el modelo. La disposición explica las inserciones; las distancias se eligen para facilitar la lectura y no representan crecimiento natural."
+      },
+      "sourceIds": [
+        "usda-pollination"
+      ]
+    },
+    {
+      "id": "lip",
+      "label": {
+        "en": "Lip / labellum",
+        "es": "Labelo"
+      },
+      "group": "orchid",
+      "models": [
+        "orchid"
+      ],
+      "summary": {
+        "en": "A modified petal in an orchid flower.",
+        "es": "Pétalo modificado de una flor de orquídea."
+      },
+      "detail": {
+        "en": "Compare the lip with the other two petals in the teaching model. Then inspect an authentic specimen: the named relationship remains useful even when the shapes look very different.",
+        "es": "Compara el labelo con los otros dos pétalos del modelo didáctico. Después observa un ejemplar real: esta relación ayuda a orientarte aunque las formas sean muy distintas."
+      },
+      "sourceIds": [
+        "smithsonian-guide"
+      ]
+    },
+    {
+      "id": "column",
+      "label": {
+        "en": "Column",
+        "es": "Columna"
+      },
+      "group": "orchid",
+      "models": [
+        "orchid"
+      ],
+      "summary": {
+        "en": "The orchid structure combining male and female reproductive organs.",
+        "es": "Estructura de la orquídea que reúne órganos reproductivos masculinos y femeninos."
+      },
+      "detail": {
+        "en": "The column belongs to the orchid model, where separate ordinary stamens would give the wrong impression. Focus on its position above the lip before exploring the pollen masses.",
+        "es": "La columna pertenece al modelo de orquídea: mostrar estambres ordinarios separados induciría a error. Localízala sobre el labelo antes de explorar las masas de polen."
+      },
+      "sourceIds": [
+        "kew-orchid",
+        "smithsonian-guide"
+      ]
+    },
+    {
+      "id": "pollinia",
+      "label": {
+        "en": "Pollinia",
+        "es": "Polinios"
+      },
+      "group": "orchid",
+      "models": [
+        "orchid"
+      ],
+      "summary": {
+        "en": "Pollen gathered into masses in many orchids.",
+        "es": "Polen agrupado en masas en muchas orquídeas."
+      },
+      "detail": {
+        "en": "The teaching model enlarges these small structures. Use the column as your reference; the scan does not provide a separate removable model of each pollen mass.",
+        "es": "El modelo didáctico amplía estas estructuras pequeñas. Usa la columna como referencia; el escaneo no incluye un modelo separable de cada masa de polen."
+      },
+      "sourceIds": [
+        "kew-orchid",
+        "smithsonian-guide"
+      ]
+    },
+    {
+      "id": "seed",
+      "label": {
+        "en": "Seed",
+        "es": "Semilla"
+      },
+      "group": "lifecycle",
+      "models": [
+        "general"
+      ],
+      "summary": {
+        "en": "A reproductive structure containing an embryo.",
+        "es": "Estructura reproductiva que contiene un embrión."
+      },
+      "detail": {
+        "en": "Follow the general flower-to-fruit sequence to distinguish seed from surrounding fruit. This example is not orchid germination: orchid seeds and their early development require a different explanation.",
+        "es": "Sigue la secuencia general de flor a fruto para distinguir la semilla del tejido que la rodea. No representa la germinación de orquídeas, que exige otra explicación."
+      },
+      "sourceIds": [
+        "kew-seed",
+        "kew-orchid"
+      ]
+    }
+  ],
+  "journeys": [
+    {
+      "id": "flower-whorls",
+      "title": {
+        "en": "A flower, layer by layer",
+        "es": "Una flor, capa por capa"
+      },
+      "question": {
+        "en": "What is hidden behind a flower's outline?",
+        "es": "¿Qué se esconde tras la silueta de una flor?"
+      },
+      "summary": {
+        "en": "Separate the outer organs, keep their attachment points in view, then rebuild the whole.",
+        "es": "Separa los órganos externos, observa dónde se unen y reconstruye el conjunto."
+      },
+      "sourceIds": [
+        "osu-reproductive",
+        "usda-pollination"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Find the base",
+            "es": "Localiza la base"
+          },
+          "body": {
+            "en": "Begin with the receptacle. Rotate the whole flower and use its base as a reference before separating any pieces.",
+            "es": "Comienza por el receptáculo. Gira la flor y usa su base como referencia antes de separar las piezas."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "receptacle",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Read the outer whorl",
+            "es": "Lee el verticilo externo"
+          },
+          "body": {
+            "en": "Highlight the sepals and increase separation. Their group is the calyx; the space opened here is a viewing aid.",
+            "es": "Destaca los sépalos y aumenta la separación. El grupo forma el cáliz; el espacio abierto facilita la observación."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "sepal",
+            "explode": 0.6,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Look inside",
+            "es": "Mira hacia dentro"
+          },
+          "body": {
+            "en": "Select the petals. Then compare their positions with the stamens and central pistil. A complete flower has all four kinds of floral parts.",
+            "es": "Selecciona los pétalos y compara su posición con los estambres y el pistilo central. Una flor completa tiene estos cuatro tipos de piezas."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "petal",
+            "explode": 1,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Reassemble",
+            "es": "Reconstruye"
+          },
+          "body": {
+            "en": "Bring the pieces together and identify the same groups again. An exploded view is useful only if you can return each part to the whole.",
+            "es": "Reúne las piezas e identifica otra vez los grupos. Una vista separada resulta útil si permite relacionar cada parte con el conjunto."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "petal",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "a-stamens-two-parts",
+      "title": {
+        "en": "Two parts of a stamen",
+        "es": "Las dos partes del estambre"
+      },
+      "question": {
+        "en": "Which part produces pollen, and which holds it in place?",
+        "es": "¿Qué parte produce el polen y cuál lo sostiene?"
+      },
+      "summary": {
+        "en": "Connect anther and filament through selection and spatial inspection.",
+        "es": "Relaciona la antera y el filamento mediante la selección y la observación espacial."
+      },
+      "sourceIds": [
+        "uga-botany",
+        "umd-plant-reproduction"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "The supporting stalk",
+            "es": "El eje de soporte"
+          },
+          "body": {
+            "en": "Choose a filament and trace it toward its tip. It is part of a stamen, rather than a complete stamen on its own.",
+            "es": "Elige un filamento y sigue su recorrido hasta la punta. Forma parte de un estambre; por sí solo no es el estambre completo."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "filament",
+            "explode": 0.2,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "The pollen-bearing end",
+            "es": "El extremo que lleva el polen"
+          },
+          "body": {
+            "en": "Switch to the anther. Notice that this change in selection identifies a different role within the same larger organ.",
+            "es": "Selecciona la antera. El cambio identifica una función distinta dentro del mismo órgano."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "anther",
+            "explode": 0.45,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "From structure to route",
+            "es": "De la estructura al recorrido"
+          },
+          "body": {
+            "en": "Find the enlarged pollen marker. In the next investigation, the destination of pollen matters as much as its starting point.",
+            "es": "Localiza el marcador ampliado de polen. En la siguiente investigación, su destino será tan importante como su origen."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "pollen",
+            "explode": 0.15,
+            "cutEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "pistil-route",
+      "title": {
+        "en": "A route through the center",
+        "es": "Un recorrido por el centro"
+      },
+      "question": {
+        "en": "How are stigma, style and ovary connected?",
+        "es": "¿Cómo se conectan estigma, estilo y ovario?"
+      },
+      "summary": {
+        "en": "Follow one continuous structural route without confusing an organ with the structures inside it.",
+        "es": "Sigue un recorrido estructural continuo y distingue un órgano de las estructuras que contiene."
+      },
+      "sourceIds": [
+        "uga-botany",
+        "kew-pollination"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Where pollen arrives",
+            "es": "Donde llega el polen"
+          },
+          "body": {
+            "en": "Select the stigma at the top of the central structure. This is the receptive surface for pollen.",
+            "es": "Selecciona el estigma en la parte superior de la estructura central. Es la superficie receptora del polen."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "stigma",
+            "explode": 0.25,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Follow the connection",
+            "es": "Sigue la conexión"
+          },
+          "body": {
+            "en": "Move your attention to the style. Rotate the model to see its connection with the stigma above and the ovary below.",
+            "es": "Observa ahora el estilo. Gira el modelo para seguir su conexión con el estigma y el ovario."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "style",
+            "explode": 0.25,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Find the containing organ",
+            "es": "Identifica el órgano que contiene"
+          },
+          "body": {
+            "en": "Select the ovary and lower the separation. Its interior will be the subject of the next cutaway investigation.",
+            "es": "Selecciona el ovario y reduce la separación. Su interior será el tema de la siguiente investigación mediante un corte."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "ovary",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "ovary-and-ovules",
+      "title": {
+        "en": "Inside an ovary",
+        "es": "Dentro de un ovario"
+      },
+      "question": {
+        "en": "Is an ovary the same thing as an ovule?",
+        "es": "¿Un ovario es lo mismo que un óvulo?"
+      },
+      "summary": {
+        "en": "Use a section to distinguish a container from the structures it contains.",
+        "es": "Usa un corte para distinguir una estructura de las que contiene."
+      },
+      "sourceIds": [
+        "usda-pollination",
+        "anbg-characters",
+        "kew-orchid"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Begin with the outside",
+            "es": "Comienza por el exterior"
+          },
+          "body": {
+            "en": "Locate the ovary before opening the section. Keep its boundary in mind as the hidden structures come into view.",
+            "es": "Localiza el ovario antes de activar el corte. Recuerda su límite al descubrir las estructuras interiores."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "ovary",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Open a section",
+            "es": "Abre un corte"
+          },
+          "body": {
+            "en": "Move the section control and select an ovule. The model shows a few enlarged examples; it does not count the ovules of a specimen.",
+            "es": "Mueve el control de corte y selecciona un óvulo. El modelo muestra ejemplos ampliados; no cuenta los óvulos de un ejemplar."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "ovule",
+            "explode": 0,
+            "cutEnabled": true,
+            "cut": 0
+          }
+        },
+        {
+          "title": {
+            "en": "Change the floral plan",
+            "es": "Cambia el plan floral"
+          },
+          "body": {
+            "en": "Switch to the orchid model. Its inferior ovary lies below the attachment of the outer floral parts. Compare positions rather than screen height.",
+            "es": "Cambia al modelo de orquídea. Su ovario ínfero queda bajo la inserción de las piezas florales externas. Compara las inserciones, no la altura en pantalla."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "ovary",
+            "explode": 0,
+            "cutEnabled": true,
+            "cut": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "pollen-path",
+      "title": {
+        "en": "Arrival is not fertilization",
+        "es": "Llegar no es fecundar"
+      },
+      "question": {
+        "en": "What happens between pollen transfer and a developing seed?",
+        "es": "¿Qué ocurre entre el traslado del polen y una semilla en desarrollo?"
+      },
+      "summary": {
+        "en": "Separate pollen transfer, pollen-tube growth and fertilization into distinct ideas.",
+        "es": "Distingue el traslado del polen, el crecimiento del tubo polínico y la fecundación."
+      },
+      "sourceIds": [
+        "umd-pollination",
+        "kew-pollination",
+        "umd-plant-reproduction"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Start at the anther",
+            "es": "Comienza en la antera"
+          },
+          "body": {
+            "en": "Identify the anther as the starting point for pollen transfer. The highlighted grain is enlarged for inspection.",
+            "es": "Identifica la antera como origen del traslado. El grano destacado está ampliado para poder observarlo."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "anther",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Arrive at the stigma",
+            "es": "Llega al estigma"
+          },
+          "body": {
+            "en": "Pollen transfer to a stigma is pollination. Reaching that surface does not by itself guarantee that fertilization will succeed.",
+            "es": "El traslado al estigma es polinización. Alcanzar esa superficie no garantiza que la fecundación tenga éxito."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "stigma",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Follow the inner route",
+            "es": "Sigue el recorrido interior"
+          },
+          "body": {
+            "en": "Use the style as a guide to the pollen tube's route. The drawing makes the connection visible; it is not a time-resolved microscopic observation.",
+            "es": "Usa el estilo como guía del recorrido del tubo polínico. El dibujo hace visible la conexión; no es una observación microscópica a lo largo del tiempo."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "style",
+            "explode": 0,
+            "cutEnabled": true,
+            "cut": 0
+          }
+        },
+        {
+          "title": {
+            "en": "Locate the destination",
+            "es": "Localiza el destino"
+          },
+          "body": {
+            "en": "Return to an ovule inside the ovary. Fertilization involves cells within this structure, not simply pollen touching a petal.",
+            "es": "Vuelve a un óvulo dentro del ovario. La fecundación ocurre entre células de esta estructura; no consiste en que el polen toque un pétalo."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "ovule",
+            "explode": 0,
+            "cutEnabled": true,
+            "cut": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "flower-to-fruit",
+      "title": {
+        "en": "From flower to fruit",
+        "es": "De flor a fruto"
+      },
+      "question": {
+        "en": "What remains when the petals are gone?",
+        "es": "¿Qué permanece cuando desaparecen los pétalos?"
+      },
+      "summary": {
+        "en": "Scrub a simplified general sequence and track the ovary and seeds across changing forms.",
+        "es": "Recorre una secuencia general simplificada y sigue el ovario y las semillas mientras cambia la forma."
+      },
+      "sourceIds": [
+        "kew-seed",
+        "kew-pollination",
+        "umd-plant-reproduction",
+        "osu-reproductive"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "An open flower",
+            "es": "Una flor abierta"
+          },
+          "body": {
+            "en": "Locate the ovary in the open teaching flower. Keep this region in view as the sequence changes; the slider shows order, not measured days.",
+            "es": "Localiza el ovario en la flor didáctica abierta. Sigue esta región mientras cambia la secuencia; el control muestra un orden, no días medidos."
+          },
+          "view": {
+            "mode": "lifecycle",
+            "model": "general",
+            "stage": 0,
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Pollen arrives",
+            "es": "Llega el polen"
+          },
+          "body": {
+            "en": "Watch the enlarged pollen marker approach the stigma. This is the transfer step; it does not itself show successful fertilization.",
+            "es": "Observa cómo el marcador ampliado de polen se acerca al estigma. Es el traslado del polen; todavía no demuestra una fecundación exitosa."
+          },
+          "view": {
+            "mode": "lifecycle",
+            "model": "general",
+            "stage": 0.25,
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "A tube grows",
+            "es": "Crece un tubo"
+          },
+          "body": {
+            "en": "Follow the highlighted pollen tube toward the ovary. Its visible route is a schematic explanation of a hidden process.",
+            "es": "Sigue el tubo polínico destacado hacia el ovario. Su recorrido visible es una explicación esquemática de un proceso oculto."
+          },
+          "view": {
+            "mode": "lifecycle",
+            "model": "general",
+            "stage": 0.5,
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Fertilization can follow",
+            "es": "Puede ocurrir la fecundación"
+          },
+          "body": {
+            "en": "Find the ovules at the destination. The model orders the events that can lead to seed development; it does not predict that every arriving pollen grain succeeds.",
+            "es": "Localiza los óvulos al final del recorrido. El modelo ordena los eventos que pueden conducir a semillas; no predice que cada grano de polen tenga éxito."
+          },
+          "view": {
+            "mode": "lifecycle",
+            "model": "general",
+            "stage": 0.7,
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Distinguish fruit and seed",
+            "es": "Distingue fruto y semilla"
+          },
+          "body": {
+            "en": "Inspect the seeds and surrounding fruit, then reverse the sequence. This general example is not an orchid germination model or a rule for every fruit shape.",
+            "es": "Examina las semillas y el fruto que las rodea; después retrocede. Este ejemplo general no representa germinación de orquídeas ni la forma de todos los frutos."
+          },
+          "view": {
+            "mode": "lifecycle",
+            "model": "general",
+            "stage": 1,
+            "explode": 0,
+            "cutEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "orchid-plan",
+      "title": {
+        "en": "The orchid's different plan",
+        "es": "El plan distinto de una orquídea"
+      },
+      "question": {
+        "en": "How can familiar floral parts take such a different form?",
+        "es": "¿Cómo adoptan las piezas florales una forma tan distinta?"
+      },
+      "summary": {
+        "en": "Discover sepals, petals, lip and column in a model built specifically for orchids.",
+        "es": "Descubre sépalos, pétalos, labelo y columna en un modelo específico de orquídea."
+      },
+      "sourceIds": [
+        "kew-orchid",
+        "smithsonian-guide"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Begin with the orchid",
+            "es": "Comienza con la orquídea"
+          },
+          "body": {
+            "en": "Take a moment to rotate the intact model. This teaching flower uses an orchid plan rather than a ring of ordinary separate stamens.",
+            "es": "Gira primero el modelo completo. Esta flor didáctica representa el plan de una orquídea, no un anillo de estambres ordinarios separados."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "column",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Separate the outer organs",
+            "es": "Separa los órganos externos"
+          },
+          "body": {
+            "en": "Highlight the sepals and then the ordinary petals. Orchid sepals may look petal-like, so use their relationships as well as their appearance.",
+            "es": "Destaca los sépalos y después los pétalos ordinarios. Los sépalos pueden parecer pétalos: observa sus relaciones además de su apariencia."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "sepal",
+            "explode": 0.8,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Find the modified petal",
+            "es": "Encuentra el pétalo modificado"
+          },
+          "body": {
+            "en": "Select the lip, also called labellum. Its separate label explains a special form without treating it as an unrelated extra organ.",
+            "es": "Selecciona el labelo. Su etiqueta explica una forma especial sin presentarlo como un órgano adicional sin relación con los pétalos."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "lip",
+            "explode": 0.65,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Bring the plan together",
+            "es": "Reúne el conjunto"
+          },
+          "body": {
+            "en": "Return to the column as the parts reassemble. Now compare this plan with a real specimen in the gallery.",
+            "es": "Vuelve a la columna y reúne las piezas. Después compara este plan con un ejemplar real de la galería."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "column",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "lip-and-column",
+      "title": {
+        "en": "The lip and its neighbor",
+        "es": "El labelo y su vecino"
+      },
+      "question": {
+        "en": "What should you look for at the center of an orchid?",
+        "es": "¿Qué debes buscar en el centro de una orquídea?"
+      },
+      "summary": {
+        "en": "Use the lip as a landmark, then inspect the column and the enlarged pollen masses.",
+        "es": "Usa el labelo como referencia y observa la columna y las masas de polen ampliadas."
+      },
+      "sourceIds": [
+        "smithsonian-guide",
+        "kew-orchid-strategies",
+        "kew-orchid"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Choose a landmark",
+            "es": "Elige una referencia"
+          },
+          "body": {
+            "en": "Focus on the lip. Ask how its shape directs your attention toward the center, without assuming a particular pollinator from shape alone.",
+            "es": "Observa el labelo. Examina cómo su forma orienta la mirada hacia el centro, sin deducir un polinizador concreto solo por la apariencia."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "lip",
+            "explode": 0.15,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Find the column",
+            "es": "Localiza la columna"
+          },
+          "body": {
+            "en": "Switch selection to the column. The adjacent structures have different identities even when they overlap from one viewing angle.",
+            "es": "Selecciona la columna. Las estructuras vecinas tienen identidades distintas aunque se superpongan desde un ángulo."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "column",
+            "explode": 0.35,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Inspect pollen masses",
+            "es": "Examina las masas de polen"
+          },
+          "body": {
+            "en": "Highlight the enlarged pollinia, then return to the intact view. Their separation is an explanatory feature of the teaching model.",
+            "es": "Destaca los polinios ampliados y vuelve a la vista completa. La separación es un recurso explicativo del modelo didáctico."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "pollinia",
+            "explode": 0.6,
+            "cutEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "symmetry",
+      "title": {
+        "en": "Look for a mirror",
+        "es": "Busca un espejo"
+      },
+      "question": {
+        "en": "How do the outer floral organs repeat around the center?",
+        "es": "¿Cómo se repiten las piezas florales externas alrededor del centro?"
+      },
+      "summary": {
+        "en": "Compare the outer whorls, or perianth: a repeated radial pattern in the general model and a bilateral orchid plan.",
+        "es": "Compara los verticilos externos, o perianto: un patrón radial repetido en el modelo general y un plan bilateral en la orquídea."
+      },
+      "sourceIds": [
+        "kew-orchid",
+        "smithsonian-guide"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Inspect the general model",
+            "es": "Observa el modelo general"
+          },
+          "body": {
+            "en": "View the general teaching flower from above and focus on its petals and sepals. Here, symmetry refers to the outer floral organs; internal organs can follow different patterns.",
+            "es": "Observa la flor general desde arriba y concéntrate en pétalos y sépalos. Aquí la simetría se refiere a las piezas externas; los órganos internos pueden seguir otros patrones."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "general",
+            "selected": "petal",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Change the plan",
+            "es": "Cambia el plan"
+          },
+          "body": {
+            "en": "In the orchid model, compare the left and right sides of the perianth. The distinct lip helps orient this bilateral plan.",
+            "es": "En el modelo de orquídea, compara los lados izquierdo y derecho del perianto. El labelo diferente ayuda a orientar este plan bilateral."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "lip",
+            "explode": 0,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Test your reading on a specimen",
+            "es": "Comprueba tu interpretación"
+          },
+          "body": {
+            "en": "Inspect Phalaenopsis and Encyclia. Real surfaces need not match an ideal diagram perfectly; compare the overall arrangement before small details.",
+            "es": "Observa Phalaenopsis y Encyclia. Las superficies reales no tienen que coincidir perfectamente con un esquema ideal; compara primero la disposición general."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "phalaenopsis",
+            "compare": "encyclia"
+          }
+        }
+      ]
+    },
+    {
+      "id": "surface-and-depth",
+      "title": {
+        "en": "A silhouette is not the whole flower",
+        "es": "La silueta no es toda la flor"
+      },
+      "question": {
+        "en": "What changes when you stop looking only from the front?",
+        "es": "¿Qué cambia cuando dejas de mirar solo de frente?"
+      },
+      "summary": {
+        "en": "Use authentic scans to distinguish an outline from a three-dimensional surface.",
+        "es": "Usa escaneos auténticos para distinguir un contorno de una superficie tridimensional."
+      },
+      "sourceIds": [
+        "smithsonian-api",
+        "smithsonian-orchids"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Read an outline",
+            "es": "Lee un contorno"
+          },
+          "body": {
+            "en": "Start with Lycaste and trace its outer boundary with your eyes. The camera angle controls which surfaces overlap.",
+            "es": "Comienza con Lycaste y sigue visualmente su borde externo. El ángulo de la cámara determina qué superficies se superponen."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "lycaste"
+          }
+        },
+        {
+          "title": {
+            "en": "Rotate into depth",
+            "es": "Gira para ver la profundidad"
+          },
+          "body": {
+            "en": "Switch to Phragmipedium and rotate it. A new angle reveals relationships that a frontal outline cannot explain by itself.",
+            "es": "Cambia a Phragmipedium y gíralo. Otro ángulo revela relaciones que un contorno frontal no explica por sí solo."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "phragmipedium"
+          }
+        },
+        {
+          "title": {
+            "en": "Compare with intent",
+            "es": "Compara con intención"
+          },
+          "body": {
+            "en": "Pair the two specimens. Keep a similar angle while comparing; screen framing is not a measurement of physical size.",
+            "es": "Compara ambos ejemplares desde ángulos semejantes. El encuadre en pantalla no es una medición del tamaño físico."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "lycaste",
+            "compare": "phragmipedium"
+          }
+        }
+      ]
+    },
+    {
+      "id": "family-resemblances",
+      "title": {
+        "en": "Different blooms, shared questions",
+        "es": "Flores distintas, preguntas comunes"
+      },
+      "question": {
+        "en": "Can you find familiar landmarks in another specimen?",
+        "es": "¿Puedes reconocer las mismas referencias en otro ejemplar?"
+      },
+      "summary": {
+        "en": "Move across a small documented collection and keep the same observation task.",
+        "es": "Recorre una colección pequeña y documentada manteniendo la misma tarea de observación."
+      },
+      "sourceIds": [
+        "smithsonian-orchids",
+        "smithsonian-guide"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Establish a reference",
+            "es": "Establece una referencia"
+          },
+          "body": {
+            "en": "Inspect Phalaenopsis. Choose a viewing angle where the center and outer organs are visible together.",
+            "es": "Observa Phalaenopsis. Elige un ángulo que muestre a la vez el centro y los órganos externos."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "phalaenopsis"
+          }
+        },
+        {
+          "title": {
+            "en": "Change one specimen",
+            "es": "Cambia un ejemplar"
+          },
+          "body": {
+            "en": "Compare it with Vanda. Ask which landmarks help you navigate even when their visible shape changes.",
+            "es": "Compárala con Vanda. Busca las referencias que te orientan aunque cambie su forma visible."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "phalaenopsis",
+            "compare": "vanda"
+          }
+        },
+        {
+          "title": {
+            "en": "A second comparison",
+            "es": "Otra comparación"
+          },
+          "body": {
+            "en": "Pair Encyclia with Lycaste. You are comparing digitized blooms, not measuring how much one species resembles another genetically.",
+            "es": "Compara Encyclia con Lycaste. Son flores digitalizadas; la comparación no mide cuánto se parecen genéticamente las especies."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "encyclia",
+            "compare": "lycaste"
+          }
+        },
+        {
+          "title": {
+            "en": "Return to a named plan",
+            "es": "Vuelve a un plan con nombres"
+          },
+          "body": {
+            "en": "Finish in the orchid teaching model and name a landmark you recognized. Use the linked source guide to check the terminology.",
+            "es": "Termina en el modelo didáctico de orquídea y nombra una referencia que hayas reconocido. Consulta la guía enlazada para comprobar el término."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "lip",
+            "explode": 0.25,
+            "cutEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "evidence-and-model",
+      "title": {
+        "en": "A specimen and an explanation",
+        "es": "Un ejemplar y una explicación"
+      },
+      "question": {
+        "en": "Which parts are recorded, and which are drawn to explain?",
+        "es": "¿Qué partes están registradas y cuáles se dibujan para explicar?"
+      },
+      "summary": {
+        "en": "Move between a real scan and an authored model while keeping their different purposes clear.",
+        "es": "Alterna entre un escaneo real y un modelo propio distinguiendo sus propósitos."
+      },
+      "sourceIds": [
+        "smithsonian-api",
+        "smithsonian-openaccess",
+        "smithsonian-guide"
+      ],
+      "steps": [
+        {
+          "title": {
+            "en": "Observe a recorded surface",
+            "es": "Observa una superficie registrada"
+          },
+          "body": {
+            "en": "This Phalaenopsis file is a Smithsonian digitized specimen. It contains one continuous mesh; selecting an internal organ cannot reveal a separate scanned part.",
+            "es": "Este archivo de Phalaenopsis es un ejemplar digitalizado del Smithsonian. Tiene una malla continua: no contiene órganos internos escaneados por separado."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "phalaenopsis"
+          }
+        },
+        {
+          "title": {
+            "en": "Use a teaching reconstruction",
+            "es": "Usa una representación didáctica"
+          },
+          "body": {
+            "en": "The orchid model has named, separable parts because it was authored for explanation. It is not a segmentation recovered from the previous scan.",
+            "es": "El modelo de orquídea tiene piezas con nombre que se separan porque fue creado para explicar. No es una segmentación extraída del escaneo anterior."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "column",
+            "explode": 0.75,
+            "cutEnabled": false
+          }
+        },
+        {
+          "title": {
+            "en": "Read a hidden structure carefully",
+            "es": "Interpreta una estructura oculta"
+          },
+          "body": {
+            "en": "Open the model's ovary section. The enlarged ovules are schematic; they explain a relationship without claiming a specimen-specific count.",
+            "es": "Abre el corte del ovario del modelo. Los óvulos ampliados son esquemáticos: explican una relación sin afirmar una cantidad propia de ese ejemplar."
+          },
+          "view": {
+            "mode": "anatomy",
+            "model": "orchid",
+            "selected": "ovule",
+            "explode": 0,
+            "cutEnabled": true,
+            "cut": 0
+          }
+        },
+        {
+          "title": {
+            "en": "Keep the source attached",
+            "es": "Conserva la fuente"
+          },
+          "body": {
+            "en": "Return to the scan and open its source credit. A beautiful view becomes more useful when you can tell where its evidence came from.",
+            "es": "Vuelve al escaneo y abre su referencia. Una vista resulta más útil cuando puedes conocer el origen de su evidencia."
+          },
+          "view": {
+            "mode": "specimen",
+            "model": "general",
+            "specimen": "phalaenopsis"
+          }
+        }
+      ]
+    }
+  ]
+}

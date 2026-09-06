@@ -1,39 +1,119 @@
-// Prebuild: copy the committed CONTRACT-2 artifacts (../data/derived) into the SPA's public/ so the static site
-// replays them, and inline the pipeline sources for the live (Pyodide) lane. Canonical copies live in ../data
-// and ../data-pipeline, public/ is a build-time overlay (git-ignored).
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const HERE = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(HERE, '..');
-const PUB = join(HERE, 'public');
-
-// 1) data/derived -> public/data (traces under <case>/trace.json + manifests/ subdir incl. index.json)
-const derived = join(ROOT, 'data', 'derived');
-if (existsSync(derived)) {
-  mkdirSync(join(PUB, 'data'), { recursive: true });
-  cpSync(derived, join(PUB, 'data'), { recursive: true });
-  console.log('[copy-data] data/derived -> public/data');
-} else {
-  console.warn('[copy-data] no data/derived, run scripts/precompute first');
+/** Stage validated immutable data and pinned local decoders; never regenerate source evidence. */
+import {
+  cpSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+  rmSync,
+  existsSync,
+  lstatSync,
+} from "node:fs";
+import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
+const frontend = fileURLToPath(new URL(".", import.meta.url)),
+  root = resolve(frontend, ".."),
+  artifacts = resolve(root, "data/artifacts");
+const catalog = JSON.parse(
+  readFileSync(resolve(artifacts, "catalog.json"), "utf8"),
+);
+if (
+  catalog.schemaVersion !== 1 ||
+  catalog.specimens.length !== 5 ||
+  catalog.journeys.length !== 12
+)
+  throw new Error("Incomplete release catalog");
+for (const specimen of catalog.specimens)
+  for (const key of ["preview", "detail"]) {
+    const a = specimen[key];
+    if (!/^assets\/[a-z0-9-]+\.glb$/.test(a.path))
+      throw new Error("Invalid asset path");
+    const b = readFileSync(resolve(artifacts, a.path));
+    if (
+      b.length !== a.bytes ||
+      createHash("sha256").update(b).digest("hex") !== a.sha256.toLowerCase()
+    )
+      throw new Error(`Artifact mismatch: ${a.path}`);
+  }
+// Only these two generated, ignored directories are replaced. Refuse symlink targets.
+const publicRoot = resolve(frontend, "public");
+for (const name of ["data", "draco"]) {
+  const target = resolve(publicRoot, name);
+  if (
+    target !== resolve(frontend, "public", name) ||
+    (!target.startsWith(publicRoot + "/") &&
+      !target.startsWith(publicRoot + "\\"))
+  )
+    throw new Error("Generated path escaped public root");
+  if (existsSync(target) && lstatSync(target).isSymbolicLink())
+    throw new Error("Generated directory must not be a symlink");
+  rmSync(target, { recursive: true, force: true });
 }
-
-// 2) inline the pipeline Python sources for the optional Pyodide live lane -> public/pyodide/sources.json
-const pkg = join(ROOT, 'data-pipeline', 'pipeline');
-if (existsSync(pkg)) {
-  const sources = {};
-  const walk = (dir, rel = '') => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      if (e.name === '__pycache__') continue;
-      const abs = join(dir, e.name);
-      const r = rel ? `${rel}/${e.name}` : e.name;
-      if (e.isDirectory()) walk(abs, r);
-      else if (e.name.endsWith('.py')) sources[`pipeline/${r}`] = readFileSync(abs, 'utf-8');
-    }
-  };
-  walk(pkg);
-  mkdirSync(join(PUB, 'pyodide'), { recursive: true });
-  writeFileSync(join(PUB, 'pyodide', 'sources.json'), JSON.stringify(sources));
-  console.log(`[copy-data] inlined ${Object.keys(sources).length} pipeline sources -> public/pyodide/sources.json`);
-}
+mkdirSync(resolve(frontend, "public/data"), { recursive: true });
+cpSync(artifacts, resolve(frontend, "public/data"), { recursive: true });
+cpSync(
+  resolve(frontend, "node_modules/three/examples/jsm/libs/draco/gltf"),
+  resolve(frontend, "public/draco"),
+  { recursive: true },
+);
+let revision = "uncommitted";
+const noticePackages = [
+  "three",
+  "katex",
+  "react",
+  "react-dom",
+  "react-router",
+  "zustand",
+  "lucide-react",
+  "@fasl-work/caos-app-shell",
+  "scheduler",
+  "cookie",
+  "set-cookie-parser",
+];
+const notices = noticePackages.map((name) => {
+  const directory = resolve(frontend, "node_modules", name);
+  const metadata = JSON.parse(
+    readFileSync(resolve(directory, "package.json"), "utf8"),
+  );
+  const license = ["LICENSE", "LICENSE.md", "LICENSE.txt"]
+    .map((file) => resolve(directory, file))
+    .find((file) => existsSync(file));
+  if (!license) throw new Error(`Missing third-party notice: ${name}`);
+  return `${name} ${metadata.version}\n${readFileSync(license, "utf8")}`;
+});
+notices.push(
+  "Draco, Copyright Google Inc.\nhttps://github.com/google/draco\n" +
+    readFileSync(resolve(root, "LICENSE"), "utf8"),
+);
+writeFileSync(
+  resolve(frontend, "public/third-party-notices.txt"),
+  notices.join("\n\n----------------------------------------\n\n"),
+  "utf8",
+);
+try {
+  revision = execFileSync("git", ["rev-parse", "HEAD"], {
+    cwd: root,
+    encoding: "utf8",
+  }).trim();
+} catch {}
+writeFileSync(
+  resolve(frontend, "public/release.json"),
+  JSON.stringify(
+    {
+      schema: "floraria-build/v1",
+      product: "FLORARIA",
+      version: readFileSync(resolve(root, "VERSION"), "utf8").trim(),
+      revision,
+      catalog_sha256: createHash("sha256")
+        .update(readFileSync(resolve(artifacts, "catalog.json")))
+        .digest("hex"),
+      state: "local-build",
+    },
+    null,
+    2,
+  ) + "\n",
+);
+console.log(
+  `Validated ${catalog.specimens.length} specimens and ${catalog.journeys.length} investigations; staged data and decoders.`,
+);

@@ -1,0 +1,222 @@
+.fl-guides {
+  overflow-y: auto;
+  min-height: 0;
+  scrollbar-gutter: stable;
+  contain: layout paint;
+}
+.fl-guide-section {
+  padding-block: 0.75rem 1.5rem;
+}
+.fl-guide-section > p,
+.fl-guide-section > ol {
+  max-width: 82ch;
+  line-height: 1.8;
+}
+.fl-guide-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.fl-guide-figure {
+  margin: 1rem 0;
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+.fl-guide-figure svg {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  max-height: 230px;
+}
+.fl-guide-figure svg text {
+  fill: var(--color-fg);
+  font-family: inherit;
+  font-size: 12px;
+}
+.fl-guide-figure svg .fl-fig-note {
+  fill: var(--color-fg-subtle);
+  font-size: 10px;
+}
+.fl-guide-figure figcaption {
+  color: var(--color-fg-subtle);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.fl-fig-petal {
+  fill: color-mix(in srgb, var(--color-accent) 17%, var(--color-surface));
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+.fl-fig-sepal {
+  fill: color-mix(in srgb, var(--color-good) 18%, var(--color-surface));
+  stroke: var(--color-good);
+  stroke-width: 2;
+}
+.fl-fig-core {
+  fill: color-mix(in srgb, var(--color-warn) 24%, var(--color-surface));
+  stroke: var(--color-warn);
+  stroke-width: 2;
+}
+.fl-fig-line {
+  fill: none;
+  stroke: var(--color-fg-subtle);
+  stroke-width: 1.2;
+}
+.fl-fig-flow {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+.fl-fig-dash {
+  fill: none;
+  stroke: var(--color-fg-subtle);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+}
+.fl-guide-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  margin-block: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.65rem;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+}
+.fl-guide-action:hover {
+  border-color: var(--color-accent);
+}
+.fl-guide-glossary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1.5rem;
+}
+.fl-guide-glossary > div {
+  padding-block: 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.fl-guide-glossary dt {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+.fl-guide-glossary dd {
+  margin: 0.4rem 0 0;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.fl-guide-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding-block: 0.6rem 1.5rem;
+}
+.fl-guide-facts span {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--color-fg-subtle);
+  font-size: 0.78rem;
+}
+.fl-guide-facts b {
+  color: var(--color-fg);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.fl-guide-table-wrap {
+  overflow-x: auto;
+  margin-block: 1.5rem;
+}
+.fl-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+.fl-guide-table caption {
+  text-align: left;
+  font-weight: 650;
+  padding-bottom: 0.8rem;
+}
+.fl-guide-table th,
+.fl-guide-table td {
+  text-align: left;
+  padding: 0.85rem 0.7rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+.fl-guide-table td {
+  color: var(--color-fg-subtle);
+}
+.fl-guide-table small {
+  display: block;
+  margin-top: 0.45rem;
+  font-weight: 400;
+  color: var(--color-fg-subtle);
+}
+.fl-guide-link {
+  border: 0;
+  padding: 0;
+  color: var(--color-accent);
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  font-weight: 650;
+}
+.fl-guide-details {
+  border: 1px solid var(--color-border);
+  border-radius: 0.7rem;
+  padding: 1rem;
+}
+.fl-guide-details summary {
+  cursor: pointer;
+  font-weight: 650;
+}
+.fl-guide-details code {
+  display: block;
+  word-break: break-all;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+}
+.fl-guide-steps {
+  padding-left: 1.4rem;
+}
+.fl-guide-steps li {
+  padding: 0.5rem 0 1rem 0.6rem;
+}
+.fl-guide-note {
+  color: var(--color-fg-subtle);
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .fl-guides {
+    margin-top: 36px;
+  }
+}
+@media (max-width: 700px) {
+  .fl-guide-glossary {
+    grid-template-columns: 1fr;
+  }
+  .fl-guide-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .fl-guide-table {
+    min-width: 650px;
+  }
+  .fl-guide-figure {
+    padding: 0.6rem;
+  }
+}
