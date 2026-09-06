@@ -12,13 +12,16 @@ Use the numbered [local workflow](local/README.md) for a fresh clone. Every loca
 | `verify-ui.ps1` / `verify-ui.sh` | Run real Chromium integration checks against an explicitly chosen running site; optional explicit browser installation and configurable cache. |
 | `precompute.ps1` / `precompute.sh` | Data-agent pipeline wrapper; see the pipeline contract and local sandbox workflow before regenerating canonical artifacts. |
 | `package-release.ps1` / `package-release.sh` | Build and package one exact trusted clean source revision. |
-| `deploy.ps1` / `deploy.sh` | Install an immutable archive via operator-supplied SSH environment; optional explicit first-time TLS bootstrap. |
-| `rollback.ps1` / `rollback.sh` | Restore one exact already-existing validated release. |
+| `prepare-pages.ps1` / `prepare-pages.sh` | Stage direct-route files, early meta CSP and a full public file-hash inventory; exact clean revision required for publishing. |
+| `deploy.ps1` / `deploy.sh` | Explicitly dispatch the Pages workflow for the reviewed current main SHA using GitHub CLI. |
+| `rollback.ps1` / `rollback.sh` | Explain the Pages recovery path; no implicit server action. |
+| `legacy-vps-deploy.ps1` / `legacy-vps-deploy.sh` | Preserved manual historical SSH deployment, never called by Pages. |
+| `legacy-vps-rollback.ps1` / `legacy-vps-rollback.sh` | Preserved manual historical immutable-release reactivation. |
 | `smoke.ps1` / `smoke.sh` | Check public HTTPS transport and release identity; does not substitute for rendered QA. |
 
 `check_artifacts.py` verifies canonical files without regeneration. `check_release.py` checks display/semantic version consistency, required community files, forbidden package metadata, static-artifact hygiene and optional executable Git modes. `check_content_standards.py` checks tracked and untracked non-ignored source text for banned dashes/pictographic emoji. `check_template_residue.py` retains the archetype example/residue markers and refuses an unremoved template sentinel in this instantiated product.
 
-No backend API, visitor authentication, internal Python package or provider secret is required. See [the delivery runbook](../deploy/README.md) for release trust, atomic switching, TLS and rollback.
+No backend API, visitor authentication, internal Python package or provider secret is required. See [the delivery runbook](../deploy/README.md) for Pages configuration, exact source identity, live verification and recovery. Historical VPS operations have a separate explicitly legacy runbook.
 
 Browser QA is `scripts/verify-ui.ps1 --url http://127.0.0.1:4902` (or `.sh`) after starting the matching
 preview in another terminal. Its first run needs explicit `--install-browser`; optional `--browser-cache`

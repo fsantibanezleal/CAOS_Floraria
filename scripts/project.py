@@ -121,12 +121,13 @@ def smoke(base_url: str) -> None:
 
 def main(arguments: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['prereqs', 'setup', 'generate-data', 'dev', 'test', 'build', 'preview', 'smoke', 'verify-ui', 'deploy', 'rollback', 'package-release'])
+    parser.add_argument('command', choices=['prereqs', 'setup', 'generate-data', 'dev', 'test', 'build', 'preview', 'smoke', 'verify-ui', 'prepare-pages', 'deploy', 'rollback', 'legacy-vps-deploy', 'legacy-vps-rollback', 'package-release'])
     parser.add_argument('--release', action='store_true', help='Explicitly regenerate canonical data instead of a sandbox.')
     parser.add_argument('--url', help='HTTP(S) origin for transport smoke or browser QA.')
     parser.add_argument('--browser-cache', help='Explicit Playwright browser cache path; defaults to PLAYWRIGHT_BROWSERS_PATH or build/playwright.')
     parser.add_argument('--install-browser', action='store_true', help='Explicitly install the pinned Playwright Chromium before running browser QA.')
     parser.add_argument('--revision', help='Exact 40-character Git revision for release packaging/deployment.')
+    parser.add_argument('--require-clean', action='store_true', help='Require clean source when staging a Pages publishing artifact.')
     parser.add_argument('--approved-sha', help='Operator-approved exact revision if origin/main does not contain it.')
     parser.add_argument('--release-id', help='Exact existing remote release identifier for rollback.')
     parser.add_argument('--bootstrap', action='store_true', help='Explicitly create the new nginx hostname and HTTPS certificate before the first deployment.')
@@ -157,14 +158,22 @@ def main(arguments: list[str] | None = None) -> int:
     elif command == 'build': build()
     elif command == 'smoke': smoke(options.url or 'https://floraria.fasl-work.com')
     elif command == 'verify-ui': verify_ui(options.url, options.browser_cache, options.install_browser)
+    elif command == 'prepare-pages':
+        import prepare_pages
+        print(json.dumps(prepare_pages.prepare(revision=options.revision, require_clean=options.require_clean), indent=2))
+    elif command == 'deploy':
+        import deploy_pages
+        deploy_pages.dispatch(options.revision)
+    elif command == 'rollback':
+        raise RuntimeError('Pages recovery uses a reviewed Git revert/promotion or a retained prior Actions artifact; see deploy/README.md. The historical VPS command is explicitly named legacy-vps-rollback.')
     else:
         import release
-        if command == 'rollback': release.rollback(options.release_id)
+        if command == 'legacy-vps-rollback': release.rollback(options.release_id)
         else:
             revision = release.trusted_revision(options.revision, options.approved_sha)
             build()
             archive = release.package(revision)
-            if command == 'deploy':
+            if command == 'legacy-vps-deploy':
                 if options.bootstrap and not options.certificate_email:
                     raise RuntimeError('--bootstrap requires --certificate-email.')
                 release.deploy(archive, options.certificate_email if options.bootstrap else None)

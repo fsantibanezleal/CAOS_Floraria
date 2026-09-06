@@ -1,17 +1,12 @@
-# Deploy, GitHub Pages (default, static deterministic-replay)
+# GitHub Pages publication
 
-The default deploy for this archetype (ADR-0055 Pages-first): the SPA + the committed artifacts are served
-statically; there is **no backend** at request time. The workflow `.github/workflows/deploy-pages.yml`:
+The application and committed artifacts are served statically. There is no backend at request time. The workflow `.github/workflows/deploy-pages.yml`:
 
-1. regenerates the artifacts deterministically (`python data-pipeline/run.py all`) so the site replays fresh,
-   audited outputs;
-2. builds the frontend (`cd frontend && npm ci && npm run build`, `copy-data.mjs` overlays `data/derived` into
-   `public/`);
-3. uploads `frontend/dist` and deploys to Pages.
+1. verifies the locked source, canonical artifacts, tests and exact selected source revision;
+2. builds the frontend with locked dependencies; copy-data.mjs copies verified data/artifacts and local decoders;
+3. stages build/pages with a CSP, real direct-route files and a complete release manifest;
+4. uploads the validated Pages artifact and deploys with scoped Actions permissions.
 
-Enable once per product: repo **Settings → Pages → Source = GitHub Actions**. Custom domain: set via
-`gh api PUT repos/<owner>/<repo>/pages -f cname=<sub>.fasl-work.com` (the CNAME file alone does not set the domain
-on Actions deploys, see the CAOS_MANAGE reference note).
+One-time setup enables GitHub Actions as the Pages source and configures the custom domain through repository Pages settings. A CNAME file alone does not set the domain for Actions deployments. The complete [publication runbook](README.md) records configuration, verification and rollback.
 
-The VPS path (`setup.sh`/`update.sh` + the systemd/nginx templates here) stays **dormant** unless the `app/`
-backend is activated (ADR-0002).
+The original VPS tooling is retained under the [legacy deployment procedure](legacy-vps.md). It is not the current publishing path. Builds never redownload the museum collection or silently regenerate canonical evidence.

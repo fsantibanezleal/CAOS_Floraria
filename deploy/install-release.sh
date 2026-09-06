@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Legacy VPS tooling: preserved for the historical deployment, never used by Pages CI.
 # Invoked on the server by scripts/release.py. It never deletes historical releases.
 set -Eeuo pipefail
 mode="${1:-}"
