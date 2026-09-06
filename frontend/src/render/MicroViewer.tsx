@@ -471,9 +471,9 @@ export function MicroViewer({
             strokeWidth={5}
           />
         </Pick>
-        {Array.from({ length: 7 }, (_, i) =>
-          arrow(386, 386 - ((i * 47 + p * 170) % 320)),
-        )}
+        {Array.from({ length: 7 }, (_, i) => (
+          <g key={i}>{arrow(386, 386 - ((i * 47 + p * 170) % 320))}</g>
+        ))}
         {note(
           tr(
             "Pit membrane retained; the lumen is a space, not an organelle",

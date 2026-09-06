@@ -1,6 +1,6 @@
 {
   "name": "floraria-frontend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,10 +10,11 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:browser": "node verify-atlas.mjs",
+    "test:browser": "node verify-studio.mjs",
     "check": "tsc --noEmit",
     "format": "prettier --write src *.mjs index.html vite.config.ts package.json",
-    "format:check": "prettier --check src *.mjs index.html vite.config.ts package.json"
+    "format:check": "prettier --check src *.mjs index.html vite.config.ts package.json",
+    "test:legacy-browser": "node verify-atlas.mjs"
   },
   "dependencies": {
     "@fasl-work/caos-app-shell": "0.6.2",

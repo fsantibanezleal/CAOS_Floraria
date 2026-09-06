@@ -14,6 +14,14 @@ Catalog schemaVersion is 1. Source contains id/label/citation/url. Specimen cont
 
 The TypeScript mirror is frontend/src/lib/catalog.types.ts. Runtime validation checks shape/references rather than trusting a type assertion. The collection UI reads these records directly.
 
+## Microscopic atlas
+
+The separately versioned [microscopic contract](micro-atlas-contract.md) preserves the original collection schema. Four source-linked branches form a validated, reciprocal, acyclic hierarchy. Every node has English/Spanish labels and explanations, an explicit biological kind and an illustrated evidence classification. The accompanying integrity sidecar is verified before browser use. The original museum manifest remains unchanged; only the two exact micro artifact filenames are admitted beside it.
+
+## Connected exploration and notebook
+
+frontend/src/lib/exploration.ts wraps the original bounded viewer state with a five-level depth, one of four microscopic branches, selected node, bounded process position, guided-step position and optional notes. JSON files identify FLORARIA and schemaVersion 2. Imports reject unsupported products and files over 64 KB; version-one files retain their original viewer state. Notes are limited to 10,000 characters and excluded from share URLs. Unknown selections, malformed links and unsupported levels recover through explicit bounds rather than reaching renderer code unchecked.
+
 ## Geometry, units and missing data
 
 Use supported self-contained glTF 2.0 GLBs and inspect actual metadata/extensions. Normalized framing is dimensionless presentation; undocumented scale must not become invented millimeters. Missing scale is a limitation, not zero.
