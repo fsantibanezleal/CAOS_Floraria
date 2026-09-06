@@ -1,8 +1,10 @@
-# Smoke: validate the CONTRACT 2 artifacts on disk (index -> manifests -> artifacts consistent). A real product
-# extends this with an HTTP/static check of the built site.
-$ErrorActionPreference = "Stop"
-Set-Location (Join-Path $PSScriptRoot "..")
-$py = Join-Path ".venv-pipeline" "Scripts\python.exe"
-if (-not (Test-Path $py)) { $py = Join-Path ".venv-pipeline" "bin/python" }
-if (-not (Test-Path $py)) { $py = if ($env:PYTHON) { $env:PYTHON } else { "python" } }
-& $py scripts/check_artifacts.py
+param([Parameter(ValueFromRemainingArguments=$true)][string[]]$ScriptArguments)
+$ErrorActionPreference = 'Stop'
+$FlorariaRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+$FlorariaPython = Join-Path $FlorariaRoot '.venv\Scripts\python.exe'
+if (Test-Path -LiteralPath $FlorariaPython) {
+    & $FlorariaPython (Join-Path $FlorariaRoot 'scripts\project.py') 'smoke' @ScriptArguments
+} else {
+    & py -3.13 (Join-Path $FlorariaRoot 'scripts\project.py') 'smoke' @ScriptArguments
+}
+exit $LASTEXITCODE

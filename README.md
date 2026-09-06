@@ -1,85 +1,45 @@
-# CAOS product template, a REAL product repo (not a demo)
+# FLORARIA
 
-<!-- BADGE HEADER (ADR-0065), copy this block to the top of an instantiated product README.
-     Replace <OWNER>/<REPO> and the CI workflow filename. Every badge here is auto-updating and truthful.
-     Allowed: CI (from Actions), license, latest version/tag, live demo, and arXiv ONLY once a real preprint exists.
-     FORBIDDEN: hand-typed count/claim badges (tests N passing, languages N, coverage unless from CI, agents N, ...)
-     and supply-chain-security theater (OpenSSF Scorecard, SLSA, VirusTotal) unless the repo actually ships signed
-     installable binaries. A badge that states something a tool does not verify live is vanity, do not add it.
-[![CI](https://img.shields.io/github/actions/workflow/status/<OWNER>/<REPO>/ci.yml?branch=main&label=CI)](https://github.com/<OWNER>/<REPO>/actions)
-[![License](https://img.shields.io/github/license/<OWNER>/<REPO>)](LICENSE)
-[![Version](https://img.shields.io/github/v/tag/<OWNER>/<REPO>?label=version&sort=semver)](https://github.com/<OWNER>/<REPO>/tags)
-[![Live demo](https://img.shields.io/badge/demo-live-2ea44f)](https://<SLUG>.fasl-work.com)
--->
+**The architecture of a flower.** Explore digitized Smithsonian orchid blooms, take apart an explicitly authored teaching model, and follow questions about floral organization and reproduction.
 
-This is the **canonical template** every Faena/CAOS data-product repo is instantiated from. It exists because
-ad-hoc products (bespoke scripts, baked cases, no reproducible env, no data contract) kept shipping, they
-*look* done but **cannot be applied to new data**, so they are demos, not tools. This template makes the standard
-**executable**: clone it, run two scripts, and you have a reproducible offline pipeline that ingests data in a
-**standard format**, processes it through **typed, seeded, tested stages**, emits **committed standard-format
-artifacts + a manifest**, and feeds a web app that **replays** them, and that any third party can point at
-**their own data**.
+FLORARIA is a public-facing, no-login educational atlas. The source repository is private; original code, documentation and diagrams use Apache-2.0 under [LICENSE](LICENSE). Museum scans record outer surfaces; the general flower and orchid models expose named relationships for explanation. No identification, clinical, growth-prediction or biological measurement service is provided.
 
-It is modelled on the validated exemplar **CAOS_SIMLAB** (`simlab/pipeline.py`, `requirements-*.txt`,
-`scripts/setup+precompute`, `docs/frameworks`, `data/artifacts`, `manifests/`).
+## Explore
 
-## The two data contracts (the thing that was missing everywhere)
+- Rotate, frame and compare five real bloom specimens with compact/detailed fidelity.
+- Select, isolate, separate and section named teaching components.
+- Scrub a bounded reproductive explanation, distinguishing pollen transfer, fertilization and seed/fruit identities.
+- Open twelve guided investigations in the same explorer.
+- Preserve views through bookmarks, share links and JSON export/import; export a view image.
+- Read the guide, morphology, implementation and evidence in English/Spanish with light/dark themes.
 
-A product is only real if data flows through **two enforced contracts**:
+Display version: **0.01.000**. Final publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); capability descriptions do not establish delivery.
 
-1. **Ingestion contract, `raw → processing`.** `data-pipeline/pipeline/io/contract.py` (shipped as `pipeline`) defines the required schema (columns,
-   units, ranges) of an input dataset and an explicit **outlier policy** (reject / clip / flag). This is the
-   *"bring your own data"* gate: a user's dataset is accepted iff it satisfies the contract. Documented in
-   [docs/data-contract.md](docs/data-contract.md).
-2. **Artifact contract, `processing → web`.** Every canonical pipeline run writes a compact,
-   standard-format artifact and a `manifests/<case>.json` (params, seed, run_ms, bytes, gate verdict,
-   format/version). The web replay lane loads only these. A separately named reduced live engine may compute
-   valid interactive results when its parity/latency/memory gates pass; it never overwrites or masquerades
-   as canonical offline truth. A TS type mirrors the manifest schema so contract drift fails the build.
+## Run locally
 
-If either contract is missing, the product is a demo. CI enforces both.
+Use Python 3.13 and Node 22 or 24, isolated to this repository.
 
-## Quickstart (proves the template runs end-to-end)
+~~~powershell
+./scripts/setup.ps1
+python data-pipeline/run.py all
+npm --prefix frontend run dev
+~~~
 
-```bash
-# 1. create the reproducible environment (.venv + pinned per-need requirements)
-./scripts/setup.sh                      # or scripts/setup.ps1 on Windows PowerShell
+Equivalent shell scripts accompany the PowerShell entry points.
 
-# 2. run the offline pipeline over every case → data/artifacts/ + manifests/
-./scripts/precompute.sh                 # or scripts/precompute.ps1
+~~~sh
+npm --prefix frontend run test
+npm --prefix frontend run build
+~~~
 
-# 3. the tests (determinism, both data contracts, the gate, parity)
-.venv/bin/python -m pytest              # .venv/Scripts/python.exe on Windows
+The source process acquires locked public assets. Offline mode uses the verified cache. See [local development](docs/guides/01_local-development.md), [acquisition](docs/guides/02_acquisition-and-extension.md) and [delivery](deploy/README.md).
 
-# 4. the web app consumes the artifacts (copy-data enforces the artifact contract)
-cd web && npm install && node copy-data.mjs && npm run dev
-```
+## Evidence and limits
 
-## How to instantiate this template for a NEW product
+Five blooms with two fidelity variants are five biological examples, not ten. Each scan has one surface mesh and no organ segmentation. Normalized framing does not establish equal physical size. Authored proportions, separation, colors and progress are explanatory conventions.
 
-See [docs/guides/00_instantiate.md](docs/guides/00_instantiate.md). In short: copy this tree, **delete the
-`.template-source` sentinel** (this arms the residue guard, `scripts/check_template_residue.py`, which then
-fails CI if any example pipeline or placeholder text survives), rename the `pipeline` package (in
-`data-pipeline/`) to `pipeline`, **replace the EXAMPLE engine** (the SIR model in
-`data-pipeline/pipeline/model/` + `stages/`) with your
-product's complete research-chosen classical→SOTA→frontier method registry. Every promised method must
-pass ADR-0069's vertical acceptance contract and be documented in `docs/frameworks/`, pinned in
-`requirements-precompute.txt` or `requirements-gpu.txt`, and actually executed by the pipeline. Write the
-ingestion contract, split policy, cases/variants, and fill the `docs/` wiki **as you build, not at the end**.
+Source URLs, rights and hashes live under data/sources; browser assets under data/artifacts; the manifest under manifests. The collection page reads actual catalog metadata. File integrity is distinct from botanical correctness and educational effectiveness.
 
-## Hard rules this template bakes in
+See the [wiki](docs/README.md), [repository map](STRUCTURE.md), [contracts](docs/data-contract.md), [attribution](ATTRIBUTION.md) and [licenses](LICENSES.md).
 
-- **The deep research is binding, not decoration.** Every engine/solver/library the research selected lives in
-  `docs/frameworks/<tool>/` *and* `requirements-precompute.txt`, and the pipeline actually uses it. No hand-rolled
-  substitute for a SOTA engine the research prescribed.
-- **The repository is the product.** It implements ingest, preprocess, dataset/split, feature extraction,
-  training/fine-tuning, inference, evaluation, export, and validation for every promised method. The web is
-  the companion workbench, not a substitute for those engines.
-- **Canonical science is offline.** Tests run in sandboxes; release bake is explicit; deployment verifies
-  checksums and publishes existing evidence. Deploy never trains, benchmarks, or mutates canonical artifacts.
-- **Standard formats end-to-end** (`data-pipeline/pipeline/io/formats.py`): domain-standard in, compact-standard out.
-- **Reproducible**: pinned requirements per need; `scripts/setup`; CI installs them and runs a pipeline smoke.
-- **Applicable to new data**: the ingestion contract is the bring-your-own-data door.
-- **Versioned** (X.XX.XXX, CHANGELOG + tags from day 1) with **license/attribution hygiene**.
-
-See [docs/architecture/01_overview.md](docs/architecture/01_overview.md) for the full rationale.
+Developed by Felipe Santibáñez-Leal. Source institutions do not thereby endorse the application.

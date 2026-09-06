@@ -15,7 +15,7 @@ What it flags (precise, to avoid punishing legitimate glyphs):
 Not flagged: the ASCII double hyphen "--" (ubiquitous and legitimate in CLI flags and code) and the
 en-dash U+2013. The rule as stated is em-dash + emoji; keep enforcement to exactly that.
 
-Scanned set = git-tracked text files only. Exit 1 on any hit, printing file:line:col.
+Scanned set = tracked plus untracked non-ignored source text files. Exit 1 on any hit, printing file:line:col.
 """
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ TEXT_SUFFIXES = {
 
 def tracked_files() -> list[str]:
     out = subprocess.run(
-        ["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard"], cwd=ROOT, capture_output=True, text=True, check=True
     )
     return [ln.strip() for ln in out.stdout.splitlines() if ln.strip()]
 

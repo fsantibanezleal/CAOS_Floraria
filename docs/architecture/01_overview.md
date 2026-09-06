@@ -1,28 +1,11 @@
-# Architecture, overview
+# System and lane boundaries
 
-This product is an instance of the **CAOS product-repo archetype** ([ADR-0057]): offline-pipeline-heavy,
-backend-optional, deploying as a static deterministic-replay viewer. The base is **frozen** (instantiated, never
-re-litigated); per-product rework lives only in the **core**, models/algorithms, visualization, content.
+FLORARIA joins a locked museum corpus, named teaching hierarchy and sourced investigations. One state record connects them. The scan lane supplies an observed surface; anatomy supplies an authored explanation. Changing lanes changes evidence type.
 
-## The lanes (and what runs where)
-| Lane | Where | Deps | Notes |
-|---|---|---|---|
-| **Offline (precompute)** | `data-pipeline/` (`pipeline`), `.venv-pipeline` | `data-pipeline/requirements.txt` (SOTA engines) | bakes the committed artifacts |
-| **Live (client-side)** | `frontend/src/pyodide` + `pipeline/live.py` | Pyodide-safe wheels (`requirements.txt`) | optional small recompute in the browser; may be a reduced model |
-| **Replay** | `frontend/` | n/a | always present; the fallback (ADR-0054) |
-| **API (backend)** | `app/` (FastAPI) | `requirements-api.txt` | DORMANT; activate only on an ADR-0002 trigger |
+![System map](../../frontend/public/svg/tech/01-the-atlas.svg)
 
-A measured **[gate](03_the-gate.md)** decides live vs replay per case.
+The offline process acquires exact files, validates content and inspects GLB structure. It exports a browser catalog/manifest. The frontend loads fixed artifacts and renders the selected object. Acquisition does not happen per visitor.
 
-## The flow
-`data/raw` → **[CONTRACT 1](08_data-contracts.md)** (`io/contract.py`) → staged pipeline
-(preprocess → feature_extraction → train → infer → evaluate → export) → **[CONTRACT 2](08_data-contracts.md)**
-(`core/manifest.py`, compact artifact) → `data/derived/` (committed) → `frontend/` replays it.
+App.tsx owns exploration; lib/state.ts validates views; lib/catalog.ts validates published records. Viewer.tsx manages the scene and botany.ts defines components. GuidePages.tsx supplies supporting routes and opens real investigation states.
 
-## Frozen base vs rework
-- **Frozen:** the folder layout, the two contracts, the staged pipeline names, the gate, the manifest/trace,
-  the two-venv split, the cases-by-category mechanism, CI guards. Any area may be **dormant** (with a README).
-- **Rework (the only per-product surface):** the engine in `model/` + the stage bodies (the science), the
-  `frontend/` visualizations, and the cases + content + calibration.
-
-[ADR-0057]: ../../../conventions/architecture/0-archetype/ADR-0057-product-repo-archetype.md
+The shared frame provides header/footer, language/theme and architecture dialog. Expanded viewing is a reversible mode, not a second app. No account store, server or learned engine is needed. A future predictive/authenticated feature requires a new explicit evidence/operations contract.

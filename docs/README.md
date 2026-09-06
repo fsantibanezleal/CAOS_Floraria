@@ -1,20 +1,16 @@
-# Docs, the product wiki
+# FLORARIA documentation
 
-SimLab-style navigable wiki (ADR-0056), authored **as the product is built**, not at the end. The pipeline +
-its validation + these docs are the primary product; the web app is a projection of a validated subset.
+This wiki connects source evidence, botanical interpretation and working software.
 
-## Map
-- **[architecture/](architecture/)**, how the repo works: the frozen base, the two data contracts, determinism +
-  trace, the live/precompute gate, the staged pipeline, model evaluation, deploy.
-- **[frameworks/](frameworks/)**, one card per research-chosen engine/library (what/why · install · usage ·
-  applying). The deep research, made binding (each is pinned in a `requirements-*.txt`).
-- **[guides/](guides/)**, runnable how-tos: **instantiate the template**, run the precompute pipeline,
-  **bring your own data**, the GPU lane, run the API.
-- **[cases/](cases/)**, the CATEGORY taxonomy + the coverage matrix + one page per documented case.
+| Read | Purpose |
+|---|---|
+| [Architecture](architecture.md) | Source flow, state, rendering, validation and release |
+| [Morphology](morphology.md) | Organization, reproduction and interpretation limits |
+| [Data contract](data-contract.md) | Fields, units, rights and rejection |
+| [Frameworks](frameworks.md) | Actual libraries and responsibilities |
+| [Guides](guides.md) | Setup, acquisition, extension, exploration, delivery |
+| [Cases](cases.md) | Specimen/model coverage and investigations |
 
-## Honesty + data policy
-- Numbers come from the calibrated engine / committed artifacts, never from a claim. The EXAMPLE engine (SIR) is
-  synthetic and clearly labelled; a real product states sources, licenses and what is real vs synthetic.
-- Public derived artifacts are committed (`data/derived/`); raw/private sources stay out of git (`data/raw/`,
-  vault) per ADR-0055. The two data contracts ([architecture/08_data-contracts.md](architecture/08_data-contracts.md))
-  govern raw→pipeline and pipeline→web.
+The six public routes keep exploration, field guide, morphology, implementation, investigations and evidence distinct. Every investigation uses the same bounded state. Read [representation boundaries](morphology/01_representation-boundaries.md) before interpreting a cutaway or animation.
+
+Release descriptions do not establish delivery. Final gates belong to [release verification](architecture/07_release-and-verification.md).

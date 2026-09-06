@@ -6,11 +6,7 @@ The archetype template ships an intentional example PIPELINE (not a package, not
 it with the real product; five shipped products proved that replacement is easy to forget, leaving
 SIR/Pyodide/EX0* text presented as product docs. This guard makes that structurally impossible.
 
-It is a no-op in the template itself: the template root carries a `.template-source` sentinel, and
-instantiation deletes it (see the README "Instantiate" steps). With the sentinel present the guard
-prints a note and exits 0; once it is gone (a real product) the guard enforces a clean repo.
-
-Scanned set = git-tracked files only (never venvs / node_modules / data caches). Exit 1 on any hit.
+This instantiated product refuses a remaining template sentinel. It retains the archetype residue markers and checks tracked plus untracked non-ignored files, never virtual environments or download caches. Exit 1 on a hit.
 """
 from __future__ import annotations
 
@@ -61,7 +57,7 @@ TEXT_SUFFIXES = {
 
 def tracked_files() -> list[str]:
     out = subprocess.run(
-        ["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard"], cwd=ROOT, capture_output=True, text=True, check=True
     )
     return [line.strip() for line in out.stdout.splitlines() if line.strip()]
 
@@ -80,9 +76,8 @@ def allowed(path: str, patterns: list[str]) -> bool:
 
 def main() -> int:
     if SENTINEL.exists():
-        print("check_template_residue: .template-source present: this is the template repo, "
-              "residue check skipped (the example pipeline is intentional here).")
-        return 0
+        print("FAIL: remove the template sentinel when instantiating Floraria.")
+        return 1
 
     allow = load_allowlist()
     files = tracked_files()
@@ -118,9 +113,9 @@ def main() -> int:
         print(f"  forbidden file: {p}")
     for rel, token in sorted(content_hits):
         print(f"  forbidden text: {rel}  (contains '{token}')")
-    print("\nReplace the example pipeline (data-pipeline/pipeline -> your product's lab), rebake the real")
-    print("cases, and purge the placeholder text. If a hit is a false positive, add a path fragment to")
-    print("scripts/.template_residue_allow. This guard is skipped only in the template (.template-source).")
+    print("\nReplace the archetype example with the actual Floraria pipeline, validate its artifacts,")
+    print("and remove obsolete source text. Document any precise false-positive exception in")
+    print("scripts/.template_residue_allow. An instantiated product cannot skip this guard.")
     return 1
 
 

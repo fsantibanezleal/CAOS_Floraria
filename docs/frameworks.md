@@ -1,10 +1,7 @@
-# Frameworks
+# Frameworks actually used
 
-One card per research-chosen engine/library, **the deep research, made binding**. Every engine the pipeline uses
-gets a card here AND an exact pin in the matching `requirements-*.txt`. No hand-rolled toy substitute for a SOTA
-engine the research prescribed.
+- [Three.js and glTF](frameworks/01_three-and-gltf.md): scene, decoding, picking and clipping.
+- [React and shared shell](frameworks/02_react-and-shell.md): state, six routes, localization and content primitives.
+- [Python source tooling](frameworks/03_python-processing.md): acquisition, validation and manifests.
 
-- [00, card TEMPLATE](frameworks/00_TEMPLATE.md), copy per engine to `frameworks/<NN>_<tool>/<tool>.md`
-
-*(The template's EXAMPLE engine is numpy-only SIR, so it ships no SOTA card. A real product adds e.g.
-`01_yade/`, `02_ortools/`, `03_mintpy/`, `04_torch/`.)*
+These are real tool boundaries. No unused learned family or package is advertised to embellish the architecture.

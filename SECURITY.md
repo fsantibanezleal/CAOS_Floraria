@@ -1,22 +1,11 @@
-# Security Policy
+# Security
 
-## Supported versions
+FLORARIA serves static code and public assets. No visitor account, runtime API secret or database is required. Bookmarks stay in browser storage; sharing/export deliberately carries a view.
 
-This project is developed on a rolling basis. Security fixes are applied to the latest released version on
-`main`. Older tagged versions are not maintained.
+Report vulnerabilities privately to the owner through GitHub private reporting where available, or contact information on [the author's site](https://fsantibanezleal.github.io). Do not publish credentials, personal data or private files.
 
-## Reporting a vulnerability
+Include version/browser, a minimal reproduction and impact. Integrity reports should identify asset path and observed hash. The maintained line is 0.01.x; no response-time commitment is implied.
 
-Please report suspected security issues **privately**, not in a public issue.
+Imported JSON/URL state is untrusted until its bounded schema passes. Catalog IDs/references must resolve. Acquisition must match locks; mismatch is not bypassed. External documentation is reference material, not executable input. Deployment keys/settings stay outside the browser.
 
-- Preferred: use GitHub's **private vulnerability reporting** (the "Report a vulnerability" button under the
-  repository's Security tab), when enabled.
-- Alternatively, email **fsantibanez@gmail.com** with a description, reproduction steps, and impact.
-
-Please do not disclose the issue publicly until it has been addressed.
-
-## Response
-
-This is a personal/research project maintained by one person, so there is **no formal SLA**. Reports are
-handled on a best-effort basis: expect an acknowledgement and, where the issue is confirmed and in scope, a
-fix or a documented mitigation. Thank you for reporting responsibly.
+This atlas does not process patient data or identify plants automatically.
