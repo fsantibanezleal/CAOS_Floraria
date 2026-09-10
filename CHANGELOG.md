@@ -2,6 +2,16 @@
 
 Display versions use X.XX.XXX; the frontend manifest uses normalized semantic versioning.
 
+## [0.03.000] - 2026-09-09
+
+- Reimplement the default experience around a selectable anatomical flower and four question-led functional pathways.
+- Replace the scan-first entry with visible structural navigation, a semantic depth control, named next destinations and complete ancestry including same-depth components.
+- Add dedicated subcellular inspection cutaways, interior reveal, contextual overview and named functional stages in the main visualization.
+- Preserve all original scans, scan comparison, teaching models, guides, investigations, notebook files and historical release assets.
+- Patch development-only test tooling to Vitest 4.1.11 and extend actual browser verification for the new exploration flow.
+
+Publication is recorded separately after exact-revision CI and live verification. This implementation does not establish owner design acceptance or measured learning effectiveness.
+
 ## [0.02.000] - 2026-09-06
 
 - Introduce an independent botanical interface with connected observation, anatomy and microscopic pathways.

@@ -1,6 +1,6 @@
 # Release and verification record
 
-Current development version **0.02.000**. The redesign preserves the original source, release and data, adds connected microscopic pathways and an independent interface, and targets GitHub Pages. Its live acceptance record is produced after publication. The table below is historical version-one technical evidence, not acceptance of the redesigned app or a claim of user approval.
+Current development version **0.03.000**. The structure-and-function reimplementation is defined in [the exploration contract](08_structure-and-function-exploration.md). The redesign preserves the original source, release and data, adds connected microscopic pathways and an independent interface, and targets GitHub Pages. Its live acceptance record is produced after publication. The table below is historical version-one technical evidence, not acceptance of the redesigned app or a claim of user approval.
 
 Build identity and post-installation evidence are stored outside the source revision they verify, so recording a deployed SHA does not change that same SHA.
 

@@ -21,7 +21,7 @@ jobs:
   build:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     permissions:
       contents: read
       pages: read
@@ -75,6 +75,32 @@ jobs:
           python scripts/check_release.py --built
           python scripts/prepare_pages.py --require-clean --revision "$GITHUB_SHA"
           git diff --exit-code
+      - name: Install the pinned browser
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium
+      - name: Exercise the exact artifact before publication
+        timeout-minutes: 20
+        env:
+          FLORARIA_QA_URL: http://127.0.0.1:4902
+          FLORARIA_QA_DIR: ${{ github.workspace }}/build/qa/studio
+        run: |
+          python -m http.server 4902 --bind 127.0.0.1 --directory build/pages > build/qa-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4902/release.json > /dev/null; then break; fi
+            sleep 1
+          done
+          npm --prefix frontend run test:browser
+          git diff --exit-code
+      - name: Preserve browser release evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pages-browser-${{ github.sha }}
+          path: build/qa/studio/
+          if-no-files-found: warn
+          retention-days: 30
       - name: Upload immutable Pages artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:

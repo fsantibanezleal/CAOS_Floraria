@@ -57,6 +57,8 @@ import {
 } from "./lib/exploration";
 import { Viewer, type ViewerHandle } from "./render/Viewer";
 import { MicroViewer } from "./render/MicroViewer";
+import { loadMicroAtlas, type MicroAtlas } from "./lib/micro";
+import { navigateDepth, nodeAtDepth, NODE_DEPTH } from "./lib/depthNavigation";
 import { GuidePage } from "./GuidePages";
 import "./studio.css";
 
@@ -177,9 +179,23 @@ function Modal({
 export default function Studio() {
   const [catalog, setCatalog] = useState<Catalog | null>(null),
     [error, setError] = useState(false);
+  const [microAtlas, setMicroAtlas] = useState<MicroAtlas | null>(null);
   const [state, setState] = useState<Exploration>(() =>
-    readExploration(location.search),
+    location.search.includes("explore=") || location.search.includes("view=")
+      ? readExploration(location.search)
+      : normalizeExploration({
+          depth: 1,
+          branch: "petal",
+          view: {
+            ...DEFAULT_STATE,
+            mode: "anatomy",
+            model: "general",
+            selected: "petal",
+            explode: 0.18,
+          },
+        }),
   );
+  const [collectionView, setCollectionView] = useState(false);
   const [panel, setPanel] = useState<Panel>(""),
     [guide, setGuide] = useState("introduction");
   const [query, setQuery] = useState(""),
@@ -221,6 +237,13 @@ export default function Studio() {
       })
       .catch(() => {
         if (active) setError(true);
+      });
+    loadMicroAtlas()
+      .then((atlas) => {
+        if (active) setMicroAtlas(atlas);
+      })
+      .catch(() => {
+        /* The microscopic viewer provides its retry/error state. */
       });
     return () => {
       active = false;
@@ -295,6 +318,7 @@ export default function Studio() {
   }, [state.view.stage]);
   useEffect(() => {
     setPlaying(false);
+    setCollectionView(state.depth === 0);
   }, [state.depth, state.view.mode]);
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -313,21 +337,7 @@ export default function Studio() {
   }, []);
 
   function depth(d: Depth, branch = state.branch) {
-    patch({
-      depth: d,
-      branch,
-      microSelected: "",
-      progress: 0,
-      journey: "",
-      view: {
-        ...state.view,
-        mode: d === 0 ? "specimen" : "anatomy",
-        model: d >= 2 ? "general" : state.view.model,
-        selected: d >= 2 ? branch : state.view.selected,
-        isolate: false,
-        hidden: [],
-      },
-    });
+    setState((current) => navigateDepth(current, d, microAtlas, branch));
   }
   function selectPart(id: string) {
     if (id.startsWith("specimen:")) {
@@ -548,6 +558,19 @@ export default function Studio() {
   const journey = catalog.journeys.find((j) => j.id === state.journey);
   const step = journey?.steps[Math.min(state.step, journey.steps.length - 1)];
   const micro = state.depth >= 2;
+  const currentNode = nodeAtDepth(microAtlas, state, state.depth);
+  const nextDepth = Math.min(4, state.depth + 1) as Depth;
+  const nextNode = nodeAtDepth(microAtlas, state, nextDepth);
+  const componentNode =
+    state.depth === 4
+      ? microAtlas?.nodes.find((node) => node.id === currentNode?.children[0])
+      : undefined;
+  const ancestry = [];
+  let ancestor = currentNode;
+  while (ancestor && ancestry.length < 12) {
+    ancestry.unshift(ancestor);
+    ancestor = microAtlas?.nodes.find((node) => node.id === ancestor?.parentId);
+  }
   const sourceIds =
     state.depth === 0
       ? specimen.sourceIds
@@ -645,78 +668,173 @@ export default function Studio() {
         <div className="fs-workspace">
           <aside
             className="fs-collection"
-            aria-label={say("Specimen collection", "Colección de ejemplares")}
+            aria-label={say(
+              "Exploration routes and collection",
+              "Rutas de exploración y colección",
+            )}
           >
-            <div className="fs-collection-head">
-              <span className="fs-eyebrow">
-                01 / {say("COLLECTION", "COLECCIÓN")}
-              </span>
-              <h2>
-                {say("Five flowers.", "Cinco flores.")}
-                <em>{say("Countless questions.", "Infinitas preguntas.")}</em>
-              </h2>
-              <p>
-                {say(
-                  "Real orchid specimens, digitised by the Smithsonian.",
-                  "Orquídeas reales, digitalizadas por el Smithsonian.",
-                )}
-              </p>
+            <div className="fs-rail-tabs">
+              <button
+                className={!collectionView ? "active" : ""}
+                aria-pressed={!collectionView}
+                onClick={() => setCollectionView(false)}
+              >
+                {say("Pathways", "Rutas")}
+              </button>
+              <button
+                className={collectionView ? "active" : ""}
+                aria-pressed={collectionView}
+                onClick={() => {
+                  setCollectionView(true);
+                  depth(0);
+                }}
+              >
+                {say("Museum scans", "Escaneos")}
+              </button>
             </div>
-            <div className="fs-specimens">
-              {catalog.specimens.map((s, i) => (
+            {collectionView ? (
+              <>
+                <div className="fs-collection-head">
+                  <span className="fs-eyebrow">
+                    01 / {say("COLLECTION", "COLECCIÓN")}
+                  </span>
+                  <h2>
+                    {say("Five flowers.", "Cinco flores.")}
+                    <em>
+                      {say("Countless questions.", "Infinitas preguntas.")}
+                    </em>
+                  </h2>
+                  <p>
+                    {say(
+                      "Real orchid specimens, digitised by the Smithsonian.",
+                      "Orquídeas reales, digitalizadas por el Smithsonian.",
+                    )}
+                  </p>
+                </div>
+                <div className="fs-specimens">
+                  {catalog.specimens.map((s, i) => (
+                    <button
+                      key={s.id}
+                      className={
+                        "fs-specimen" +
+                        (s.id === state.view.specimen ? " active" : "")
+                      }
+                      aria-pressed={s.id === state.view.specimen}
+                      onClick={() => {
+                        patch({
+                          depth: 0,
+                          journey: "",
+                          view: {
+                            ...state.view,
+                            mode: "specimen",
+                            specimen: s.id,
+                            compare:
+                              s.id === state.view.compare
+                                ? ""
+                                : state.view.compare,
+                          },
+                        });
+                      }}
+                    >
+                      <span className="fs-thumb">
+                        <img
+                          src={`${import.meta.env.BASE_URL}specimens/${s.id}.webp`}
+                          alt=""
+                        />
+                      </span>
+                      <span>
+                        <small>0{i + 1}</small>
+                        <strong>{s.scientificName.split(" ")[0]}</strong>
+                        <em>{t(s.commonName)}</em>
+                      </span>
+                      <ChevronRight size={14} />
+                    </button>
+                  ))}
+                </div>
                 <button
-                  key={s.id}
-                  className={
-                    "fs-specimen" +
-                    (s.id === state.view.specimen ? " active" : "")
-                  }
-                  aria-pressed={s.id === state.view.specimen}
+                  className="fs-collection-link"
                   onClick={() => {
-                    patch({
-                      depth: 0,
-                      journey: "",
-                      view: {
-                        ...state.view,
-                        mode: "specimen",
-                        specimen: s.id,
-                        compare:
-                          s.id === state.view.compare ? "" : state.view.compare,
-                      },
-                    });
+                    setGuide("benchmark");
+                    setPanel("library");
                   }}
                 >
-                  <span className="fs-thumb">
-                    <img
-                      src={`${import.meta.env.BASE_URL}specimens/${s.id}.webp`}
-                      alt=""
-                    />
-                  </span>
-                  <span>
-                    <small>0{i + 1}</small>
-                    <strong>{s.scientificName.split(" ")[0]}</strong>
-                    <em>{t(s.commonName)}</em>
-                  </span>
-                  <ChevronRight size={14} />
+                  {say("Collection records", "Fichas de la colección")}
+                  <ArrowRight size={15} />
                 </button>
-              ))}
-            </div>
-            <button
-              className="fs-collection-link"
-              onClick={() => {
-                setGuide("benchmark");
-                setPanel("library");
-              }}
-            >
-              {say("Collection records", "Fichas de la colección")}
-              <ArrowRight size={15} />
-            </button>
-            <div className="fs-collection-foot">
-              <span className="fs-live-dot" />
-              {say(
-                "Open collection · No account",
-                "Colección abierta · Sin cuenta",
-              )}
-            </div>
+                <div className="fs-collection-foot">
+                  <span className="fs-live-dot" />
+                  {say(
+                    "Open collection · No account",
+                    "Colección abierta · Sin cuenta",
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="fs-route-intro">
+                  <span className="fs-eyebrow">
+                    {say("A LIVING SYSTEM", "UN SISTEMA VIVO")}
+                  </span>
+                  <h2>
+                    {say(
+                      "Follow what a flower does.",
+                      "Sigue lo que hace una flor.",
+                    )}
+                  </h2>
+                  <p>
+                    {say(
+                      "Choose a question. Open an organ. Follow its structures inward.",
+                      "Elige una pregunta. Abre un órgano. Sigue sus estructuras al interior.",
+                    )}
+                  </p>
+                </div>
+                <div
+                  className="fs-pathway-cards"
+                  role="group"
+                  aria-label={say(
+                    "Choose a biological pathway",
+                    "Elige una ruta biológica",
+                  )}
+                >
+                  {BRANCHES.map((path, index) => (
+                    <button
+                      key={path.id}
+                      data-pathway={path.id}
+                      aria-pressed={state.branch === path.id}
+                      className={state.branch === path.id ? "active" : ""}
+                      onClick={() => depth(1, path.id)}
+                    >
+                      <span className="fs-pathway-number">0{index + 1}</span>
+                      <span>
+                        <strong>{es ? path.es : path.en}</strong>
+                        <small>{path.question[es ? 1 : 0]}</small>
+                      </span>
+                      <ArrowRight size={16} />
+                    </button>
+                  ))}
+                </div>
+                <p className="fs-route-evidence">
+                  {say(
+                    "Original explanatory models. Museum surface scans remain in the collection.",
+                    "Modelos explicativos originales. Los escaneos de superficie están en la colección.",
+                  )}
+                </p>
+                <button
+                  className="fs-collection-link"
+                  onClick={() => {
+                    setCollectionView(true);
+                    depth(0);
+                  }}
+                >
+                  <Flower2 size={17} />
+                  {say(
+                    "Open the five museum specimens",
+                    "Abrir los cinco ejemplares",
+                  )}
+                  <ArrowRight size={15} />
+                </button>
+              </>
+            )}
           </aside>
 
           <main className="fs-instrument">
@@ -724,8 +842,12 @@ export default function Studio() {
               className="fs-breadcrumb"
               aria-label={say("Exploration path", "Ruta de exploración")}
             >
-              <button onClick={() => depth(0)}>
-                {specimen.scientificName.split(" ")[0]}
+              <button onClick={() => depth(state.depth === 0 ? 0 : 1)}>
+                {state.depth === 0
+                  ? specimen.scientificName.split(" ")[0]
+                  : state.view.model === "orchid" && state.depth === 1
+                    ? say("Orchid model", "Modelo de orquídea")
+                    : say("General flower", "Flor general")}
               </button>
               {state.depth > 0 && (
                 <>
@@ -735,12 +857,27 @@ export default function Studio() {
                   </button>
                 </>
               )}
-              {micro && (
-                <>
+              {ancestry.map((node) => (
+                <span className="fs-ancestor" key={node.id}>
                   <ChevronRight size={12} />
-                  <span>{es ? branch.es : branch.en}</span>
-                </>
-              )}
+                  <button
+                    aria-current={
+                      node.id === currentNode?.id ? "location" : undefined
+                    }
+                    onClick={() =>
+                      node.depth === "organ"
+                        ? depth(1)
+                        : patch({
+                            depth: NODE_DEPTH[node.depth],
+                            microSelected: node.id,
+                            progress: 0,
+                          })
+                    }
+                  >
+                    {node.label[lang]}
+                  </button>
+                </span>
+              ))}
               <span className="fs-evidence">
                 {state.depth === 0
                   ? "SMITHSONIAN · CC0"
@@ -762,16 +899,14 @@ export default function Studio() {
                 </span>
                 <h1>
                   {micro
-                    ? branch.question[es ? 1 : 0]
+                    ? (currentNode?.label[lang] ?? branch.question[es ? 1 : 0])
                     : state.depth === 0
                       ? t(specimen.commonName)
                       : state.view.mode === "lifecycle"
                         ? say("From pollen to seed", "Del polen a la semilla")
-                        : say(
-                            "The architecture of a flower",
-                            "La arquitectura de una flor",
-                          )}
+                        : branch.question[es ? 1 : 0]}
                 </h1>
+                {micro && <p>{branch.question[es ? 1 : 0]}</p>}
                 {!micro && (
                   <p>
                     {state.depth === 0
@@ -814,6 +949,7 @@ export default function Studio() {
                   lang={lang}
                   theme={theme}
                   progress={state.progress}
+                  onProgress={(value) => patch({ progress: value })}
                 />
               ) : (
                 <Viewer
@@ -872,8 +1008,8 @@ export default function Studio() {
                 <div className="fs-stage-hint">
                   <span className="fs-drag-glyph">↔</span>
                   {say(
-                    "Drag to orbit · Scroll to magnify",
-                    "Arrastra para girar · Desplaza para ampliar",
+                    "Drag to orbit · Camera zoom changes the view",
+                    "Arrastra para girar · El zoom de cámara cambia la vista",
                   )}
                 </div>
               )}
@@ -895,32 +1031,139 @@ export default function Studio() {
                 </div>
               )}
             </section>
-            <div className="fs-depth-strip">
-              <span className="fs-depth-label">
-                <Layers3 size={16} />
-                {say("Go deeper", "Ve más allá")}
-              </span>
-              <nav aria-label={say("Detail level", "Nivel de detalle")}>
-                {DEPTHS.map((names, i) => (
+            <section
+              className="fs-depth-dock"
+              aria-label={say(
+                "Explore inside the flower",
+                "Explora el interior de la flor",
+              )}
+              data-semantic-depth={state.depth}
+            >
+              <div className="fs-depth-destination">
+                <button
+                  className="fs-back-level"
+                  disabled={state.depth === 0}
+                  aria-label={say(
+                    "Back one detail level",
+                    "Volver un nivel de detalle",
+                  )}
+                  onClick={() => depth(Math.max(0, state.depth - 1) as Depth)}
+                >
+                  <ArrowLeft size={18} />
+                </button>
+                <div aria-live="polite">
+                  <small>
+                    {say("YOU ARE EXPLORING", "ESTÁS EXPLORANDO")} ·{" "}
+                    {DEPTHS[state.depth][es ? 1 : 0]}
+                  </small>
+                  <strong>
+                    {state.depth === 0
+                      ? t(specimen.commonName)
+                      : (currentNode?.label[lang] ??
+                        t(
+                          selected?.label ?? {
+                            en: "Flower organ",
+                            es: "Órgano floral",
+                          },
+                        ))}
+                  </strong>
+                  <p>
+                    {state.depth === 0
+                      ? say(
+                          "Enter an explanatory flower model to open its organs.",
+                          "Entra en un modelo explicativo para abrir sus órganos.",
+                        )
+                      : currentNode?.summary[lang]}
+                  </p>
+                </div>
+                {state.depth < 4 ? (
                   <button
-                    key={i}
-                    aria-current={state.depth === i ? "step" : undefined}
-                    className={
-                      state.depth === i
-                        ? "active"
-                        : state.depth > i
-                          ? "visited"
-                          : ""
+                    className="fs-go-inside"
+                    aria-label={
+                      say("Explore inside: ", "Explora el interior: ") +
+                      (nextNode?.label[lang] ?? DEPTHS[nextDepth][es ? 1 : 0])
                     }
-                    onClick={() => depth(i as Depth)}
+                    onClick={() => depth(nextDepth)}
                   >
-                    <span>{String(i + 1).padStart(2, "0")}</span>
-                    {names[es ? 1 : 0]}
-                    {i < 4 && <ChevronRight size={12} />}
+                    <span>{say("EXPLORE INSIDE", "EXPLORA EL INTERIOR")}</span>
+                    <strong>
+                      {nextNode?.label[lang] ?? DEPTHS[nextDepth][es ? 1 : 0]}
+                      <ArrowRight size={18} />
+                    </strong>
                   </button>
-                ))}
-              </nav>
-            </div>
+                ) : componentNode ? (
+                  <button
+                    className="fs-go-inside"
+                    aria-label={
+                      say("Inspect component: ", "Inspeccionar componente: ") +
+                      componentNode.label[lang]
+                    }
+                    onClick={() =>
+                      patch({ microSelected: componentNode.id, progress: 0 })
+                    }
+                  >
+                    <span>
+                      {say("INSPECT COMPONENT", "INSPECCIONAR COMPONENTE")}
+                    </span>
+                    <strong>
+                      {componentNode.label[lang]}
+                      <ArrowRight size={18} />
+                    </strong>
+                  </button>
+                ) : (
+                  <div className="fs-deepest">
+                    <Check size={18} />
+                    <span>
+                      {say(
+                        "Select a structure. Follow the process.",
+                        "Selecciona una estructura. Sigue el proceso.",
+                      )}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div className="fs-depth-strip">
+                <label className="fs-semantic-zoom">
+                  <Layers3 size={16} />
+                  <span>{say("Structure depth", "Profundidad")}</span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="4"
+                    step="1"
+                    value={state.depth}
+                    aria-label={say(
+                      "Structure depth",
+                      "Profundidad estructural",
+                    )}
+                    aria-valuetext={DEPTHS[state.depth][es ? 1 : 0]}
+                    onChange={(event) =>
+                      depth(Number(event.target.value) as Depth)
+                    }
+                  />
+                </label>
+                <nav aria-label={say("Detail level", "Nivel de detalle")}>
+                  {DEPTHS.map((names, i) => (
+                    <button
+                      key={i}
+                      aria-current={state.depth === i ? "step" : undefined}
+                      className={
+                        state.depth === i
+                          ? "active"
+                          : state.depth > i
+                            ? "visited"
+                            : ""
+                      }
+                      onClick={() => depth(i as Depth)}
+                    >
+                      <span>{String(i + 1).padStart(2, "0")}</span>
+                      {names[es ? 1 : 0]}
+                      {i < 4 && <ChevronRight size={12} />}
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </section>
             {step && journey && (
               <section className="fs-journey-player">
                 <button
