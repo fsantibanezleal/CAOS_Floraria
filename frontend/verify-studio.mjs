@@ -73,6 +73,9 @@ report.inputs = [
   "frontend/src/studio.css",
   "frontend/src/render/Viewer.tsx",
   "frontend/src/render/MicroViewer.tsx",
+  "frontend/src/render/StructureStudy.tsx",
+  "frontend/src/render/micro-experience.css",
+  "frontend/src/lib/depthNavigation.ts",
   "frontend/src/lib/exploration.ts",
   "frontend/verify-studio.mjs",
   "data/artifacts/catalog.json",
@@ -139,7 +142,10 @@ const close = async (page) => {
 };
 const photo = async (page, name) => {
   const filename = name.replace(/[^a-z0-9_-]/gi, "-") + ".png";
-  const bytes = await page.screenshot({ path: resolve(output, filename) });
+  const bytes = await page.screenshot({
+    path: resolve(output, filename),
+    fullPage: page.viewportSize().width <= 760,
+  });
   report.screenshots.push({
     file: filename,
     bytes: bytes.length,
@@ -148,6 +154,9 @@ const photo = async (page, name) => {
 };
 const open = async (page, exploration) => {
   const url = new URL(base);
+  // Historical scenarios explicitly reopen their preserved museum-collection
+  // state. Separate default-entry scenarios exercise the new anatomy-first app.
+  exploration ??= { view: defaults, depth: 0, branch: "petal" };
   if (exploration)
     url.search = new URLSearchParams({
       explore: JSON.stringify(exploration),
@@ -371,6 +380,180 @@ await scenario("collection-and-comparison", async (page) => {
     triangles: expected,
   });
 });
+
+await scenario("semantic-default-pathways", async (page) => {
+  await page.goto(base, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await ready(page);
+  await depth(page, 1);
+  assert.equal(await page.locator("[data-pathway]").count(), 4);
+  assert.equal(await page.locator(".fs-specimen").count(), 0);
+  await photo(page, "semantic-default-anatomy");
+  check(
+    "Default entry is a selectable anatomical flower with four purposeful routes",
+  );
+  for (const branch of ["petal", "anther", "ovary", "stem"]) {
+    await page.locator(`[data-pathway="${branch}"]`).click();
+    await ready(page);
+    await depth(page, 1);
+    const hashes = [];
+    const titles = [];
+    for (const [index, level] of ["tissue", "cell", "organelle"].entries()) {
+      await page.locator(".fs-go-inside").click();
+      const panel = await microReady(page, branch, level);
+      await depth(page, index + 2);
+      hashes.push(hash(await panel.locator(":scope > svg").screenshot()));
+      titles.push(await page.locator(".fs-stage-heading h1").innerText());
+      await photo(page, `semantic-${branch}-${level}`);
+    }
+    assert.equal(
+      new Set(hashes).size,
+      3,
+      "Each inward transition replaces the actual rendered structure",
+    );
+    assert.equal(
+      new Set(titles).size,
+      3,
+      "Each inward transition changes the named subject",
+    );
+    if (["petal", "anther"].includes(branch)) {
+      await page.getByRole("button", { name: /^Inspect component: / }).click();
+      assert.equal(
+        await page.locator(".fs-breadcrumb [aria-current=location]").count(),
+        1,
+      );
+      assert((await page.locator(".fs-breadcrumb .fs-ancestor").count()) >= 4);
+    }
+    await page
+      .getByRole("slider", { name: "Structure depth", exact: true })
+      .fill("2");
+    await microReady(page, branch, "tissue");
+    await page
+      .getByRole("button", { name: "Back one detail level", exact: true })
+      .click();
+    await ready(page);
+    await depth(page, 1);
+    check("Semantic inward, component ancestry, slider and back: " + branch, {
+      distinctViews: hashes.length,
+      subjects: titles,
+    });
+  }
+});
+
+await scenario("semantic-structure-and-process-workbench", async (page) => {
+  let inspected = 0;
+  for (const branch of ["petal", "anther", "ovary", "stem"]) {
+    await open(page, {
+      view: { ...defaults, mode: "anatomy", selected: branch },
+      depth: 4,
+      branch,
+    });
+    const panel = await microReady(page, branch, "organelle");
+    const imageHashes = [];
+    for (const node of micro.nodes.filter(
+      (node) => node.branch === branch && node.depth === "organelle",
+    )) {
+      await panel
+        .getByRole("group", { name: "Structures in this view", exact: true })
+        .getByRole("button", { name: node.label.en, exact: true })
+        .click();
+      await panel
+        .getByRole("button", { name: "Inspect structure", exact: true })
+        .click();
+      await panel.locator(`[data-study-node="${node.id}"]`).waitFor();
+      await panel
+        .getByRole("slider", { name: "Reveal the interior", exact: true })
+        .fill("0");
+      const closed = hash(await panel.locator(":scope > svg").screenshot());
+      await panel
+        .getByRole("slider", { name: "Reveal the interior", exact: true })
+        .fill("1");
+      const revealed = hash(await panel.locator(":scope > svg").screenshot());
+      assert.notEqual(
+        closed,
+        revealed,
+        node.id + " reveal changes the drawing",
+      );
+      imageHashes.push(revealed);
+      inspected++;
+    }
+    assert.equal(
+      new Set(imageHashes).size,
+      imageHashes.length,
+      branch + " subcellular selections have distinct drawings",
+    );
+    await photo(page, "semantic-study-" + branch);
+    await panel
+      .getByRole("button", { name: "See the context", exact: true })
+      .click();
+    assert.equal(await panel.locator("[data-study-node]").count(), 0);
+    await panel
+      .getByRole("button", { name: "Trace the function", exact: true })
+      .click();
+    const stages = panel.getByRole("group", {
+      name: "Process stages",
+      exact: true,
+    });
+    assert.equal(await stages.getByRole("button").count(), 4);
+    for (let index = 0; index < 4; index++) {
+      const button = stages.getByRole("button").nth(index);
+      await button.click();
+      assert.equal(await button.getAttribute("aria-pressed"), "true");
+      assert(
+        (await panel.locator(".micro-process-board").innerText()).includes(
+          micro.branches.find((b) => b.id === branch).stages[index].body.en,
+        ),
+      );
+    }
+    await layout(page, "semantic-process-" + branch);
+    check(
+      "Distinct subcellular cutaways, working reveal and four process stages: " +
+        branch,
+      { structures: imageHashes.length },
+    );
+  }
+  check(
+    "Every authored subcellular structure has an inspected distinct cutaway",
+    { inspected },
+  );
+});
+
+await scenario(
+  "semantic-phone-flow",
+  async (page) => {
+    await page.goto(base, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await ready(page);
+    await layout(page, "semantic-phone-default");
+    await photo(page, "semantic-phone-default");
+    await page.locator("[data-pathway=petal]").click();
+    for (const level of ["tissue", "cell", "organelle"]) {
+      await page.locator(".fs-go-inside").click();
+      await microReady(page, "petal", level);
+      await layout(page, "semantic-phone-" + level);
+      await photo(page, "semantic-phone-" + level);
+    }
+    await page
+      .getByRole("button", {
+        name: "Inspect component: Tonoplast",
+        exact: true,
+      })
+      .click();
+    await page.locator(".fs-lang").click();
+    await page
+      .getByRole("button", { name: "Cambiar tema", exact: true })
+      .click();
+    await layout(page, "semantic-phone-component-es-dark");
+    await photo(page, "semantic-phone-component-es-dark");
+    assert.equal(await page.locator("html").getAttribute("lang"), "es");
+    await page
+      .getByRole("button", { name: "Volver un nivel de detalle", exact: true })
+      .click();
+    await microReady(page, "petal", "cell");
+    check(
+      "Phone uses the primary inward flow through distinct structures and same-level component, Spanish dark theme and return",
+    );
+  },
+  { viewport: { width: 390, height: 844 } },
+);
 
 await scenario("anatomy-controls-and-camera", async (page) => {
   await open(page);
@@ -1064,18 +1247,24 @@ async function layout(page, name) {
     measured.page.width <= measured.viewport.width + 2,
     name + ": document overflows horizontally",
   );
-  assert(
-    measured.page.height <= measured.viewport.height + 2,
-    name + ": document overflows vertically",
-  );
+  if (measured.viewport.width > 760)
+    assert(
+      measured.page.height <= measured.viewport.height + 2,
+      name + ": desktop instrument overflows vertically",
+    );
   assert(
     measured.stage.width >= 220 && measured.stage.height >= 180,
     name + ": unusable spatial stage",
   );
   if (measured.diagram)
     assert(
-      measured.diagram.width >= 200 && measured.diagram.height >= 110,
-      name + ": microscopic diagram collapsed",
+      measured.diagram.width >= 200 &&
+        measured.diagram.height >= 110 &&
+        measured.diagram.x >= measured.stage.x - 2 &&
+        measured.diagram.y >= measured.stage.y - 2 &&
+        measured.diagram.right <= measured.stage.right + 2 &&
+        measured.diagram.bottom <= measured.stage.bottom + 2,
+      name + ": microscopic diagram collapsed or was clipped by its stage",
     );
   if (measured.dialog)
     assert(
