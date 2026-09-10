@@ -942,6 +942,9 @@ await scenario("microscopic-connected-structure-drill", async (page) => {
     microSelected: "petal-wall",
   });
   const panel = await microReady(page, "petal", "organelle");
+  await panel
+    .getByRole("button", { name: "See the context", exact: true })
+    .click();
   const target = panel.locator('[data-micro-node="petal-nucleus"]');
   await target.focus();
   await page.keyboard.press("Enter");
