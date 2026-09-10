@@ -111,6 +111,7 @@ export function LivingScene(props: Props) {
       lost = false;
     let lastFrameSignature = "";
     const pointers = new Map<number, { x: number; y: number }>();
+    let touchDistance = 0;
     const pointer = new T.Vector2(0, 0);
     const raycaster = new T.Raycaster();
     const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -209,6 +210,34 @@ export function LivingScene(props: Props) {
       if (host.hasPointerCapture(event.pointerId))
         host.releasePointerCapture(event.pointerId);
     };
+    const touchStart = (event: TouchEvent) => {
+      if (event.touches.length === 2) {
+        const [a, b] = [...event.touches];
+        touchDistance = Math.hypot(
+          a.clientX - b.clientX,
+          a.clientY - b.clientY,
+        );
+      }
+    };
+    const touchMove = (event: TouchEvent) => {
+      if (event.touches.length !== 2) return;
+      event.preventDefault();
+      const [a, b] = [...event.touches];
+      const nextDistance = Math.hypot(
+        a.clientX - b.clientX,
+        a.clientY - b.clientY,
+      );
+      if (touchDistance > 4 && nextDistance > 4)
+        changeDepth(
+          latest.current.state.depth +
+            Math.log(nextDistance / touchDistance) * 2.1,
+          false,
+        );
+      touchDistance = nextDistance;
+    };
+    const touchEnd = () => {
+      touchDistance = 0;
+    };
     const keyboard = (event: KeyboardEvent) => {
       if (
         [
@@ -257,6 +286,9 @@ export function LivingScene(props: Props) {
     host.addEventListener("pointermove", move);
     host.addEventListener("pointerup", up);
     host.addEventListener("pointercancel", up);
+    host.addEventListener("touchstart", touchStart, { passive: true });
+    host.addEventListener("touchmove", touchMove, { passive: false });
+    host.addEventListener("touchend", touchEnd, { passive: true });
     host.addEventListener("keydown", keyboard);
     latest.current.handle({
       snapshot: () => renderer.domElement.toDataURL("image/png"),
@@ -400,6 +432,9 @@ export function LivingScene(props: Props) {
       host.removeEventListener("pointermove", move);
       host.removeEventListener("pointerup", up);
       host.removeEventListener("pointercancel", up);
+      host.removeEventListener("touchstart", touchStart);
+      host.removeEventListener("touchmove", touchMove);
+      host.removeEventListener("touchend", touchEnd);
       host.removeEventListener("keydown", keyboard);
       renderer.domElement.removeEventListener("webglcontextlost", contextLost);
       latest.current.handle(null);
