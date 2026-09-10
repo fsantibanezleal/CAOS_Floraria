@@ -3,6 +3,7 @@ import {
   useContext,
   useEffect,
   useId,
+  useRef,
   useState,
   type CSSProperties,
   type ReactNode,
@@ -120,6 +121,20 @@ export function MicroViewer({
     setStudyMode(depth === "organelle" ? "detail" : "context");
     setReveal(0.8);
   }, [branch, depth]);
+  const previousView = useRef({ branch, depth, selected, progress });
+  useEffect(() => {
+    const previous = previousView.current;
+    // A process control must expose its functional drawing. Navigation resets
+    // remain structure inspections rather than unintentionally starting a trace.
+    if (
+      previous.branch === branch &&
+      previous.depth === depth &&
+      previous.selected === selected &&
+      previous.progress !== progress
+    )
+      setStudyMode("process");
+    previousView.current = { branch, depth, selected, progress };
+  }, [branch, depth, selected, progress]);
   const [atlas, setAtlas] = useState<MicroAtlas>(),
     [error, setError] = useState(false),
     [retry, setRetry] = useState(0);

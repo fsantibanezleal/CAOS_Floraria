@@ -745,7 +745,7 @@ for (const branch of branches)
           branch + "/" + level + " process must affect its diagram",
         );
       assert(
-        (await panel.locator(".micro-scroll").innerText()).includes(
+        (await panel.innerText()).includes(
           micro.branches.find((x) => x.id === branch).stages[3].body.en,
         ),
       );
