@@ -1,0 +1,104 @@
+{
+  "evidence": "illustrated",
+  "nodes": [
+    {
+      "children": [
+        "sunflower-ray-mesophyll"
+      ],
+      "depth": "organ",
+      "detail": {
+        "en": "A sunflower head contains distinct outer ray and central disc florets. This authored ligule opens into an illustrative cellular pathway informed by the sunflower study, rather than into the pink anthocyanin example used for the radial teaching flower.",
+        "es": "El capítulo del girasol contiene flores externas liguladas y flores centrales del disco. Esta lígula se abre en una ruta celular ilustrada basada en el estudio del girasol, diferente del ejemplo rosado de antocianinas de la flor radial didáctica."
+      },
+      "id": "sunflower-ray",
+      "label": {
+        "en": "A ray floret's ligule",
+        "es": "La lígula de una flor radial"
+      },
+      "parentId": null,
+      "sourceIds": [
+        "sunflower-chromoplast-2026"
+      ],
+      "summary": {
+        "en": "This yellow strap belongs to an outer ray floret. Travel into its tissue to find the pigment-bearing compartments.",
+        "es": "Esta lámina amarilla pertenece a una flor externa del capítulo. Entra en su tejido para encontrar los compartimentos con pigmentos."
+      }
+    },
+    {
+      "children": [
+        "sunflower-ray-cell"
+      ],
+      "depth": "tissue",
+      "detail": {
+        "en": "Microscopy in the cited study located globular chromoplasts in ray-ligule mesophyll of the sunflower cultivar Jonasun. The arrangement here is authored for spatial explanation, not segmented from that microscopy.",
+        "es": "La microscopía del estudio citado localizó cromoplastos globulares en el mesófilo de lígulas del cultivar Jonasun. La disposición de esta escena explica relaciones espaciales; no fue segmentada de esa microscopía."
+      },
+      "id": "sunflower-ray-mesophyll",
+      "label": {
+        "en": "Ligule mesophyll",
+        "es": "Mesófilo de la lígula"
+      },
+      "parentId": "sunflower-ray",
+      "sourceIds": [
+        "sunflower-chromoplast-2026"
+      ],
+      "summary": {
+        "en": "The internal tissue contains cells with yellow chromoplasts. The surrounding cells part as you approach one cell.",
+        "es": "El tejido interno contiene células con cromoplastos amarillos. Las células vecinas se separan al acercarte a una célula."
+      }
+    },
+    {
+      "children": [
+        "sunflower-chromoplast"
+      ],
+      "depth": "cell",
+      "detail": {
+        "en": "The cell boundary and plastids are separate structures. This pathway places the yellow pigment in chromoplasts; it does not depict pigment stored in the large central vacuole.",
+        "es": "El límite celular y los plastidios son estructuras diferentes. Esta ruta sitúa el pigmento amarillo en cromoplastos; no representa pigmento almacenado en la gran vacuola central."
+      },
+      "id": "sunflower-ray-cell",
+      "label": {
+        "en": "A cell with chromoplasts",
+        "es": "Una célula con cromoplastos"
+      },
+      "parentId": "sunflower-ray-mesophyll",
+      "sourceIds": [
+        "sunflower-chromoplast-2026"
+      ],
+      "summary": {
+        "en": "Several yellow plastids sit within this cell. Continue toward one chromoplast to see where its pigment is represented.",
+        "es": "Varios plastidios amarillos se encuentran dentro de esta célula. Acércate a un cromoplasto para ver dónde se representa su pigmento."
+      }
+    },
+    {
+      "children": [],
+      "depth": "organelle",
+      "detail": {
+        "en": "The source identified lutein-derived xanthophylls in globular chromoplasts. Shapes, particle counts and animation here are explanatory; no measured organelle dimensions, spectral response, temperature or physiological rates are simulated.",
+        "es": "La fuente identificó xantófilas derivadas de luteína en cromoplastos globulares. Formas, cantidades y animaciones son explicativas; no se simulan dimensiones medidas, respuesta espectral, temperatura ni tasas fisiológicas."
+      },
+      "id": "sunflower-chromoplast",
+      "label": {
+        "en": "Chromoplast",
+        "es": "Cromoplasto"
+      },
+      "parentId": "sunflower-ray-cell",
+      "sourceIds": [
+        "sunflower-chromoplast-2026"
+      ],
+      "summary": {
+        "en": "A pigment-bearing plastid. The yellow marks represent xanthophyll pigments within the compartment.",
+        "es": "Un plastidio con pigmentos. Las marcas amarillas representan pigmentos xantófilos dentro del compartimento."
+      }
+    }
+  ],
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "citation": "Wiland-Szymańska et al. Scientific Reports 16, 25041 (2026). DOI: 10.1038/s41598-026-53788-7. Published 1 June 2026; verified 10 September 2026.",
+      "id": "sunflower-chromoplast-2026",
+      "label": "Carotenoids in sunflower chromoplasts",
+      "url": "https://www.nature.com/articles/s41598-026-53788-7"
+    }
+  ]
+}

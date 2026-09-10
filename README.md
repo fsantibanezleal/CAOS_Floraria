@@ -1,22 +1,21 @@
 # FLORARIA
 
-**Open a flower. Follow what makes it work.** Begin with a dissectable anatomical flower, choose a question about colour, pollen, seeds or water, and follow actual structural relationships into tissues, cells and subcellular components. The original Smithsonian scan collection remains available separately.
+**Move closer. A flower opens into a world of its own.** Point at a structure and use the wheel or pinch gesture: enclosing surfaces open, tissue resolves into cells, and a connected three-dimensional interior emerges. Radial flowers, bilateral orchids and composite sunflower heads have different visible constructions. Water routes, pollen structures and pigment compartments remain active as you explore.
 
-FLORARIA is a no-login educational atlas with open source, documentation and original diagrams under Apache-2.0 [LICENSE](LICENSE). Museum scans record outer surfaces; separately identified teaching models explain floral anatomy and microscopic relationships. The application runs entirely in the browser and deploys to GitHub Pages. No identification, clinical, growth-prediction or biological measurement service is provided.
+FLORARIA is an anonymous interactive botanical experience with public source and original teaching geometry under the Apache-2.0 [LICENSE](LICENSE). It runs entirely in the browser at **https://floraria.fasl-work.com/** through GitHub Pages. The scene illustrates relationships and processes; it does not predict growth, identify plants or supply measured microscopy.
 
 ## Explore
 
-- Rotate, frame and compare five real bloom specimens with compact/detailed fidelity.
-- Select, isolate, separate and section named teaching components.
-- Follow four complete microscopic pathways: petal pigmentation, pollen protection, ovule development and xylem transport. Each depth introduces distinct structures, explanations and interactions.
-- Use named inward actions, semantic depth controls and a full ancestry trail. Progress changes the subject and content; camera magnification only changes framing.
-- Inspect dedicated subcellular cutaways, reveal their interiors, return to their context, and step through a named functional sequence.
-- Scrub a bounded reproductive explanation, distinguishing pollen transfer, fertilization and seed/fruit identities.
-- Open twelve guided investigations in the same explorer.
-- Preserve views and personal observations in a local notebook; share links exclude notes. Export/import version-two files and retain compatibility with the original version-one files; export a view image.
-- Read the guide, morphology, implementation and evidence in English/Spanish with light/dark themes.
+- Travel continuously with wheel, trackpad, pinch, keyboard or the depth rail; reverse the gesture to return through the same structures.
+- Explore three distinct floral forms in a shared scene. The sunflower head contains hundreds of individual tubular disc florets; its reproductive route enters one of them.
+- Follow colour, water, pollen and ovule pathways through persistent tissue, cells and internal structures. Surfaces physically open during travel; the canvas is not replaced with another picture.
+- Compare the radial teaching flower's anthocyanin/vacuole example with a sourced sunflower mesophyll/chromoplast pathway. Generic internal examples are explicitly distinguished from species-informed ones.
+- Change flower opening and process emphasis, pause movement at an intermediate state, or follow an automatic continuous inward journey.
+- Read the explanation and sources for the current geometric anchor automatically. Use a full-viewport interface with an original midnight/coral/cyan palette, self-hosted Outfit typography and English/Spanish text.
+- Save a local observation or image and share the current view without personal notes.
+- Access the preserved former studio for five Smithsonian scans in both fidelities, comparison, twelve investigations, the detailed field guide and all earlier notebook import/export formats.
 
-Display version: **0.03.000**. The [exploration contract](docs/architecture/08_structure-and-function-exploration.md) defines the reimplemented flow. Final publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); capability descriptions do not establish delivery.
+Display version: **0.04.000**. The [living exploration contract](docs/architecture/09_living-exploration.md) defines the replacement experience. Publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); a source capability description does not establish that the live site has changed.
 
 ## Run locally
 

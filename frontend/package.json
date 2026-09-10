@@ -1,6 +1,6 @@
 {
   "name": "floraria-frontend",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:browser": "node verify-studio.mjs",
+    "test:browser": "node verify-living.mjs && node verify-studio.mjs",
+    "test:living-browser": "node verify-living.mjs",
     "check": "tsc --noEmit",
     "format": "prettier --write src *.mjs index.html vite.config.ts package.json",
     "format:check": "prettier --check src *.mjs index.html vite.config.ts package.json",

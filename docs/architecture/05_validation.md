@@ -27,6 +27,18 @@ The rendered matrix covers English/Spanish, light/dark, desktop/phone, each micr
 
 ## Reproduce the studio browser checks
 
+The current `test:browser` command first runs `verify-living.mjs` against the primary
+continuous scene, then runs `verify-studio.mjs` against the preserved studio and
+original deep links. The living suite checks all three forms and four pathways,
+actual wheel/pinch continuity, canvas identity, reversal, guided travel, opening,
+pause, keyboard, themes, language, sources and notebook/share/export recovery.
+Its report and captures are nested under `living/` in the selected evidence
+directory. `FLORARIA_LIVING_FILTER` is a diagnostic-only living scenario filter;
+it does not replace an unfiltered release run. Use an unchanged built artifact
+for lifecycle checks, because a development hot reload deliberately replaces
+components. Local parsing/geometry tests also cover fractional depth, biological
+organization, shell occlusion, deterministic paused motion and resource disposal.
+
 Start the development server or serve the verified production build. Install the pinned frontend dependencies and Playwright's Chromium as documented in the [local development guide](../guides/01_local-development.md). Point the suite at the exact URL, including a GitHub Pages project base path when applicable:
 
 ```powershell

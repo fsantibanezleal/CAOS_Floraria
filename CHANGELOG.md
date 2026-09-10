@@ -2,6 +2,17 @@
 
 Display versions use X.XX.XXX; the frontend manifest uses normalized semantic versioning.
 
+## [0.04.000] - 2026-09-10
+
+- Replace the default catalog/discrete-diagram flow with a persistent botanical scene. Wheel, pinch and keyboard travel continuously into connected geometry, opening enclosing surfaces and revealing active tissue, cells and compartments.
+- Add distinct radial, orchid and composite sunflower forms; the sunflower reproductive route follows one actual disc floret.
+- Add source-informed sunflower mesophyll and globular chromoplast geometry/content, preserving the older anthocyanin/vacuole pathway as a separate teaching example.
+- Introduce a full-viewport midnight/coral/cyan visual identity with self-hosted Outfit typography, compact contextual overlays and reversible camera/process controls.
+- Preserve the original scans, former studio, investigations and notebook formats behind explicit archive navigation.
+- Extend deterministic processing and integrity checks for the new content, retained source provenance, continuous-geometry regression checks and real-browser gesture/viewport verification.
+
+The user rejected v0.03.000's product experience despite its successful technical deployment. This replacement is not delivered until exact-source release gates and public runtime verification pass; version metadata alone is not a delivery claim.
+
 ## [0.03.000] - 2026-09-09
 
 - Reimplement the default experience around a selectable anatomical flower and four question-led functional pathways.

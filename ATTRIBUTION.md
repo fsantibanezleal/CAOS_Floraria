@@ -25,4 +25,6 @@ Each has compact/detailed variants. The catalog retains individual credit; the s
 
 References support bounded botanical statements. They do not endorse the software, proportions, a growth simulation or educational outcome.
 
-Original FLORARIA code, documentation and diagrams are Apache-2.0 under [LICENSE](LICENSE). The repository remains private. Third-party material retains its own terms in [LICENSES.md](LICENSES.md).
+Original FLORARIA code, documentation and diagrams are Apache-2.0 under [LICENSE](LICENSE). The product repository is public. Third-party material retains its own terms in [LICENSES.md](LICENSES.md).
+
+The living sunflower colour pathway cites [Wiland-Szymańska et al. (2026)](https://www.nature.com/articles/s41598-026-53788-7) for chromoplast identity and pigment location. Its microscopy and figures are not reproduced. Outfit is distributed under its original SIL Open Font License with pinned source/hash provenance in `frontend/public/fonts/`.

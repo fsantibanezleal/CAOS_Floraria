@@ -1,7 +1,7 @@
 import { chromium } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 const output =
-  process.env.FLORARIA_QA_DIR || "E:/_Temp/caos-showcase-audit/floraria-qa";
+  process.env.FLORARIA_QA_DIR || "../build/qa/historical-visual-smoke";
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({
   headless: true,
