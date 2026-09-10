@@ -1747,7 +1747,10 @@ export function createLivingGeometry(
     // behind the embedded tissue. This keeps the connected context present
     // without placing an opaque petal/head across a microscopic camera ray.
     macro.position.z = -1.65 * continuousReveal(1.05, 2.6, depth) * opening;
-    const contextOpacity = 1 - 0.94 * continuousReveal(1.35, 2.5, depth);
+    const contextOpacity = 1 - continuousReveal(1.35, 2.5, depth);
+    // Keep the original objects for reverse travel, but do not submit hundreds
+    // of fully transparent outer meshes while inspecting their small interior.
+    macro.visible = contextOpacity > 0;
     for (const [mat, original] of macroMaterialState) {
       const transparent = original.transparent || contextOpacity < 0.999;
       if (mat.transparent !== transparent) {
@@ -1757,7 +1760,7 @@ export function createLivingGeometry(
       mat.opacity = original.opacity * contextOpacity;
       mat.depthWrite = original.depthWrite && contextOpacity > 0.999;
     }
-    // Layers overlap throughout travel; no replacement, discrete level or global hide.
+    // The active tissue, cell and compartment remain in the same persistent scene.
     tissue.visible = true;
     root.userData.depth = depth;
     root.userData.selectedNode = state.selectedNode ?? "";

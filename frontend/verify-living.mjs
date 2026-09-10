@@ -455,7 +455,17 @@ await scenario("canvas-first-continuity-and-process", async (page) => {
   await page.getByRole("button", { name: "Play motion", exact: true }).click();
   await page.waitForTimeout(400);
   assert.notEqual(await canvasHash(page), pausedA);
+  const pauseStarted = Date.now();
   await page.getByRole("button", { name: "Pause motion", exact: true }).click();
+  check("motion-pause-response", {
+    elapsedMs: Date.now() - pauseStarted,
+    rendering: await scene(page).evaluate((element) => ({
+      triangles: element.dataset.triangles,
+      calls: element.dataset.renderCalls,
+      pixelRatio: element.dataset.pixelRatio,
+      frameMs: element.dataset.frameMs,
+    })),
+  });
   await setRange(page, "Flower opening", 0.3);
   await page.waitForTimeout(180);
   const closed = await canvasHash(page);

@@ -60,3 +60,16 @@ collection/notebook paths. A green build alone is not evidence of this experienc
 
 Public delivery remains the existing GitHub Pages custom domain. No new VPS service,
 account, paid API, private data or runtime secret is introduced.
+
+## Rendering responsiveness
+
+The first Linux software-WebGL run exposed stalls when resuming motion and restoring
+a distant saved depth. The correction retains all original scene objects but omits
+fully transparent enclosing macro meshes from GPU submission after their continuous
+retraction/fade. Returning outward restores the same objects. Active tissue and
+compartment geometry remain visible. Rendering is paced to at most about30frames/s,
+and sustained slow frames lower drawing-buffer pixel ratio while CSS layout, text
+and the geometric hierarchy remain unchanged. Paused stable views render on demand.
+Camera convergence uses elapsed time at low frame rates, verified at2,5,30,60and120Hz,
+instead of silently slowing travel with a per-frame time cap. Browser receipts record
+pause latency and actual render workload; these are not physical-device benchmarks.

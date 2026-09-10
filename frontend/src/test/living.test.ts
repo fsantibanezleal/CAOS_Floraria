@@ -88,6 +88,8 @@ describe("continuous scene input and public state", () => {
     };
     expect(advance(30)).toBeCloseTo(advance(60), 10);
     expect(advance(60)).toBeCloseTo(advance(120), 10);
+    expect(advance(2)).toBeCloseTo(advance(60), 10);
+    expect(advance(5)).toBeCloseTo(advance(60), 10);
     expect(approach(1, 3, 0.016)).toBeGreaterThan(1);
     expect(approach(1, 3, 0.016)).toBeLessThan(3);
     expect(approach(3, 1, 0.016)).toBeLessThan(3);

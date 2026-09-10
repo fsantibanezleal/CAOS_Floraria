@@ -61,7 +61,8 @@ export function LivingScene(props: Props) {
       setError(true);
       return;
     }
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+    let renderRatio = Math.min(devicePixelRatio, 1.5);
+    renderer.setPixelRatio(renderRatio);
     renderer.outputColorSpace = T.SRGBColorSpace;
     renderer.toneMapping = T.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.88;
@@ -104,6 +105,7 @@ export function LivingScene(props: Props) {
       frame = 0,
       prior = performance.now(),
       notified = 0;
+    let slowFrames = 0;
     let disposed = false,
       lost = false;
     let lastFrameSignature = "";
@@ -260,11 +262,23 @@ export function LivingScene(props: Props) {
     const draw = (now: number) => {
       if (disposed) return;
       frame = requestAnimationFrame(draw);
-      const dt = Math.min((now - prior) / 1000, 0.05);
+      const elapsed = now - prior;
+      // Give input and the compositor room between submissions, including on
+      // software WebGL. Never queue a full-resolution render on every display tick.
+      if (elapsed < 32) return;
+      const dt = Math.min(elapsed / 1000, 0.5);
       prior = now;
       if (lost || document.hidden) return;
       const { state, dark } = latest.current;
-      if (state.playing && !motionPreference.matches) time += dt;
+      const moving = state.playing || Math.abs(depth - state.depth) > 0.02;
+      slowFrames = moving && elapsed > 85 ? slowFrames + 1 : 0;
+      if (slowFrames >= 3 && renderRatio > 0.65) {
+        renderRatio = Math.max(0.65, renderRatio * 0.8);
+        renderer.setPixelRatio(renderRatio);
+        lastFrameSignature = "";
+        slowFrames = 0;
+      }
+      if (state.playing && !motionPreference.matches) time += Math.min(dt, 0.1);
       depth = motionPreference.matches
         ? state.depth
         : approach(depth, state.depth, dt);
@@ -346,6 +360,7 @@ export function LivingScene(props: Props) {
       camera.updateProjectionMatrix();
       camera.lookAt(center);
       ambient.intensity = dark ? 0.65 : 0.8;
+      const renderStarted = performance.now();
       renderer.render(scene, camera);
       if (
         now - notified > 110 ||
@@ -363,6 +378,10 @@ export function LivingScene(props: Props) {
         host.dataset.rendered = String(renderer.info.render.triangles > 0);
         host.dataset.time = time.toFixed(3);
         host.dataset.cameraDistance = distance.toFixed(6);
+        host.dataset.pixelRatio = renderRatio.toFixed(2);
+        host.dataset.frameMs = elapsed.toFixed(1);
+        host.dataset.renderMs = (performance.now() - renderStarted).toFixed(1);
+        host.dataset.renderCalls = String(renderer.info.render.calls);
       }
     };
     frame = requestAnimationFrame(draw);

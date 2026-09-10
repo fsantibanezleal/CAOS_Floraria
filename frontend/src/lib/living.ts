@@ -77,7 +77,8 @@ export function livingSearch(s: LivingState) {
 /** Exponential convergence has consistent timing across refresh rates. */
 export function approach(current: number, target: number, seconds: number) {
   return (
-    current + (target - current) * (1 - Math.exp(-Math.min(seconds, 0.1) * 9))
+    current +
+    (target - current) * (1 - Math.exp(-Math.max(0, Math.min(seconds, 1)) * 9))
   );
 }
 export function wheelDepth(

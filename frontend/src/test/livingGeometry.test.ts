@@ -304,6 +304,7 @@ describe("persistent living botanical geometry", () => {
       material.depthWrite,
     ]);
     model.update({ depth: 4, time: 0 });
+    expect(macro.visible).toBe(false);
     expect(macro.position.z).toBeLessThan(-1);
     expect(
       outer.every(
@@ -321,6 +322,7 @@ describe("persistent living botanical geometry", () => {
       ]),
     ).toEqual(inside);
     model.update({ depth: 0, time: 0 });
+    expect(macro.visible).toBe(true);
     expect(
       outer.map((material) => [
         material.opacity,
