@@ -16,9 +16,24 @@ The TypeScript mirror is frontend/src/lib/catalog.types.ts. Runtime validation c
 
 ## Microscopic atlas
 
-The separately versioned [microscopic contract](micro-atlas-contract.md) preserves the original collection schema. Four source-linked branches form a validated, reciprocal, acyclic hierarchy. Every node has English/Spanish labels and explanations, an explicit biological kind and an illustrated evidence classification. The accompanying integrity sidecar is verified before browser use. The original museum manifest remains unchanged; only the two exact micro artifact filenames are admitted beside it.
+The separately versioned [microscopic contract](micro-atlas-contract.md) preserves the original collection schema. Four source-linked branches form a validated, reciprocal, acyclic hierarchy. Every node has English/Spanish labels and explanations, an explicit biological kind and an illustrated evidence classification. The accompanying integrity sidecar is verified before browser use. The original museum manifest remains unchanged; the exact micro and living artifact pairs are separately verified beside it.
 
 ## Connected exploration and notebook
+
+The primary living experience uses separately validated `living-content.json` and
+`living-content.integrity.json`. This exact pair contains the source-backed four-node
+sunflower ray/mesophyll/cell/chromoplast chain. Python and TypeScript validate the
+same hierarchy, bilingual fields and credential-free HTTPS citations. The browser
+checks byte length and SHA-256 before use. These two filenames are admitted beside
+the original museum manifest and the preserved micro pair; unexpected or partial
+artifacts fail verification.
+
+`living.ts` bounds real-valued travel to 0..4, opening/activity to 0..1 and form/path
+to known identifiers. `livingNotebook.ts` accepts only its version-one
+`floraria-living` envelope, valid bounded state and at most 12,000 note characters
+within a 64 KB UTF-8 file. Import backs up the previous view and exposes a restore
+action. The shared URL contains only view coordinates; private notes are excluded.
+Original studio notebook formats remain separate and unchanged.
 
 frontend/src/lib/exploration.ts wraps the original bounded viewer state with a five-level depth, one of four microscopic branches, selected node, bounded process position, guided-step position and optional notes. JSON files identify FLORARIA and schemaVersion 2. Imports reject unsupported products and files over 64 KB; version-one files retain their original viewer state. Notes are limited to 10,000 characters and excluded from share URLs. Unknown selections, malformed links and unsupported levels recover through explicit bounds rather than reaching renderer code unchecked.
 

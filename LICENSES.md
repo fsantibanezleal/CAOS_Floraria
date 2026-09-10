@@ -11,6 +11,7 @@ Every web build includes `/third-party-notices.txt`, assembled from the actual l
 | Botanical pages/articles/guides | Referenced for original explanation; their full text/illustrations are not mirrored |
 | Three.js/Draco and frontend dependencies | Upstream notices apply to actual locked/bundled versions |
 | Shared shell | Its upstream package license applies separately |
+| Outfit variable typeface | Copyright 2021 The Outfit Project Authors; SIL Open Font License 1.1. Pinned unmodified font and original terms in `frontend/public/fonts/`; its notice is included in every build. |
 
 The locked shared-shell release 0.6.2 has an upstream inconsistency: npm metadata
 labels it MIT, while its bundled `LICENSE` contains Apache-2.0 terms. The build

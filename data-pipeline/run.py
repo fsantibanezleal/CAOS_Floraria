@@ -317,7 +317,11 @@ def verify(root: Path, source: dict, locks: dict) -> dict:
     with_micro = (root.resolve() == Path(__file__).resolve().parents[1]
                   or (root / "data/sources/micro-atlas.json").exists()
                   or bool(actual & micro_files))
-    allowed = expected | (micro_files if with_micro else set())
+    living_files = {"living-content.json", "living-content.integrity.json"}
+    with_living = (root.resolve() == Path(__file__).resolve().parents[1]
+                   or (root / "data/sources/living-content.json").exists()
+                   or bool(actual & living_files))
+    allowed = expected | (micro_files if with_micro else set()) | (living_files if with_living else set())
     require(actual == allowed, f"Unexpected or missing artifact files: {actual ^ allowed}")
     if with_micro:
         spec = importlib.util.spec_from_file_location("floraria_micro_verify", Path(__file__).with_name("micro.py"))
@@ -327,6 +331,14 @@ def verify(root: Path, source: dict, locks: dict) -> dict:
             micro.run(root, "verify")
         except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
             raise PipelineError(f"Microscopic atlas verification failed: {exc}") from exc
+    if with_living:
+        spec = importlib.util.spec_from_file_location("floraria_living_verify", Path(__file__).with_name("living.py"))
+        living = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(living)
+        try:
+            living.run(root, "verify")
+        except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
+            raise PipelineError(f"Living content verification failed: {exc}") from exc
     for item in manifest["files"]:
         checked_asset(base / safe_relative(item["path"]), item)
     require(inspect_assets(root, locks, artifact=True) == manifest.get("inspection"), "Inspection manifest mismatch")
@@ -352,6 +364,12 @@ def run(root: Path, stage: str, offline: bool = False) -> dict:
         return {"normalized": True}
     if stage in {"all", "export"}:
         export(root, source, locks)
+        for module_name, filename in (("micro", "micro-atlas.json"), ("living", "living-content.json")):
+            if (root / "data/sources" / filename).exists():
+                spec = importlib.util.spec_from_file_location("floraria_content_export_" + module_name, Path(__file__).with_name(module_name + ".py"))
+                content = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(content)
+                content.run(root, "export")
     if stage in {"all", "export", "verify"}:
         return verify(root, source, locks)
     raise PipelineError(f"Unknown stage: {stage}")

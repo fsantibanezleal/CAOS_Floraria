@@ -381,16 +381,17 @@ await scenario("collection-and-comparison", async (page) => {
   });
 });
 
-await scenario("semantic-default-pathways", async (page) => {
-  await page.goto(base, { waitUntil: "domcontentloaded", timeout: 60000 });
+await scenario("preserved-studio-pathways", async (page) => {
+  await page.goto(new URL("?archive=1", base).href, {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
   await ready(page);
   await depth(page, 1);
   assert.equal(await page.locator("[data-pathway]").count(), 4);
   assert.equal(await page.locator(".fs-specimen").count(), 0);
   await photo(page, "semantic-default-anatomy");
-  check(
-    "Default entry is a selectable anatomical flower with four purposeful routes",
-  );
+  check("Preserved studio entry retains its anatomical flower and four routes");
   for (const branch of ["petal", "anther", "ovary", "stem"]) {
     await page.locator(`[data-pathway="${branch}"]`).click();
     await ready(page);
@@ -520,7 +521,10 @@ await scenario("semantic-structure-and-process-workbench", async (page) => {
 await scenario(
   "semantic-phone-flow",
   async (page) => {
-    await page.goto(base, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.goto(new URL("?archive=1", base).href, {
+      waitUntil: "domcontentloaded",
+      timeout: 60000,
+    });
     await ready(page);
     await layout(page, "semantic-phone-default");
     await photo(page, "semantic-phone-default");
@@ -1406,7 +1410,7 @@ await scenario(
         body: "Intentional test: unavailable scan",
       }),
     );
-    await page.goto(base);
+    await page.goto(new URL("?archive=1", base).href);
     await ready(page);
     await page.locator(".fs-collection-link").click();
     await page.locator(".fl-viewer-error").waitFor({ timeout: 60000 });
@@ -1455,7 +1459,7 @@ await scenario(
 await scenario(
   "unavailable-webgl-educational-fallback",
   async (page) => {
-    await page.goto(base);
+    await page.goto(new URL("?archive=1", base).href);
     await page.locator(".fl-viewer-error").waitFor({ timeout: 30000 });
     assert((await page.locator(".fl-viewer-error").innerText()).length > 60);
     await photo(page, "fault-webgl");
@@ -1502,8 +1506,14 @@ await scenario("pages-direct-routes-and-policy", async (page) => {
       timeout: 60000,
     });
     assert.equal(response.status(), 200);
-    await page.locator(".fs-app").waitFor();
-    await ready(page);
+    if (route) {
+      await page.locator(".fs-app").waitFor();
+      await ready(page);
+    } else {
+      await page
+        .locator('[data-testid="living-scene"][data-rendered="true"]')
+        .waitFor();
+    }
     if (route === "experiments")
       assert.equal(
         await page.locator(".fs-journeys > button").count(),

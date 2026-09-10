@@ -23,6 +23,11 @@ execFileSync(
   ["data-pipeline/micro.py", "verify"],
   { cwd: root, stdio: "inherit" },
 );
+execFileSync(
+  process.env.PYTHON || "python",
+  ["data-pipeline/living.py", "verify"],
+  { cwd: root, stdio: "inherit" },
+);
 if (
   catalog.schemaVersion !== 1 ||
   catalog.specimens.length !== 5 ||
@@ -87,6 +92,26 @@ const notices = noticePackages.map((name) => {
   if (!license) throw new Error(`Missing third-party notice: ${name}`);
   return `${name} ${metadata.version}\n${readFileSync(license, "utf8")}`;
 });
+const fontDirectory = resolve(frontend, "public/fonts");
+const fontProvenance = JSON.parse(
+  readFileSync(resolve(fontDirectory, "provenance.json"), "utf8"),
+);
+if (fontProvenance.family !== "Outfit" || fontProvenance.files.length !== 2)
+  throw new Error("Incomplete font provenance");
+for (const entry of fontProvenance.files) {
+  if (!["Outfit.ttf", "Outfit-OFL.txt"].includes(entry.file))
+    throw new Error("Unexpected font asset");
+  const bytes = readFileSync(resolve(fontDirectory, entry.file));
+  if (
+    bytes.length !== entry.bytes ||
+    createHash("sha256").update(bytes).digest("hex") !== entry.sha256
+  )
+    throw new Error("Font asset integrity mismatch");
+}
+notices.push(
+  "Outfit typeface\n" +
+    readFileSync(resolve(fontDirectory, "Outfit-OFL.txt"), "utf8"),
+);
 notices.push(
   "Draco, Copyright Google Inc.\nhttps://github.com/google/draco\n" +
     readFileSync(resolve(root, "LICENSE"), "utf8"),

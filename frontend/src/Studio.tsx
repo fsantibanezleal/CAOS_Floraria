@@ -284,7 +284,9 @@ export default function Studio() {
       setGuide(path.slice(1));
       setPanel("library");
     } else if (path === "/experiments") setPanel("journeys");
-    if (route.search) setState(readExploration(route.search));
+    const parameters = new URLSearchParams(route.search);
+    if (parameters.has("explore") || parameters.has("view"))
+      setState(readExploration(route.search));
   }, [route.pathname, route.search]);
   useEffect(() => {
     if (!notice) return;

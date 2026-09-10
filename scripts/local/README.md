@@ -36,7 +36,7 @@ Keep the dev server or preview that you started running in a separate terminal. 
 launches a server or changes its port. Run the first integration check with an explicit Chromium download:
 
 ```powershell
-scripts/verify-ui.ps1 --url http://127.0.0.1:4902 --install-browser --browser-cache E:/_Temp/floraria-playwright
+scripts/verify-ui.ps1 --url http://127.0.0.1:4902 --install-browser --browser-cache build/playwright
 ```
 
 ```bash
