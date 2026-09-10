@@ -22,6 +22,7 @@ interface Props {
   es: boolean;
   onChange(value: Partial<LivingState>): void;
   onDepth(value: number, nodeId: string): void;
+  onNode?(value: { branch: LivingPath; nodeId: string }): void;
   onHover(value: string): void;
   handle(value: LivingSceneHandle | null): void;
 }
@@ -199,6 +200,11 @@ export function LivingScene(props: Props) {
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     };
     const up = (event: PointerEvent) => {
+      if (pointers.size === 1) {
+        const target = hit();
+        if (target)
+          latest.current.onNode?.({ branch: target.branch, nodeId: target.id });
+      }
       pointers.delete(event.pointerId);
       if (host.hasPointerCapture(event.pointerId))
         host.releasePointerCapture(event.pointerId);
@@ -316,11 +322,11 @@ export function LivingScene(props: Props) {
         );
       }
       for (const [id, model] of cache) {
-        const [form, branch] = id.split(":");
-        model.root.visible =
-          form === state.form
-            ? model === active
-            : branch === "petal" && depth < 1.25;
+        const [form] = id.split(":");
+        // Keep one specimen in the stage. Switching a form is an intentional
+        // comparison action; the canvas must never present three unrelated
+        // models at once while the visitor is investigating one structure.
+        model.root.visible = form === state.form && model === active;
         if (model.root.visible)
           model.update({
             depth: form === state.form ? depth : 0,
