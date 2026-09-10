@@ -1407,6 +1407,8 @@ await scenario(
       }),
     );
     await page.goto(base);
+    await ready(page);
+    await page.locator(".fs-collection-link").click();
     await page.locator(".fl-viewer-error").waitFor({ timeout: 60000 });
     await photo(page, "fault-missing-scan");
     await page.unroute("**/assets/*.glb");
@@ -1457,7 +1459,7 @@ await scenario(
     await page.locator(".fl-viewer-error").waitFor({ timeout: 30000 });
     assert((await page.locator(".fl-viewer-error").innerText()).length > 60);
     await photo(page, "fault-webgl");
-    await page.locator(".fs-question").getByRole("button").first().click();
+    await page.locator(".fs-go-inside").click();
     await microReady(page, "petal", "tissue");
     assert((await page.locator(".micro-scroll").innerText()).length > 200);
     check(
