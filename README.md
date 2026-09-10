@@ -1,6 +1,6 @@
 # FLORARIA
 
-**A world within a flower.** Explore digitized Smithsonian orchid blooms, enter an original anatomical model, and follow connected questions through tissues, cells and subcellular structures.
+**Open a flower. Follow what makes it work.** Begin with a dissectable anatomical flower, choose a question about colour, pollen, seeds or water, and follow actual structural relationships into tissues, cells and subcellular components. The original Smithsonian scan collection remains available separately.
 
 FLORARIA is a no-login educational atlas with open source, documentation and original diagrams under Apache-2.0 [LICENSE](LICENSE). Museum scans record outer surfaces; separately identified teaching models explain floral anatomy and microscopic relationships. The application runs entirely in the browser and deploys to GitHub Pages. No identification, clinical, growth-prediction or biological measurement service is provided.
 
@@ -9,12 +9,14 @@ FLORARIA is a no-login educational atlas with open source, documentation and ori
 - Rotate, frame and compare five real bloom specimens with compact/detailed fidelity.
 - Select, isolate, separate and section named teaching components.
 - Follow four complete microscopic pathways: petal pigmentation, pollen protection, ovule development and xylem transport. Each depth introduces distinct structures, explanations and interactions.
+- Use named inward actions, semantic depth controls and a full ancestry trail. Progress changes the subject and content; camera magnification only changes framing.
+- Inspect dedicated subcellular cutaways, reveal their interiors, return to their context, and step through a named functional sequence.
 - Scrub a bounded reproductive explanation, distinguishing pollen transfer, fertilization and seed/fruit identities.
 - Open twelve guided investigations in the same explorer.
 - Preserve views and personal observations in a local notebook; share links exclude notes. Export/import version-two files and retain compatibility with the original version-one files; export a view image.
 - Read the guide, morphology, implementation and evidence in English/Spanish with light/dark themes.
 
-Display version: **0.02.000**. Final publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); capability descriptions do not establish delivery.
+Display version: **0.03.000**. The [exploration contract](docs/architecture/08_structure-and-function-exploration.md) defines the reimplemented flow. Final publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); capability descriptions do not establish delivery.
 
 ## Run locally
 

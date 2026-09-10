@@ -3,6 +3,7 @@ import {
   useContext,
   useEffect,
   useId,
+  useRef,
   useState,
   type CSSProperties,
   type ReactNode,
@@ -14,6 +15,8 @@ import {
   type MicroDepth,
   type MicroNode,
 } from "../lib/micro";
+import { StructureStudy } from "./StructureStudy";
+import "./micro-experience.css";
 
 export interface MicroViewerProps {
   branch: string;
@@ -24,6 +27,7 @@ export interface MicroViewerProps {
   lang: "en" | "es";
   theme: "light" | "dark";
   progress: number;
+  onProgress?: (value: number) => void;
 }
 
 interface PickState {
@@ -107,7 +111,30 @@ export function MicroViewer({
   lang,
   theme,
   progress,
+  onProgress,
 }: MicroViewerProps) {
+  const [studyMode, setStudyMode] = useState<"detail" | "context" | "process">(
+    "context",
+  );
+  const [reveal, setReveal] = useState(0.8);
+  useEffect(() => {
+    setStudyMode(depth === "organelle" ? "detail" : "context");
+    setReveal(0.8);
+  }, [branch, depth]);
+  const previousView = useRef({ branch, depth, selected, progress });
+  useEffect(() => {
+    const previous = previousView.current;
+    // A process control must expose its functional drawing. Navigation resets
+    // remain structure inspections rather than unintentionally starting a trace.
+    if (
+      previous.branch === branch &&
+      previous.depth === depth &&
+      previous.selected === selected &&
+      previous.progress !== progress
+    )
+      setStudyMode("process");
+    previousView.current = { branch, depth, selected, progress };
+  }, [branch, depth, selected, progress]);
   const [atlas, setAtlas] = useState<MicroAtlas>(),
     [error, setError] = useState(false),
     [retry, setRetry] = useState(0);
@@ -865,12 +892,14 @@ export function MicroViewer({
     >
       <section
         style={frame}
+        className="micro-experience"
         aria-label={tr(
           "Microscopic teaching atlas",
           "Atlas microscópico educativo",
         )}
         data-micro-branch={branchId}
         data-micro-depth={depth}
+        data-study-mode={studyMode}
       >
         <style>{`.micro-pick:focus-visible>g:first-child{filter:drop-shadow(0 0 4px ${palette.cyan});stroke-width:6px}.micro-scroll a{color:inherit;text-decoration:underline}.micro-scroll button:focus-visible{outline:3px solid ${palette.cyan};outline-offset:2px}`}</style>
         <div
@@ -885,6 +914,43 @@ export function MicroViewer({
         >
           <span>{tr("EDUCATIONAL ILLUSTRATION", "ILUSTRACIÓN EDUCATIVA")}</span>
           <span>{tr("Not to scale", "Sin escala métrica")}</span>
+        </div>
+        <div className="micro-workbench-header">
+          <div>
+            <span className="micro-location">
+              {atlas.nodes.find((n) => n.id === node.parentId)?.label[lang] ??
+                record.label[lang]}{" "}
+              / {tr("inside", "interior")}
+            </span>
+            <h2>{node.label[lang]}</h2>
+            <p>{node.summary[lang]}</p>
+          </div>
+          <div
+            className="micro-view-switch"
+            role="group"
+            aria-label={tr("Inspection view", "Vista de inspección")}
+          >
+            {depth === "organelle" && (
+              <button
+                aria-pressed={studyMode === "detail"}
+                onClick={() => setStudyMode("detail")}
+              >
+                {tr("Inspect structure", "Examinar estructura")}
+              </button>
+            )}
+            <button
+              aria-pressed={studyMode === "context"}
+              onClick={() => setStudyMode("context")}
+            >
+              {tr("See the context", "Ver el contexto")}
+            </button>
+            <button
+              aria-pressed={studyMode === "process"}
+              onClick={() => setStudyMode("process")}
+            >
+              {tr("Trace the function", "Seguir la función")}
+            </button>
+          </div>
         </div>
         <svg
           viewBox="0 0 800 485"
@@ -903,19 +969,84 @@ export function MicroViewer({
               <stop offset="1" stopColor={palette.rose} />
             </radialGradient>
           </defs>
-          {branchId === "petal"
-            ? petal()
-            : branchId === "stem"
-              ? stem()
-              : branchId === "anther"
-                ? anther()
-                : ovary()}
+          {studyMode === "detail" && depth === "organelle" ? (
+            <StructureStudy
+              node={node}
+              lang={lang}
+              dark={dark}
+              reveal={reveal}
+              progress={p}
+              onSelect={onSelect}
+            />
+          ) : branchId === "petal" ? (
+            petal()
+          ) : branchId === "stem" ? (
+            stem()
+          ) : branchId === "anther" ? (
+            anther()
+          ) : (
+            ovary()
+          )}
         </svg>
+        {studyMode === "detail" && depth === "organelle" && (
+          <div className="micro-cutaway-control">
+            <label htmlFor={`${uid}-reveal`}>
+              {tr("Reveal the interior", "Revelar el interior")}
+            </label>
+            <input
+              id={`${uid}-reveal`}
+              type="range"
+              min="0"
+              max="1"
+              step=".01"
+              value={reveal}
+              onChange={(e) => setReveal(Number(e.target.value))}
+            />
+            <output htmlFor={`${uid}-reveal`}>
+              {Math.round(reveal * 100)}%
+            </output>
+            <span>
+              {tr(
+                "Structure cutaway; no camera enlargement.",
+                "Corte estructural; no amplía la cámara.",
+              )}
+            </span>
+          </div>
+        )}
+        {studyMode === "process" && (
+          <div className="micro-process-board">
+            <p>{record.process[lang]}</p>
+            <div
+              role="group"
+              aria-label={tr("Process stages", "Etapas del proceso")}
+            >
+              {record.stages.map((s, i) => (
+                <button
+                  key={s.title.en}
+                  aria-pressed={Math.min(3, Math.floor(p * 4)) === i}
+                  onClick={() => onProgress?.(i / 3)}
+                  disabled={!onProgress}
+                >
+                  <span>0{i + 1}</span>
+                  {s.title[lang]}
+                </button>
+              ))}
+            </div>
+            <strong>{stage.title[lang]}</strong>
+            <p>{stage.body[lang]}</p>
+            <small>
+              {tr(
+                "An explanatory sequence, not a time or rate prediction.",
+                "Secuencia explicativa; no predice tiempo ni velocidad.",
+              )}
+            </small>
+          </div>
+        )}
         <div
           className="micro-scroll"
           style={{
             flex: "0 0 auto",
-            maxHeight: "40%",
+            maxHeight: studyMode === "process" ? "26%" : "32%",
             minHeight: 88,
             overflowY: "auto",
             borderTop: `1px solid ${palette.border}`,
@@ -979,15 +1110,17 @@ export function MicroViewer({
             <strong>{node.label[lang]}</strong> - {node.summary[lang]}{" "}
             <span>{node.detail[lang]}</span>
           </div>
-          <p style={{ margin: "6px 0" }}>
-            <strong>{stage.title[lang]}:</strong> {stage.body[lang]}{" "}
-            <span style={{ color: palette.muted }}>
-              {tr(
-                "Sequence control, not elapsed time.",
-                "Control de secuencia, no tiempo transcurrido.",
-              )}
-            </span>
-          </p>
+          {studyMode !== "process" && (
+            <p style={{ margin: "6px 0" }}>
+              <strong>{stage.title[lang]}:</strong> {stage.body[lang]}{" "}
+              <span style={{ color: palette.muted }}>
+                {tr(
+                  "Sequence control, not elapsed time.",
+                  "Control de secuencia, no tiempo transcurrido.",
+                )}
+              </span>
+            </p>
+          )}
           <details>
             <summary style={{ cursor: "pointer" }}>
               {tr("Sources and model limits", "Fuentes y límites del modelo")}
