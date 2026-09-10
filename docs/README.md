@@ -2,6 +2,12 @@
 
 This wiki connects source evidence, botanical interpretation and working software.
 
+The primary experience is the [living scene](architecture/09_living-exploration.md):
+continuous travel through opening structures and their contents. The
+[source dossier](research/living-scene.md) explains the three floral forms,
+sunflower chromoplast pathway and representation boundaries. The former studio
+and its original material remain available through the preserved explorer link.
+
 | Read | Purpose |
 |---|---|
 | [Architecture](architecture.md) | Source flow, state, rendering, validation and release |

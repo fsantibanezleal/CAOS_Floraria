@@ -146,7 +146,7 @@ def main(arguments: list[str] | None = None) -> int:
         if not options.release:
             sandbox = ROOT / 'build/local'
             (sandbox / 'data/sources').mkdir(parents=True, exist_ok=True)
-            for source in ['catalog-source.json', 'assets.lock.json']:
+            for source in ['catalog-source.json', 'assets.lock.json', 'micro-atlas.json', 'living-content.json']:
                 shutil.copyfile(ROOT / 'data/sources' / source, sandbox / 'data/sources' / source)
             shutil.copytree(ROOT / 'data/artifacts/assets', sandbox / 'data/raw/assets', dirs_exist_ok=True)
             args = ['--root', str(sandbox), '--offline']

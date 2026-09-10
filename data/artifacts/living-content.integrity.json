@@ -1,0 +1,10 @@
+{
+  "artifact": "living-content.json",
+  "bytes": 4936,
+  "counts": {
+    "nodes": 4,
+    "sources": 1
+  },
+  "schemaVersion": 1,
+  "sha256": "2b4d471b9add993700157dc72ae8bc882208e30045e278da5f59d2085b035b7a"
+}
