@@ -1510,9 +1510,20 @@ await scenario("pages-direct-routes-and-policy", async (page) => {
       await page.locator(".fs-app").waitFor();
       await ready(page);
     } else {
-      await page
-        .locator('[data-testid="living-scene"][data-rendered="true"]')
-        .waitFor();
+      // The public root is the spatial whole-plant explorer. The former
+      // LivingScene remains available through ?living-archive=1 and is
+      // covered by the legacy scenarios above.
+      await page.locator(".spatial-canvas").waitFor();
+      await page.waitForFunction(
+        () =>
+          Number(document.querySelector(".spatial-canvas")?.dataset.triangles) >
+          1000,
+      );
+      assert.equal(
+        (await page.locator(".spatial-canvas").getAttribute("data-focus")) ||
+          "overview",
+        "overview",
+      );
     }
     if (route === "experiments")
       assert.equal(

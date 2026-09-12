@@ -1,0 +1,10 @@
+{
+  "artifact": "spatial-atlas.json",
+  "bytes": 45354,
+  "counts": {
+    "nodes": 57,
+    "regions": 8
+  },
+  "schemaVersion": 1,
+  "sha256": "bd9fd40dfe232bbe3026d9bb75b4bbf5afc2dbdd8bc95dd47578e01d84bff149"
+}
