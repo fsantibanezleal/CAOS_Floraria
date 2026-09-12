@@ -403,6 +403,49 @@ export default function LivingExperience() {
           </button>
         </div>
       </header>
+      <section
+        className="living-specimen-bar"
+        aria-label={say("Choose one specimen", "Elige un ejemplar")}
+      >
+        <div className="living-specimen-heading">
+          <span className="living-eyebrow">
+            {say("SPECIMEN LAB", "LABORATORIO DE EJEMPLARES")}
+          </span>
+          <strong>
+            {say("One specimen on the table", "Un ejemplar sobre la mesa")}
+          </strong>
+          <small>
+            {say(
+              "Switching specimen changes the evidence and the parts you can inspect.",
+              "Cambiar de ejemplar cambia la evidencia y las partes que puedes inspeccionar.",
+            )}
+          </small>
+        </div>
+        <div className="living-specimen-options" role="tablist">
+          {FORMS.map((f) => (
+            <button
+              key={f.id}
+              role="tab"
+              aria-selected={state.form === f.id}
+              className={state.form === f.id ? "active" : ""}
+              onClick={() =>
+                userPatch({
+                  form: f.id,
+                  branch: "petal",
+                  depth: 0,
+                  playing: false,
+                })
+              }
+            >
+              <span className="specimen-dot" style={{ background: f.accent }} />
+              <span>
+                <strong>{f.name[es ? 1 : 0]}</strong>
+                <small>{f.title[es ? 1 : 0]}</small>
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
       <main className="living-stage" data-level={level}>
         <LivingScene
           state={state}
@@ -410,6 +453,14 @@ export default function LivingExperience() {
           es={es}
           onChange={userPatch}
           onDepth={followDepth}
+          onNode={({ branch, nodeId }) => {
+            userPatch({
+              branch,
+              depth: Math.max(state.depth, 0.65),
+              playing: false,
+            });
+            setFocusedNode(nodeId);
+          }}
           onHover={setHover}
           handle={sceneHandle}
         />
@@ -498,6 +549,67 @@ export default function LivingExperience() {
           >
             <Minus size={17} />
           </button>
+        </aside>
+        <aside
+          className="living-anatomy-map"
+          aria-label={say(
+            "Plant parts and investigation steps",
+            "Partes de la planta y pasos de investigación",
+          )}
+        >
+          <div className="living-map-heading">
+            <span>{say("INSPECT THE PARTS", "INSPECCIONA LAS PARTES")}</span>
+            <small>{level + 1}/5</small>
+          </div>
+          <div className="living-map-steps">
+            {DEPTH_LABELS.map((label, index) => (
+              <button
+                key={label[0]}
+                className={level === index ? "active" : ""}
+                aria-pressed={level === index}
+                onClick={() => userPatch({ depth: index, playing: false })}
+              >
+                <span className="living-step-number">0{index + 1}</span>
+                <span>
+                  <strong>{label[es ? 1 : 0]}</strong>
+                  <small>
+                    {index === 0
+                      ? say("whole specimen", "ejemplar completo")
+                      : index === 1
+                        ? say("named organs", "órganos nombrados")
+                        : index === 2
+                          ? say("working tissue", "tejido funcional")
+                          : index === 3
+                            ? say("cell example", "ejemplo celular")
+                            : say(
+                                "inside the structure",
+                                "interior de la estructura",
+                              )}
+                  </small>
+                </span>
+              </button>
+            ))}
+          </div>
+          <div className="living-map-actions">
+            <button
+              onClick={() =>
+                userPatch({ depth: Math.max(0, level - 1), playing: false })
+              }
+              disabled={level === 0}
+            >
+              <Minus size={15} />
+              {say("Out", "Fuera")}
+            </button>
+            <button
+              onClick={() =>
+                userPatch({ depth: Math.min(4, level + 1), playing: false })
+              }
+              disabled={level === 4}
+            >
+              {say("In", "Dentro")}
+              <Plus size={15} />
+            </button>
+          </div>
         </aside>
         <article
           className="living-context"

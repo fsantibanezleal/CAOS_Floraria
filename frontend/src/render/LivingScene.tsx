@@ -22,6 +22,7 @@ interface Props {
   es: boolean;
   onChange(value: Partial<LivingState>): void;
   onDepth(value: number, nodeId: string): void;
+  onNode?(value: { branch: LivingPath; nodeId: string }): void;
   onHover(value: string): void;
   handle(value: LivingSceneHandle | null): void;
 }
@@ -110,6 +111,7 @@ export function LivingScene(props: Props) {
       lost = false;
     let lastFrameSignature = "";
     const pointers = new Map<number, { x: number; y: number }>();
+    let touchDistance = 0;
     const pointer = new T.Vector2(0, 0);
     const raycaster = new T.Raycaster();
     const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -199,9 +201,42 @@ export function LivingScene(props: Props) {
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     };
     const up = (event: PointerEvent) => {
+      if (pointers.size === 1) {
+        const target = hit();
+        if (target)
+          latest.current.onNode?.({ branch: target.branch, nodeId: target.id });
+      }
       pointers.delete(event.pointerId);
       if (host.hasPointerCapture(event.pointerId))
         host.releasePointerCapture(event.pointerId);
+    };
+    const touchStart = (event: TouchEvent) => {
+      if (event.touches.length === 2) {
+        const [a, b] = [...event.touches];
+        touchDistance = Math.hypot(
+          a.clientX - b.clientX,
+          a.clientY - b.clientY,
+        );
+      }
+    };
+    const touchMove = (event: TouchEvent) => {
+      if (event.touches.length !== 2) return;
+      event.preventDefault();
+      const [a, b] = [...event.touches];
+      const nextDistance = Math.hypot(
+        a.clientX - b.clientX,
+        a.clientY - b.clientY,
+      );
+      if (touchDistance > 4 && nextDistance > 4)
+        changeDepth(
+          latest.current.state.depth +
+            Math.log(nextDistance / touchDistance) * 2.1,
+          false,
+        );
+      touchDistance = nextDistance;
+    };
+    const touchEnd = () => {
+      touchDistance = 0;
     };
     const keyboard = (event: KeyboardEvent) => {
       if (
@@ -251,6 +286,9 @@ export function LivingScene(props: Props) {
     host.addEventListener("pointermove", move);
     host.addEventListener("pointerup", up);
     host.addEventListener("pointercancel", up);
+    host.addEventListener("touchstart", touchStart, { passive: true });
+    host.addEventListener("touchmove", touchMove, { passive: false });
+    host.addEventListener("touchend", touchEnd, { passive: true });
     host.addEventListener("keydown", keyboard);
     latest.current.handle({
       snapshot: () => renderer.domElement.toDataURL("image/png"),
@@ -316,11 +354,11 @@ export function LivingScene(props: Props) {
         );
       }
       for (const [id, model] of cache) {
-        const [form, branch] = id.split(":");
-        model.root.visible =
-          form === state.form
-            ? model === active
-            : branch === "petal" && depth < 1.25;
+        const [form] = id.split(":");
+        // Keep one specimen in the stage. Switching a form is an intentional
+        // comparison action; the canvas must never present three unrelated
+        // models at once while the visitor is investigating one structure.
+        model.root.visible = form === state.form && model === active;
         if (model.root.visible)
           model.update({
             depth: form === state.form ? depth : 0,
@@ -394,6 +432,9 @@ export function LivingScene(props: Props) {
       host.removeEventListener("pointermove", move);
       host.removeEventListener("pointerup", up);
       host.removeEventListener("pointercancel", up);
+      host.removeEventListener("touchstart", touchStart);
+      host.removeEventListener("touchmove", touchMove);
+      host.removeEventListener("touchend", touchEnd);
       host.removeEventListener("keydown", keyboard);
       renderer.domElement.removeEventListener("webglcontextlost", contextLost);
       latest.current.handle(null);
