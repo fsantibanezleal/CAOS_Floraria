@@ -7,7 +7,8 @@ FLORARIA is an anonymous interactive botanical experience with public source and
 ## Explore
 
 - Travel continuously with wheel, trackpad, pinch, keyboard or the depth rail; reverse the gesture to return through the same structures.
-- Explore three distinct floral forms in a shared scene. The sunflower head contains hundreds of individual tubular disc florets; its reproductive route enters one of them.
+- Explore one selected floral form at a time and switch directly among the radial flower, orchid and composite sunflower. The sunflower head contains hundreds of individual tubular disc florets; its reproductive route enters one of them.
+- Select a visible plant part in the three-dimensional scene to change the active botanical pathway and explanation, or use the anatomy map to move directly among Garden, Structure, Tissue, Cell and Inside.
 - Follow colour, water, pollen and ovule pathways through persistent tissue, cells and internal structures. Surfaces physically open during travel; the canvas is not replaced with another picture.
 - Compare the radial teaching flower's anthocyanin/vacuole example with a sourced sunflower mesophyll/chromoplast pathway. Generic internal examples are explicitly distinguished from species-informed ones.
 - Change flower opening and process emphasis, pause movement at an intermediate state, or follow an automatic continuous inward journey.
@@ -15,7 +16,7 @@ FLORARIA is an anonymous interactive botanical experience with public source and
 - Save a local observation or image and share the current view without personal notes.
 - Access the preserved former studio for five Smithsonian scans in both fidelities, comparison, twelve investigations, the detailed field guide and all earlier notebook import/export formats.
 
-Display version: **0.04.000**. The [living exploration contract](docs/architecture/09_living-exploration.md) defines the replacement experience. Publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); a source capability description does not establish that the live site has changed.
+Display version: **0.05.000**. The [living exploration contract](docs/architecture/09_living-exploration.md) defines the replacement experience. Publication/verification status belongs to [the release record](docs/architecture/07_release-and-verification.md); a source capability description does not establish that the live site has changed.
 
 ## Run locally
 

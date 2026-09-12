@@ -1,12 +1,11 @@
 # Release and verification record
 
-Current development version **0.04.000**. The continuous scene is defined in
+Current development version **0.05.000**. The continuous scene is defined in
 [the living exploration contract](09_living-exploration.md). It preserves the
 original source, scans, studio, notebooks, releases and data while introducing
-three distinct floral forms, persistent multilevel geometry and a separate visual
-identity. Local implementation checks pass 160 frontend and 56 Python tests;
+three selectable floral forms, direct part-driven context, persistent multilevel geometry and a separate visual identity. Local implementation checks pass 160 frontend and 56 Python tests;
 final browser, clean-source and deployment receipts are produced separately.
-The previously deployed 0.03.000 was rejected by the user. The table below is
+The previously deployed 0.04.000 was rejected by the user. The table below is
 historical version-one technical evidence, not acceptance of the new experience
 or a claim of user approval. Use the live identity and release receipts to
 determine which exact revision is publicly served.
