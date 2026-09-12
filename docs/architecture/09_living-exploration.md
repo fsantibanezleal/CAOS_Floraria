@@ -1,14 +1,13 @@
 # Living exploration: continuous geometry and context
 
-Status: implemented locally for v0.04.000; rendered correction and release gates remain in progress. The deployed v0.03.000 is a
-preserved, user-rejected checkpoint. Its passing technical checks did not establish
-that its catalog and discrete microscopic views met the requested experience.
+Status: implemented for v0.05.000; rendered correction and release gates remain in progress. The deployed v0.04.000 is a preserved, user-rejected checkpoint. Its passing technical checks did not establish that its forced travel and simultaneous models met the requested experience.
 
 ## Decision and evidence
 
-The default application is a persistent three-dimensional botanical scene. Three
-different authored forms make structural organization visible: a radial flower,
-a bilateral orchid, and a sunflower head composed of ray and disc florets.
+The default application is a persistent three-dimensional botanical scene. It
+presents one selected authored form at a time: a radial flower, a bilateral orchid,
+or a sunflower head composed of ray and disc florets. Direct selection of rendered
+parts changes the active pathway and explanatory context without leaving the scene.
 These are explicit teaching models, not anatomical reconstructions of the retained
 Smithsonian surface scans. Their internal illustrative pathways do not purport to
 be segmented species-specific microscopy. The sunflower colour pathway separately

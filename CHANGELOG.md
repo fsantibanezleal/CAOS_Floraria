@@ -2,6 +2,16 @@
 
 Display versions use X.XX.XXX; the frontend manifest uses normalized semantic versioning.
 
+## [0.05.000] - 2026-09-12
+
+- Present one selected botanical specimen at a time, with an always-visible specimen lab for switching among the radial flower, orchid and sunflower constructions.
+- Make direct three-dimensional part selection update the active botanical pathway, named structure and explanatory content in the same continuous scene.
+- Replace the hidden linear depth control with a visible anatomy map for Garden, Structure, Tissue, Cell and Inside, while retaining wheel, keyboard and two-finger pinch travel.
+- Add native touch handling for reliable two-finger inward and outward navigation on mobile browsers.
+- Preserve the full botanical source corpus, Smithsonian scans, previous studio, investigations, notebook formats and release history as accessible secondary material.
+
+This release supersedes the rejected 0.04.000 production checkpoint. Deployment is complete only when the exact main revision passes the Pages browser matrix and the public `release.json` reports this version and revision.
+
 ## [0.04.000] - 2026-09-10
 
 - Replace the default catalog/discrete-diagram flow with a persistent botanical scene. Wheel, pinch and keyboard travel continuously into connected geometry, opening enclosing surfaces and revealing active tissue, cells and compartments.
