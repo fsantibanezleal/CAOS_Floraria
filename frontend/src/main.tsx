@@ -4,18 +4,22 @@ import "katex/dist/katex.min.css";
 import { lazy, Suspense } from "react";
 const Studio = lazy(() => import("./Studio"));
 const LivingExperience = lazy(() => import("./LivingExperience"));
+const SpatialExperience = lazy(() => import("./SpatialExperience"));
 const query = new URLSearchParams(window.location.search);
 const archived =
   query.has("archive") ||
   query.has("explore") ||
   query.has("view") ||
   window.location.pathname !== "/";
+const livingArchived = query.has("living-archive") || query.has("living");
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Suspense
       fallback={<p role="status">Opening Floraria / Abriendo Floraria…</p>}
     >
-      {archived ? (
+      {livingArchived ? (
+        <LivingExperience />
+      ) : archived ? (
         <>
           <Studio />
           <a
@@ -37,7 +41,7 @@ createRoot(document.getElementById("root")!).render(
           </a>
         </>
       ) : (
-        <LivingExperience />
+        <SpatialExperience />
       )}
     </Suspense>
   </BrowserRouter>,

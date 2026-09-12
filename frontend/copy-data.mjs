@@ -28,6 +28,11 @@ execFileSync(
   ["data-pipeline/living.py", "verify"],
   { cwd: root, stdio: "inherit" },
 );
+execFileSync(
+  process.env.PYTHON || "python",
+  ["data-pipeline/spatial.py", "verify"],
+  { cwd: root, stdio: "inherit" },
+);
 if (
   catalog.schemaVersion !== 1 ||
   catalog.specimens.length !== 5 ||
