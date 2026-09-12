@@ -124,6 +124,7 @@ const ready = async (page, expected) => {
 };
 const open = async (page, params = {}) => {
   const url = new URL(base);
+  url.searchParams.set("living-archive", "1");
   for (const [key, value] of Object.entries(params))
     url.searchParams.set(key, String(value));
   await page.goto(url.href, { waitUntil: "networkidle" });

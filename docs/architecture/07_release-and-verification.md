@@ -1,11 +1,10 @@
 # Release and verification record
 
-Current development version **0.05.000**. The continuous scene is defined in
-[the living exploration contract](09_living-exploration.md). It preserves the
-original source, scans, studio, notebooks, releases and data while introducing
-three selectable floral forms, direct part-driven context, persistent multilevel geometry and a separate visual identity. Local implementation checks pass 160 frontend and 56 Python tests;
-final browser, clean-source and deployment receipts are produced separately.
-The previously deployed 0.04.000 was rejected by the user. The table below is
+Current development version **0.06.000**. The new default scene is defined in
+[the spatial exploration architecture](10_spatial-plant-exploration.md). It preserves the
+original source, scans, studio, notebooks, releases and the previous three-flower experience while introducing
+a whole plant with eight organ regions and distinct tissue/cell routes. Local validation, exact-source browser and deployment receipts are recorded separately.
+The previously deployed 0.05.000 was rejected by the user. The table below is
 historical version-one technical evidence, not acceptance of the new experience
 or a claim of user approval. Use the live identity and release receipts to
 determine which exact revision is publicly served.

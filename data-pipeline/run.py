@@ -321,7 +321,11 @@ def verify(root: Path, source: dict, locks: dict) -> dict:
     with_living = (root.resolve() == Path(__file__).resolve().parents[1]
                    or (root / "data/sources/living-content.json").exists()
                    or bool(actual & living_files))
-    allowed = expected | (micro_files if with_micro else set()) | (living_files if with_living else set())
+    spatial_files = {"spatial-atlas.json", "spatial-atlas.integrity.json"}
+    with_spatial = (root.resolve() == Path(__file__).resolve().parents[1]
+                    or (root / "data/sources/spatial-atlas.json").exists()
+                    or bool(actual & spatial_files))
+    allowed = expected | (micro_files if with_micro else set()) | (living_files if with_living else set()) | (spatial_files if with_spatial else set())
     require(actual == allowed, f"Unexpected or missing artifact files: {actual ^ allowed}")
     if with_micro:
         spec = importlib.util.spec_from_file_location("floraria_micro_verify", Path(__file__).with_name("micro.py"))
@@ -339,6 +343,14 @@ def verify(root: Path, source: dict, locks: dict) -> dict:
             living.run(root, "verify")
         except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
             raise PipelineError(f"Living content verification failed: {exc}") from exc
+    if with_spatial:
+        spec = importlib.util.spec_from_file_location("floraria_spatial_verify", Path(__file__).with_name("spatial.py"))
+        spatial = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(spatial)
+        try:
+            spatial.run("verify", root / "data/sources/spatial-atlas.json", base)
+        except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
+            raise PipelineError(f"Spatial atlas verification failed: {exc}") from exc
     for item in manifest["files"]:
         checked_asset(base / safe_relative(item["path"]), item)
     require(inspect_assets(root, locks, artifact=True) == manifest.get("inspection"), "Inspection manifest mismatch")
@@ -370,6 +382,11 @@ def run(root: Path, stage: str, offline: bool = False) -> dict:
                 content = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(content)
                 content.run(root, "export")
+        if (root / "data/sources/spatial-atlas.json").exists():
+            spec = importlib.util.spec_from_file_location("floraria_spatial_export", Path(__file__).with_name("spatial.py"))
+            spatial = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(spatial)
+            spatial.run("build", root / "data/sources/spatial-atlas.json", root / "data/artifacts")
     if stage in {"all", "export", "verify"}:
         return verify(root, source, locks)
     raise PipelineError(f"Unknown stage: {stage}")

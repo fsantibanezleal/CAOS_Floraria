@@ -2,6 +2,15 @@
 
 Display versions use X.XX.XXX; the frontend manifest uses normalized semantic versioning.
 
+## [0.06.000] - 2026-09-12
+
+- Replace the default three-flower linear journey with a whole-plant spatial explorer. Aim at an organ and use wheel or pinch to reveal its tissues, cells and internal structures, or zoom through open space to separate all eight organ regions into an inventory.
+- Author distinct schematic anatomy for roots, stem, branch, leaves, sepals, petals, stamens and pistil. Each region has a primary and alternative microscopic destination, including root hair versus xylem vessel and leaf mesophyll versus stomatal guard cells.
+- Add 57 sourced bilingual anatomy nodes and 24 selected-part notes, with deterministic source validation, integrity artifacts and browser-side verification. The five Smithsonian scans and all earlier floral routes remain available as preserved material.
+- Recompose the full-viewport interface around the scene and synchronized field notes; support direct 3D selection, unfocused separation, mouse wheel, touch pinch, keyboard controls, deep links and image export.
+
+The new geometry is an authored educational reconstruction, not a segmented museum scan or measured microscopy. Publication requires exact-main Pages and live-browser verification; the previous public 0.05.000 remains the live baseline until that gate passes.
+
 ## [0.05.000] - 2026-09-12
 
 - Present one selected botanical specimen at a time, with an always-visible specimen lab for switching among the radial flower, orchid and sunflower constructions.

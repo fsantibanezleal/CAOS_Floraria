@@ -1,0 +1,1520 @@
+{
+  "alternateTriggers": {
+    "branch": "xylem",
+    "leaf": "guard-cell",
+    "petal": "petal-vein",
+    "pistil": "style",
+    "root": "xylem",
+    "sepal": "vein",
+    "stamen": "pollen-sac",
+    "stem": "phloem"
+  },
+  "nodes": [
+    {
+      "body": {
+        "en": "Move through a connected, schematic plant. Aim at any organ and scroll inward to reveal its own anatomy.",
+        "es": "Explora una planta esquemática conectada. Apunta a cualquier órgano y acércate para revelar su anatomía."
+      },
+      "childId": null,
+      "depth": -1,
+      "id": "plant",
+      "label": {
+        "en": "A flowering plant",
+        "es": "Una planta con flor"
+      },
+      "parentId": null,
+      "region": null,
+      "sourceIds": [
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "Branched roots anchor the shoot and absorb water and mineral nutrients. Aim at a root to follow its own tissues.",
+        "es": "Las raíces ramificadas sostienen el brote y absorben agua y nutrientes minerales. Apunta a una raíz para seguir sus tejidos."
+      },
+      "childId": "root-1",
+      "depth": 0,
+      "id": "root-0",
+      "label": {
+        "en": "Root system",
+        "es": "Sistema radical"
+      },
+      "parentId": "plant",
+      "region": "root",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "Root hairs extend from the epidermis; the cortex surrounds the central vascular cylinder.",
+        "es": "Los pelos radicales salen de la epidermis; la corteza rodea el cilindro vascular central."
+      },
+      "childId": "root-2",
+      "depth": 1,
+      "id": "root-1",
+      "label": {
+        "en": "Epidermis, cortex and stele",
+        "es": "Epidermis, corteza y estela"
+      },
+      "parentId": "root-0",
+      "region": "root",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "One epidermal cell extends a fine projection into the surrounding soil space, increasing absorptive surface.",
+        "es": "Una célula epidérmica extiende una proyección fina hacia el suelo y aumenta la superficie de absorción."
+      },
+      "childId": "root-3",
+      "depth": 2,
+      "id": "root-2",
+      "label": {
+        "en": "Root-hair cell",
+        "es": "Célula de pelo radical"
+      },
+      "parentId": "root-1",
+      "region": "root",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "The cell wall supports the projection. Its membrane encloses cytoplasm around a large vacuole; no uptake rate is simulated.",
+        "es": "La pared sostiene la proyección. Su membrana encierra citoplasma alrededor de una gran vacuola; no se simula ninguna tasa de absorción."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "root-3",
+      "label": {
+        "en": "Wall, membrane and vacuole",
+        "es": "Pared, membrana y vacuola"
+      },
+      "parentId": "root-2",
+      "region": "root",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "The stem supports the shoot and connects roots, leaves and flowers through conducting tissues.",
+        "es": "El tallo sostiene el brote y conecta raíces, hojas y flores mediante tejidos conductores."
+      },
+      "childId": "stem-1",
+      "depth": 0,
+      "id": "stem-0",
+      "label": {
+        "en": "Stem",
+        "es": "Tallo"
+      },
+      "parentId": "plant",
+      "region": "stem",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "In this generalized eudicot cross-section, xylem lies toward the inside of each bundle and phloem toward the outside.",
+        "es": "En este corte esquemático de eudicotiledónea, el xilema está hacia el interior de cada haz y el floema hacia el exterior."
+      },
+      "childId": "stem-2",
+      "depth": 1,
+      "id": "stem-1",
+      "label": {
+        "en": "Vascular bundles",
+        "es": "Haces vasculares"
+      },
+      "parentId": "stem-0",
+      "region": "stem",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "Mature vessel elements are hollow conducting cells with lignified secondary walls, connected end to end.",
+        "es": "Los elementos de vaso maduros son células conductoras huecas, con paredes secundarias lignificadas y conectadas extremo a extremo."
+      },
+      "childId": "stem-3",
+      "depth": 2,
+      "id": "stem-2",
+      "label": {
+        "en": "Xylem vessel element",
+        "es": "Elemento de vaso del xilema"
+      },
+      "parentId": "stem-1",
+      "region": "stem",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "Water passes through the lumen and end-wall perforation; pits connect adjacent conducting cells. Arrows indicate route, not speed.",
+        "es": "El agua pasa por el lumen y la perforación terminal; las punteaduras conectan células vecinas. Las flechas indican ruta, no velocidad."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "stem-3",
+      "label": {
+        "en": "Lumen, pits and perforation",
+        "es": "Lumen, punteaduras y perforación"
+      },
+      "parentId": "stem-2",
+      "region": "stem",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "An axillary bud at a stem node can give rise to a branch. This branch carries leaves and keeps the transport pathway continuous.",
+        "es": "Una yema axilar en un nudo puede originar una rama. Esta lleva hojas y mantiene continua la ruta de transporte."
+      },
+      "childId": "branch-1",
+      "depth": 0,
+      "id": "branch-0",
+      "label": {
+        "en": "Shoot branch",
+        "es": "Rama del brote"
+      },
+      "parentId": "plant",
+      "region": "branch",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "The branch contains conducting xylem and phloem joined to the main stem, surrounded by supporting ground tissue.",
+        "es": "La rama contiene xilema y floema conectados al tallo principal, rodeados de tejido fundamental de sostén."
+      },
+      "childId": "branch-2",
+      "depth": 1,
+      "id": "branch-1",
+      "label": {
+        "en": "Branch vascular tissue",
+        "es": "Tejido vascular de la rama"
+      },
+      "parentId": "branch-0",
+      "region": "branch",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Living sieve-tube elements conduct sugars and are associated with companion cells.",
+        "es": "Los elementos vivos de tubo criboso conducen azúcares y se asocian con células acompañantes."
+      },
+      "childId": "branch-3",
+      "depth": 2,
+      "id": "branch-2",
+      "label": {
+        "en": "Phloem sieve-tube element",
+        "es": "Elemento de tubo criboso"
+      },
+      "parentId": "branch-1",
+      "region": "branch",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "The end-wall sieve plate connects conducting elements; a neighboring companion cell supports their metabolism.",
+        "es": "La placa cribosa terminal conecta elementos conductores; una célula acompañante vecina sostiene su metabolismo."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "branch-3",
+      "label": {
+        "en": "Sieve plate and companion cell",
+        "es": "Placa cribosa y célula acompañante"
+      },
+      "parentId": "branch-2",
+      "region": "branch",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "A broad blade intercepts light. The midrib and smaller veins link its tissues to the stem.",
+        "es": "Una lámina ancha intercepta luz. La nervadura central y las venas menores conectan sus tejidos con el tallo."
+      },
+      "childId": "leaf-1",
+      "depth": 0,
+      "id": "leaf-0",
+      "label": {
+        "en": "Leaf blade",
+        "es": "Lámina foliar"
+      },
+      "parentId": "plant",
+      "region": "leaf",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Epidermis bounds palisade and spongy mesophyll; vascular strands pass between them, and stomata regulate gas exchange.",
+        "es": "La epidermis delimita el mesófilo en empalizada y esponjoso; entre ellos pasan haces vasculares y los estomas regulan el intercambio gaseoso."
+      },
+      "childId": "leaf-2",
+      "depth": 1,
+      "id": "leaf-1",
+      "label": {
+        "en": "Epidermis and mesophyll",
+        "es": "Epidermis y mesófilo"
+      },
+      "parentId": "leaf-0",
+      "region": "leaf",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Columnar cells near the upper surface contain many chloroplasts for photosynthesis.",
+        "es": "Las células columnares cercanas a la superficie superior contienen numerosos cloroplastos para la fotosíntesis."
+      },
+      "childId": "leaf-3",
+      "depth": 2,
+      "id": "leaf-2",
+      "label": {
+        "en": "Palisade mesophyll cell",
+        "es": "Célula del mesófilo en empalizada"
+      },
+      "parentId": "leaf-1",
+      "region": "leaf",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Chloroplasts occupy the cell's cytoplasm around a large central vacuole. Their drawn number and positions are illustrative.",
+        "es": "Los cloroplastos ocupan el citoplasma alrededor de una gran vacuola central. Su cantidad y posición dibujadas son ilustrativas."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "leaf-3",
+      "label": {
+        "en": "Chloroplast and vacuole",
+        "es": "Cloroplasto y vacuola"
+      },
+      "parentId": "leaf-2",
+      "region": "leaf",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Sepals form the outer floral whorl and enclose the developing flower bud. This green teaching sepal is leaf-like.",
+        "es": "Los sépalos forman el verticilo floral externo y envuelven la yema en desarrollo. Este sépalo didáctico verde se parece a una hoja."
+      },
+      "childId": "sepal-1",
+      "depth": 0,
+      "id": "sepal-0",
+      "label": {
+        "en": "Sepal",
+        "es": "Sépalo"
+      },
+      "parentId": "plant",
+      "region": "sepal",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "An outer epidermis protects inner parenchyma and a small vascular trace.",
+        "es": "Una epidermis externa protege el parénquima interior y un pequeño haz vascular."
+      },
+      "childId": "sepal-2",
+      "depth": 1,
+      "id": "sepal-1",
+      "label": {
+        "en": "Sepal epidermis and inner tissue",
+        "es": "Epidermis y tejido interno del sépalo"
+      },
+      "parentId": "sepal-0",
+      "region": "sepal",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "Living parenchyma cells make up much of the green tissue in this illustrated sepal.",
+        "es": "Las células parenquimáticas vivas forman gran parte del tejido verde en este sépalo ilustrado."
+      },
+      "childId": "sepal-3",
+      "depth": 2,
+      "id": "sepal-2",
+      "label": {
+        "en": "Parenchyma cell",
+        "es": "Célula parenquimática"
+      },
+      "parentId": "sepal-1",
+      "region": "sepal",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "Green plastids are shown in this example; not every sepal is green or photosynthetic to the same extent.",
+        "es": "Se muestran plastidios verdes en este ejemplo; no todos los sépalos son verdes ni fotosintéticos en la misma medida."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "sepal-3",
+      "label": {
+        "en": "Chloroplasts",
+        "es": "Cloroplastos"
+      },
+      "parentId": "sepal-2",
+      "region": "sepal",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "Petals form the inner perianth around reproductive structures. This illustrated petal uses the atlas's anthocyanin example.",
+        "es": "Los pétalos forman el perianto interior alrededor de las estructuras reproductivas. Este pétalo ilustrado usa el ejemplo de antocianinas del atlas."
+      },
+      "childId": "petal-1",
+      "depth": 0,
+      "id": "petal-0",
+      "label": {
+        "en": "Petal",
+        "es": "Pétalo"
+      },
+      "parentId": "plant",
+      "region": "petal",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "Surface cells and inner tissue are separated here so the visitor can approach one pigment-bearing cell.",
+        "es": "Aquí se separan las células superficiales y el tejido interior para poder acercarse a una célula pigmentada."
+      },
+      "childId": "petal-2",
+      "depth": 1,
+      "id": "petal-1",
+      "label": {
+        "en": "Petal epidermis",
+        "es": "Epidermis del pétalo"
+      },
+      "parentId": "petal-0",
+      "region": "petal",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "This example cell has a distinct wall and a large internal vacuole. Conical cells and anthocyanins are not universal to petals.",
+        "es": "Esta célula de ejemplo tiene pared definida y una gran vacuola. Las células cónicas y antocianinas no son universales en los pétalos."
+      },
+      "childId": "petal-3",
+      "depth": 2,
+      "id": "petal-2",
+      "label": {
+        "en": "Conical epidermal cell",
+        "es": "Célula epidérmica cónica"
+      },
+      "parentId": "petal-1",
+      "region": "petal",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "The tonoplast bounds the vacuole containing illustrated anthocyanin pigment; no color spectrum is predicted.",
+        "es": "El tonoplasto delimita la vacuola que contiene pigmento antociánico ilustrado; no se predice ningún espectro de color."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "petal-3",
+      "label": {
+        "en": "Pigment-bearing vacuole",
+        "es": "Vacuola con pigmento"
+      },
+      "parentId": "petal-2",
+      "region": "petal",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "A filament supports the anther, where pollen develops in microsporangia.",
+        "es": "Un filamento sostiene la antera, donde se desarrolla el polen en microsporangios."
+      },
+      "childId": "stamen-1",
+      "depth": 0,
+      "id": "stamen-0",
+      "label": {
+        "en": "Stamen and anther",
+        "es": "Estambre y antera"
+      },
+      "parentId": "plant",
+      "region": "stamen",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The anther wall surrounds pollen-bearing sacs; the drawing opens the sacs to reveal several grains.",
+        "es": "La pared de la antera rodea sacos con polen; el dibujo los abre para revelar varios granos."
+      },
+      "childId": "stamen-2",
+      "depth": 1,
+      "id": "stamen-1",
+      "label": {
+        "en": "Pollen sacs",
+        "es": "Sacos polínicos"
+      },
+      "parentId": "stamen-0",
+      "region": "stamen",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "A pollen grain is the male gametophyte, not a generic leaf or petal cell.",
+        "es": "Un grano de polen es el gametofito masculino, no una célula genérica de hoja o pétalo."
+      },
+      "childId": "stamen-3",
+      "depth": 2,
+      "id": "stamen-2",
+      "label": {
+        "en": "Pollen grain",
+        "es": "Grano de polen"
+      },
+      "parentId": "stamen-1",
+      "region": "stamen",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The outer exine has an aperture; internal cells participate in pollen-tube growth and fertilization. Ornamentation is schematic.",
+        "es": "La exina externa tiene una apertura; las células internas participan en el crecimiento del tubo polínico y la fecundación. La ornamentación es esquemática."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "stamen-3",
+      "label": {
+        "en": "Exine, aperture and cells",
+        "es": "Exina, apertura y células"
+      },
+      "parentId": "stamen-2",
+      "region": "stamen",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The stigma receives pollen, the style links to the ovary, and the ovary encloses ovules.",
+        "es": "El estigma recibe polen, el estilo conecta con el ovario y el ovario encierra óvulos."
+      },
+      "childId": "pistil-1",
+      "depth": 0,
+      "id": "pistil-0",
+      "label": {
+        "en": "Pistil: stigma, style, ovary",
+        "es": "Pistilo: estigma, estilo, ovario"
+      },
+      "parentId": "plant",
+      "region": "pistil",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "Opening the ovary reveals an ovule with protective integuments and inner tissue.",
+        "es": "Al abrir el ovario se ve un óvulo con tegumentos protectores y tejido interno."
+      },
+      "childId": "pistil-2",
+      "depth": 1,
+      "id": "pistil-1",
+      "label": {
+        "en": "Ovary and ovule",
+        "es": "Ovario y óvulo"
+      },
+      "parentId": "pistil-0",
+      "region": "pistil",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The female gametophyte develops inside the ovule and contains an egg cell and other specialized cells.",
+        "es": "El gametofito femenino se desarrolla dentro del óvulo y contiene una célula huevo y otras células especializadas."
+      },
+      "childId": "pistil-3",
+      "depth": 2,
+      "id": "pistil-2",
+      "label": {
+        "en": "Embryo sac",
+        "es": "Saco embrionario"
+      },
+      "parentId": "pistil-1",
+      "region": "pistil",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "These are distinct cells within the embryo sac. A seed forms only after fertilization, so this is not a seed cross-section.",
+        "es": "Son células distintas del saco embrionario. La semilla se forma solo después de la fecundación; esto no es un corte de semilla."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "pistil-3",
+      "label": {
+        "en": "Egg cell and central cell",
+        "es": "Oosfera y célula central"
+      },
+      "parentId": "pistil-2",
+      "region": "pistil",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "Inside the cortex, the root stele contains xylem and phloem that connect absorption to the shoot.",
+        "es": "Dentro de la corteza, la estela contiene xilema y floema que conectan la absorción con el brote."
+      },
+      "childId": "root-alt-2",
+      "depth": 1,
+      "id": "root-alt-1",
+      "label": {
+        "en": "Central vascular cylinder",
+        "es": "Cilindro vascular central"
+      },
+      "parentId": "root-0",
+      "region": "root",
+      "route": "alternate",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "A conducting vessel is a different cellular destination from a surface root-hair cell.",
+        "es": "Un vaso conductor es un destino celular distinto de una célula superficial con pelo radical."
+      },
+      "childId": "root-alt-3",
+      "depth": 2,
+      "id": "root-alt-2",
+      "label": {
+        "en": "Root xylem vessel",
+        "es": "Vaso del xilema radical"
+      },
+      "parentId": "root-alt-1",
+      "region": "root",
+      "route": "alternate",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "The open lumen conducts water; a secondary wall supports it. The section is illustrative rather than measured.",
+        "es": "El lumen abierto conduce agua; una pared secundaria le da sostén. El corte es ilustrativo, no medido."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "root-alt-3",
+      "label": {
+        "en": "Lumen and lignified wall",
+        "es": "Lumen y pared lignificada"
+      },
+      "parentId": "root-alt-2",
+      "region": "root",
+      "route": "alternate",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "Phloem lies outside the xylem in the illustrated eudicot bundle and conducts photosynthetic products.",
+        "es": "El floema está fuera del xilema en el haz ilustrado de eudicotiledónea y conduce productos fotosintéticos."
+      },
+      "childId": "stem-alt-2",
+      "depth": 1,
+      "id": "stem-alt-1",
+      "label": {
+        "en": "Phloem in a vascular bundle",
+        "es": "Floema en un haz vascular"
+      },
+      "parentId": "stem-0",
+      "region": "stem",
+      "route": "alternate",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "A living sieve-tube element differs from a hollow mature xylem vessel and is supported by a companion cell.",
+        "es": "Un elemento vivo de tubo criboso difiere del vaso maduro hueco del xilema y recibe apoyo de una célula acompañante."
+      },
+      "childId": "stem-alt-3",
+      "depth": 2,
+      "id": "stem-alt-2",
+      "label": {
+        "en": "Sieve-tube element",
+        "es": "Elemento de tubo criboso"
+      },
+      "parentId": "stem-alt-1",
+      "region": "stem",
+      "route": "alternate",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "Perforated end walls link successive sieve-tube elements; drawn pores are not a measured count.",
+        "es": "Las paredes terminales perforadas unen elementos cribosos sucesivos; los poros dibujados no son un conteo medido."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "stem-alt-3",
+      "label": {
+        "en": "Sieve plate",
+        "es": "Placa cribosa"
+      },
+      "parentId": "stem-alt-2",
+      "region": "stem",
+      "route": "alternate",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "The branch's xylem joins the stem's conducting network, distinct from its sugar-conducting phloem.",
+        "es": "El xilema de la rama se une a la red conductora del tallo, distinta de su floema que transporta azúcares."
+      },
+      "childId": "branch-alt-2",
+      "depth": 1,
+      "id": "branch-alt-1",
+      "label": {
+        "en": "Branch xylem",
+        "es": "Xilema de la rama"
+      },
+      "parentId": "branch-0",
+      "region": "branch",
+      "route": "alternate",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Mature vessel elements connect end to end along the water pathway.",
+        "es": "Los elementos de vaso maduros se conectan extremo con extremo a lo largo de la ruta del agua."
+      },
+      "childId": "branch-alt-3",
+      "depth": 2,
+      "id": "branch-alt-2",
+      "label": {
+        "en": "Branch vessel element",
+        "es": "Elemento de vaso de la rama"
+      },
+      "parentId": "branch-alt-1",
+      "region": "branch",
+      "route": "alternate",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "The end-wall opening and side-wall pits illustrate two distinct connections between conducting cells.",
+        "es": "La abertura terminal y las punteaduras laterales ilustran dos conexiones distintas entre células conductoras."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "branch-alt-3",
+      "label": {
+        "en": "Perforation and pits",
+        "es": "Perforación y punteaduras"
+      },
+      "parentId": "branch-alt-2",
+      "region": "branch",
+      "route": "alternate",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Two guard cells bound an epidermal pore. This surface route differs from palisade mesophyll deeper in the blade.",
+        "es": "Dos células oclusivas delimitan un poro epidérmico. Esta ruta superficial difiere del mesófilo en empalizada."
+      },
+      "childId": "leaf-alt-2",
+      "depth": 1,
+      "id": "leaf-alt-1",
+      "label": {
+        "en": "Stoma in the epidermis",
+        "es": "Estoma en la epidermis"
+      },
+      "parentId": "leaf-0",
+      "region": "leaf",
+      "route": "alternate",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Guard cells change shape to regulate stomatal opening and gas exchange. No pressure dynamics are simulated.",
+        "es": "Las células oclusivas cambian de forma para regular la apertura del estoma y el intercambio gaseoso. No se simula la dinámica de presión."
+      },
+      "childId": "leaf-alt-3",
+      "depth": 2,
+      "id": "leaf-alt-2",
+      "label": {
+        "en": "Guard-cell pair",
+        "es": "Par de células oclusivas"
+      },
+      "parentId": "leaf-alt-1",
+      "region": "leaf",
+      "route": "alternate",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "The opening between the guard cells is the gas-exchange path; its drawn width is not a physiological measurement.",
+        "es": "La abertura entre las células oclusivas es la ruta del intercambio gaseoso; su ancho dibujado no es una medida fisiológica."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "leaf-alt-3",
+      "label": {
+        "en": "Stomatal aperture",
+        "es": "Apertura estomática"
+      },
+      "parentId": "leaf-alt-2",
+      "region": "leaf",
+      "route": "alternate",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "A small conducting trace passes through the illustrated sepal beneath its outer epidermis.",
+        "es": "Una pequeña traza conductora atraviesa el sépalo ilustrado bajo su epidermis externa."
+      },
+      "childId": "sepal-alt-2",
+      "depth": 1,
+      "id": "sepal-alt-1",
+      "label": {
+        "en": "Vascular trace",
+        "es": "Traza vascular"
+      },
+      "parentId": "sepal-0",
+      "region": "sepal",
+      "route": "alternate",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "A narrow vessel element is followed here instead of the green parenchyma cell in the other route.",
+        "es": "Aquí se sigue un elemento de vaso estrecho en lugar de la célula parenquimática verde de la otra ruta."
+      },
+      "childId": "sepal-alt-3",
+      "depth": 2,
+      "id": "sepal-alt-2",
+      "label": {
+        "en": "Conducting cell",
+        "es": "Célula conductora"
+      },
+      "parentId": "sepal-alt-1",
+      "region": "sepal",
+      "route": "alternate",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The vessel lumen illustrates the continuity of water transport into the floral whorl.",
+        "es": "El lumen del vaso ilustra la continuidad del transporte de agua hacia el verticilo floral."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "sepal-alt-3",
+      "label": {
+        "en": "Vessel lumen",
+        "es": "Lumen del vaso"
+      },
+      "parentId": "sepal-alt-2",
+      "region": "sepal",
+      "route": "alternate",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "A vascular trace supports the thin lamina. It is spatially distinct from pigment-bearing epidermis.",
+        "es": "Una traza vascular sostiene la lámina delgada. Es espacialmente distinta de la epidermis pigmentada."
+      },
+      "childId": "petal-alt-2",
+      "depth": 1,
+      "id": "petal-alt-1",
+      "label": {
+        "en": "Petal vascular strand",
+        "es": "Haz vascular del pétalo"
+      },
+      "parentId": "petal-0",
+      "region": "petal",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "The illustrated conduit is a conducting cell, not a pigment-bearing epidermal cell.",
+        "es": "El conducto ilustrado es una célula conductora, no una célula epidérmica pigmentada."
+      },
+      "childId": "petal-alt-3",
+      "depth": 2,
+      "id": "petal-alt-2",
+      "label": {
+        "en": "Petal vessel element",
+        "es": "Elemento de vaso del pétalo"
+      },
+      "parentId": "petal-alt-1",
+      "region": "petal",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "The conducting lumen and supporting wall are shown without claiming a measured petal vessel diameter.",
+        "es": "Se muestran el lumen conductor y su pared de sostén sin afirmar un diámetro medido del vaso del pétalo."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "petal-alt-3",
+      "label": {
+        "en": "Lumen and wall",
+        "es": "Lumen y pared"
+      },
+      "parentId": "petal-alt-2",
+      "region": "petal",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "The anther wall encloses pollen sacs. The tapetum is an inner nutritive layer during pollen development.",
+        "es": "La pared de la antera encierra sacos polínicos. El tapete es una capa nutritiva interna durante el desarrollo del polen."
+      },
+      "childId": "stamen-alt-2",
+      "depth": 1,
+      "id": "stamen-alt-1",
+      "label": {
+        "en": "Anther wall and tapetum",
+        "es": "Pared de antera y tapete"
+      },
+      "parentId": "stamen-0",
+      "region": "stamen",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "A tapetal cell belongs to the anther's supporting tissue; it is not a pollen grain.",
+        "es": "Una célula tapetal pertenece al tejido de apoyo de la antera; no es un grano de polen."
+      },
+      "childId": "stamen-alt-3",
+      "depth": 2,
+      "id": "stamen-alt-2",
+      "label": {
+        "en": "Tapetal cell",
+        "es": "Célula tapetal"
+      },
+      "parentId": "stamen-alt-1",
+      "region": "stamen",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The support cell is shown with a wall, nucleus and internal compartments; the illustration does not model secretion rates.",
+        "es": "La célula de apoyo se muestra con pared, núcleo y compartimentos internos; la ilustración no modela tasas de secreción."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "stamen-alt-3",
+      "label": {
+        "en": "Cell wall and cytoplasm",
+        "es": "Pared celular y citoplasma"
+      },
+      "parentId": "stamen-alt-2",
+      "region": "stamen",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The style connects stigma and ovary. After compatible pollination, a pollen tube may grow through transmitting tissue.",
+        "es": "El estilo conecta estigma y ovario. Tras una polinización compatible, un tubo polínico puede crecer por el tejido transmisor."
+      },
+      "childId": "pistil-alt-2",
+      "depth": 1,
+      "id": "pistil-alt-1",
+      "label": {
+        "en": "Style and transmitting tissue",
+        "es": "Estilo y tejido transmisor"
+      },
+      "parentId": "pistil-0",
+      "region": "pistil",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The style contains living cells around the route; this destination differs from the ovule's female gametophyte.",
+        "es": "El estilo contiene células vivas alrededor de la ruta; este destino difiere del gametofito femenino del óvulo."
+      },
+      "childId": "pistil-alt-3",
+      "depth": 2,
+      "id": "pistil-alt-2",
+      "label": {
+        "en": "Transmitting-tissue cell",
+        "es": "Célula del tejido transmisor"
+      },
+      "parentId": "pistil-alt-1",
+      "region": "pistil",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The channel is shown as a possible post-pollination route, not as an always-present tube or a timed growth simulation.",
+        "es": "El canal se muestra como una ruta posible tras la polinización, no como un tubo siempre presente ni como una simulación temporal."
+      },
+      "childId": null,
+      "depth": 3,
+      "id": "pistil-alt-3",
+      "label": {
+        "en": "Pollen-tube path",
+        "es": "Ruta del tubo polínico"
+      },
+      "parentId": "pistil-alt-2",
+      "region": "pistil",
+      "route": "alternate",
+      "sourceIds": [
+        "reproduction"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "body": {
+        "en": "The main axis descends from the shoot and carries branching lateral roots.",
+        "es": "El eje principal desciende desde el brote y lleva raíces laterales ramificadas."
+      },
+      "id": "primary-root",
+      "label": {
+        "en": "Primary root",
+        "es": "Raíz primaria"
+      },
+      "region": "root",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "A fine extension of an epidermal cell increases contact with the surrounding soil.",
+        "es": "Una extensión fina de una célula epidérmica aumenta el contacto con el suelo."
+      },
+      "id": "root-hair",
+      "label": {
+        "en": "Root hair",
+        "es": "Pelo radical"
+      },
+      "region": "root",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "Conducting tissue in the central stele links absorbed water to the shoot.",
+        "es": "El tejido conductor de la estela central lleva el agua absorbida hacia el brote."
+      },
+      "id": "xylem",
+      "label": {
+        "en": "Root xylem",
+        "es": "Xilema radical"
+      },
+      "region": "root",
+      "sourceIds": [
+        "roots",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "A leaf or branch attaches at a node; the segment between nodes is an internode.",
+        "es": "Una hoja o rama se inserta en un nudo; el tramo entre nudos es un entrenudo."
+      },
+      "id": "node",
+      "label": {
+        "en": "Stem node",
+        "es": "Nudo del tallo"
+      },
+      "region": "stem",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "The inner side of this illustrated vascular bundle contains water-conducting xylem.",
+        "es": "El lado interno de este haz vascular ilustrado contiene xilema conductor de agua."
+      },
+      "id": "xylem",
+      "label": {
+        "en": "Xylem bundle",
+        "es": "Haz de xilema"
+      },
+      "region": "stem",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "The outer side contains phloem, which transports products of photosynthesis.",
+        "es": "El lado externo contiene floema, que transporta productos de la fotosíntesis."
+      },
+      "id": "phloem",
+      "label": {
+        "en": "Phloem bundle",
+        "es": "Haz de floema"
+      },
+      "region": "stem",
+      "sourceIds": [
+        "stems",
+        "plant-body"
+      ]
+    },
+    {
+      "body": {
+        "en": "A bud at a leaf axil can develop into a lateral branch or flower.",
+        "es": "Una yema en la axila de una hoja puede desarrollarse como rama lateral o flor."
+      },
+      "id": "axillary-bud",
+      "label": {
+        "en": "Axillary bud",
+        "es": "Yema axilar"
+      },
+      "region": "branch",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "This branch vessel route remains connected to the main stem's vascular network.",
+        "es": "Esta ruta vascular de la rama sigue conectada con la red del tallo principal."
+      },
+      "id": "xylem",
+      "label": {
+        "en": "Branch xylem",
+        "es": "Xilema de la rama"
+      },
+      "region": "branch",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Sieve-tube tissue links the branch to sugar transport through the shoot.",
+        "es": "El tejido de tubos cribosos conecta la rama con el transporte de azúcares del brote."
+      },
+      "id": "phloem",
+      "label": {
+        "en": "Branch phloem",
+        "es": "Floema de la rama"
+      },
+      "region": "branch",
+      "sourceIds": [
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "The broad lamina exposes photosynthetic tissue to light and connects to the stem through a petiole.",
+        "es": "La lámina ancha expone tejido fotosintético a la luz y se conecta con el tallo por un pecíolo."
+      },
+      "id": "leaf-blade",
+      "label": {
+        "en": "Leaf blade",
+        "es": "Lámina foliar"
+      },
+      "region": "leaf",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "Dense columnar cells near the upper surface contain many chloroplasts.",
+        "es": "Células columnares densas cerca de la superficie superior contienen muchos cloroplastos."
+      },
+      "id": "palisade-mesophyll",
+      "label": {
+        "en": "Palisade mesophyll",
+        "es": "Mesófilo en empalizada"
+      },
+      "region": "leaf",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "A pair of guard cells bounds a stomatal pore and regulates its opening.",
+        "es": "Un par de células oclusivas delimita un poro estomático y regula su apertura."
+      },
+      "id": "guard-cell",
+      "label": {
+        "en": "Guard cells",
+        "es": "Células oclusivas"
+      },
+      "region": "leaf",
+      "sourceIds": [
+        "leaves",
+        "stems"
+      ]
+    },
+    {
+      "body": {
+        "en": "The outer floral whorl encloses the developing bud in this teaching plant.",
+        "es": "El verticilo floral externo envuelve la yema en desarrollo en esta planta didáctica."
+      },
+      "id": "sepal-blade",
+      "label": {
+        "en": "Sepal blade",
+        "es": "Lámina del sépalo"
+      },
+      "region": "sepal",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "A small vascular trace supports and supplies the leaf-like sepal.",
+        "es": "Una pequeña traza vascular sostiene y abastece el sépalo semejante a una hoja."
+      },
+      "id": "sepal-blade-vein",
+      "label": {
+        "en": "Sepal vein",
+        "es": "Nervadura del sépalo"
+      },
+      "region": "sepal",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "This illustrated green sepal contains chloroplast-bearing parenchyma, without claiming all sepals do.",
+        "es": "Este sépalo verde ilustrado contiene parénquima con cloroplastos, sin afirmar que todos los sépalos lo hagan."
+      },
+      "id": "palisade-mesophyll",
+      "label": {
+        "en": "Green inner tissue",
+        "es": "Tejido interno verde"
+      },
+      "region": "sepal",
+      "sourceIds": [
+        "leaves",
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "A thin floral surface surrounds the reproductive organs and carries epidermis and vascular traces.",
+        "es": "Una superficie floral delgada rodea los órganos reproductivos y lleva epidermis y trazas vasculares."
+      },
+      "id": "petal-lamina",
+      "label": {
+        "en": "Petal lamina",
+        "es": "Lámina del pétalo"
+      },
+      "region": "petal",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "A projecting surface cell leads to the illustrated anthocyanin-bearing vacuole route.",
+        "es": "Una célula superficial saliente conduce a la ruta ilustrada de una vacuola con antocianinas."
+      },
+      "id": "epidermal-papilla",
+      "label": {
+        "en": "Epidermal papilla",
+        "es": "Papila epidérmica"
+      },
+      "region": "petal",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "A conducting strand differs from the pigment-bearing surface-cell destination.",
+        "es": "Un haz conductor difiere del destino de la célula superficial con pigmento."
+      },
+      "id": "petal-lamina-vein",
+      "label": {
+        "en": "Petal vein",
+        "es": "Nervadura del pétalo"
+      },
+      "region": "petal",
+      "sourceIds": [
+        "reproduction",
+        "petal-atlas"
+      ]
+    },
+    {
+      "body": {
+        "en": "The anther contains microsporangia where pollen develops.",
+        "es": "La antera contiene microsporangios donde se desarrolla el polen."
+      },
+      "id": "anther",
+      "label": {
+        "en": "Anther",
+        "es": "Antera"
+      },
+      "region": "stamen",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The pollen grain is the male gametophyte and has a protective wall distinct from anther tissue.",
+        "es": "El grano de polen es el gametofito masculino y posee una pared protectora distinta del tejido de la antera."
+      },
+      "id": "pollen-grain",
+      "label": {
+        "en": "Pollen grain",
+        "es": "Grano de polen"
+      },
+      "region": "stamen",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The sac is bounded by anther tissue including the nutritive tapetum during development.",
+        "es": "El saco está delimitado por tejido de la antera, incluido el tapete nutritivo durante el desarrollo."
+      },
+      "id": "pollen-sac",
+      "label": {
+        "en": "Pollen sac",
+        "es": "Saco polínico"
+      },
+      "region": "stamen",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The stigma is the pollen-receptive part above the style.",
+        "es": "El estigma es la parte receptora de polen sobre el estilo."
+      },
+      "id": "stigma",
+      "label": {
+        "en": "Stigma",
+        "es": "Estigma"
+      },
+      "region": "pistil",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "An ovule lies inside the ovary and contains the developing female gametophyte.",
+        "es": "Un óvulo está dentro del ovario y contiene el gametofito femenino en desarrollo."
+      },
+      "id": "ovule",
+      "label": {
+        "en": "Ovule",
+        "es": "Óvulo"
+      },
+      "region": "pistil",
+      "sourceIds": [
+        "reproduction"
+      ]
+    },
+    {
+      "body": {
+        "en": "The style links stigma to ovary; pollen-tube growth through it is conditional on pollination.",
+        "es": "El estilo conecta estigma y ovario; el crecimiento del tubo polínico depende de la polinización."
+      },
+      "id": "style",
+      "label": {
+        "en": "Style",
+        "es": "Estilo"
+      },
+      "region": "pistil",
+      "sourceIds": [
+        "reproduction"
+      ]
+    }
+  ],
+  "regions": [
+    "root",
+    "stem",
+    "branch",
+    "leaf",
+    "sepal",
+    "petal",
+    "stamen",
+    "pistil"
+  ],
+  "representation": "authored-schematic",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "plant-body",
+      "label": "OpenStax Biology 2e, 30.1 The Plant Body",
+      "url": "https://openstax.org/books/biology-2e/pages/30-1-the-plant-body"
+    },
+    {
+      "id": "roots",
+      "label": "OpenStax Biology 2e, 30.3 Roots",
+      "url": "https://openstax.org/books/biology-2e/pages/30-3-roots"
+    },
+    {
+      "id": "stems",
+      "label": "OpenStax Biology 2e, 30.2 Stems",
+      "url": "https://openstax.org/books/biology-2e/pages/30-2-stems"
+    },
+    {
+      "id": "leaves",
+      "label": "OpenStax Biology 2e, 30.4 Leaves",
+      "url": "https://openstax.org/books/biology-2e/pages/30-4-leaves"
+    },
+    {
+      "id": "reproduction",
+      "label": "OpenStax Biology 2e, 32.1 Reproductive Development and Structure",
+      "url": "https://openstax.org/books/biology-2e/pages/32-1-reproductive-development-and-structure"
+    },
+    {
+      "id": "petal-atlas",
+      "label": "Floraria curated microscopic petal pathway",
+      "url": "https://github.com/fsantibanezleal/CAOS_Floraria/blob/main/data/sources/micro-atlas.json"
+    }
+  ]
+}

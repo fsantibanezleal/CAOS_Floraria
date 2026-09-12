@@ -1,6 +1,6 @@
 {
   "name": "floraria-frontend",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,8 +10,9 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:browser": "node verify-living.mjs && node verify-studio.mjs",
+    "test:browser": "node verify-spatial.mjs && node verify-living.mjs && node verify-studio.mjs",
     "test:living-browser": "node verify-living.mjs",
+    "test:spatial-browser": "node verify-spatial.mjs",
     "check": "tsc --noEmit",
     "format": "prettier --write src *.mjs index.html vite.config.ts package.json",
     "format:check": "prettier --check src *.mjs index.html vite.config.ts package.json",
