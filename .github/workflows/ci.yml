@@ -1,8 +1,7 @@
 name: Quality
 on:
   push:
-    branches: [main, develop, 'task/**']
-  pull_request:
+    branches: [main, develop]
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,6 +11,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       matrix:
         node: ['22', '24']
