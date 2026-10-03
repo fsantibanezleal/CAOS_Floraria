@@ -2,6 +2,11 @@
 
 Display versions use X.XX.XXX; the frontend manifest uses normalized semantic versioning.
 
+## [0.06.001] - 2026-10-03
+
+- Relicense Floraria's own code, documentation, diagrams and authored teaching geometry from Apache-2.0 to MIT, the CAOS standard licence. Third-party material keeps its own terms: the Smithsonian scans stay CC0, and the bundled Draco decoder stays Apache-2.0 in `third-party-notices.txt`.
+- The in-app licence strings (the footer note and the GitHub link in the about panel) now read MIT.
+
 ## [0.06.000] - 2026-09-12
 
 - Replace the default three-flower linear journey with a whole-plant spatial explorer. Aim at an organ and use wheel or pinch to reveal its tissues, cells and internal structures, or zoom through open space to separate all eight organ regions into an inventory.

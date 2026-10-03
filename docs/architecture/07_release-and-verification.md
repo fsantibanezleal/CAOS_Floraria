@@ -1,6 +1,6 @@
 # Release and verification record
 
-Current development version **0.06.000**. The new default scene is defined in
+Current development version **0.06.001**. The new default scene is defined in
 [the spatial exploration architecture](10_spatial-plant-exploration.md). It preserves the
 original source, scans, studio, notebooks, releases and the previous three-flower experience while introducing
 a whole plant with eight organ regions and distinct tissue/cell routes. Local validation, exact-source browser and deployment receipts are recorded separately.
