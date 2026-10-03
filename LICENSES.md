@@ -6,7 +6,7 @@ Every web build includes `/third-party-notices.txt`, assembled from the actual l
 
 | Material | Terms and boundary |
 |---|---|
-| FLORARIA code, original documentation and diagrams | Apache License 2.0 under root LICENSE; no rights to cited third-party works implied |
+| FLORARIA code, original documentation, diagrams and authored teaching geometry | MIT License under root LICENSE (Apache-2.0 until 0.06.000); no rights to cited third-party works implied |
 | Selected Smithsonian bloom GLBs and compact variants | CC0 1.0 for specific Open Access records; retain item evidence in the source lock |
 | Botanical pages/articles/guides | Referenced for original explanation; their full text/illustrations are not mirrored |
 | Three.js/Draco and frontend dependencies | Upstream notices apply to actual locked/bundled versions |

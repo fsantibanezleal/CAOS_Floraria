@@ -2,7 +2,7 @@
 
 **Move through a whole plant.** Point at a root, stem, branch, leaf, sepal, petal, stamen or pistil and scroll or pinch inward. Each organ opens into its own tissue, cell and internal structures. Zoom through open space to separate the complete plant into a spatial inventory; click a different part to change destination without restarting a tour.
 
-FLORARIA is an anonymous interactive botanical experience with public source and original teaching geometry under the Apache-2.0 [LICENSE](LICENSE). It runs entirely in the browser at **https://floraria.fasl-work.com/** through GitHub Pages. The scene illustrates relationships and processes; it does not predict growth, identify plants or supply measured microscopy.
+FLORARIA is an anonymous interactive botanical experience with public source and original teaching geometry under the MIT [LICENSE](LICENSE). It runs entirely in the browser at **https://floraria.fasl-work.com/** through GitHub Pages. The scene illustrates relationships and processes; it does not predict growth, identify plants or supply measured microscopy.
 
 ## Explore
 
@@ -12,7 +12,7 @@ FLORARIA is an anonymous interactive botanical experience with public source and
 - Use keyboard-accessible organ choices, zoom buttons and Home/Escape as alternatives to gestures. Share the current spatial view or save a canvas image.
 - Access the preserved three-flower living experience at `/?living-archive=1` and the former studio/Smithsonian collection at `/?archive=1`, including earlier investigations and notebook import/export.
 
-Display version: **0.06.000**. The [spatial exploration architecture](docs/architecture/10_spatial-plant-exploration.md) and [source dossier](docs/research/spatial-plant-anatomy-2026-09-12.md) define the new default experience. Publication status belongs to [the release record](docs/architecture/07_release-and-verification.md).
+Display version: **0.06.001**. The [spatial exploration architecture](docs/architecture/10_spatial-plant-exploration.md) and [source dossier](docs/research/spatial-plant-anatomy-2026-09-12.md) define the new default experience. Publication status belongs to [the release record](docs/architecture/07_release-and-verification.md).
 
 ## Run locally
 

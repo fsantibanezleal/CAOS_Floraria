@@ -1893,7 +1893,7 @@ export default function Studio() {
               target="_blank"
               rel="noreferrer"
             >
-              GitHub · Apache-2.0 ↗
+              GitHub · MIT ↗
             </a>
           </Modal>
         )}
